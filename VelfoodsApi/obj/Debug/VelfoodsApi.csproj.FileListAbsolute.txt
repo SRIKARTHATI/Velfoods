@@ -79,3 +79,6 @@ C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Cors.dll
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.dll
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.xml
