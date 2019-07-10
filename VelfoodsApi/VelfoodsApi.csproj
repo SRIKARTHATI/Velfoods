@@ -133,11 +133,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\empcategoryController.cs" />
     <Compile Include="Controllers\empregController.cs" />
+    <Compile Include="Controllers\ItemcategoryController.cs" />
+    <Compile Include="Controllers\itemnameController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\empdeptclass.cs" />
     <Compile Include="Models\empregClass.cs" />
+    <Compile Include="Models\itemcategoryclass.cs" />
+    <Compile Include="Models\itemnameClass.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
