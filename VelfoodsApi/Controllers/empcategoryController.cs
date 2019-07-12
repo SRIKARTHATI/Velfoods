@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using VelfoodsApi.Models;
 
@@ -14,7 +12,7 @@ namespace VelfoodsApi.Controllers
         Responce re = new Responce();
         [HttpPost]
         [Route("getempdepartments")]
-        public  Responce getvalues(vel_restro_empdepartment dept)
+        public Responce getvalues(vel_restro_empdepartment dept)
         {
             var res = (from c in entity.vel_restro_empdepartment
                        where c.restaurent_id == dept.restaurent_id
@@ -36,7 +34,6 @@ namespace VelfoodsApi.Controllers
         public  IHttpActionResult insert(vel_restro_empdepartment dept)
         {
             Boolean b = new empdeptclass().adding(dept);
-
             if (b)
             {
                 dept.restaurent_id = 1;
@@ -53,7 +50,6 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
             }
         }
-
         [HttpPost]
         [Route("empdeptupdate")]
         public IHttpActionResult update(vel_restro_empdepartment dept)
