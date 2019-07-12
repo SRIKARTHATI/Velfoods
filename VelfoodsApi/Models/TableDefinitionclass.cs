@@ -23,6 +23,7 @@ namespace VelfoodsApi.Models
             {
                 list = en.vel_restro_tabledefination.OrderBy(a => a.table_defination_id).ToList();
                 int c = list.Count;
+                veltbl.restaurent_id = 1;
                 for(int i =0; i < c; i++)
                 {
                     table_name = list[i].table_name;
@@ -64,14 +65,9 @@ namespace VelfoodsApi.Models
                 for (int i = 0; i < c; i++)
                 {
                     table_name = list[i].table_name;
-                    table_capatain = list[i].table_capatain;
-                    table_description = list[i].table_description;
                     table_pax = list[i].table_pax;
-                    table_status = list[i].table_status;
-                    table_steward = list[i].table_steward;
-                    table_view = list[i].table_view;
-                    if (table_name.Equals(table_name) && table_description.Equals(table_description) && table_pax.Equals(table_pax) && table_status.Equals(table_status) &&
-                        table_steward.Equals(table_steward) && table_view.Equals(table_view))
+                    table_defination_id = list[i].table_defination_id;
+                    if (table_name.Equals(table_name) && table_pax.Equals(table_pax) && table_defination_id.Equals(table_defination_id))
                     {
                         count = 1;
                         break;
@@ -83,11 +79,26 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 0)
                 {
-                    return true;
+                    return false;
                 }
                 else
                 {
-                    return false;
+                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    {
+                        vel_restro_tabledefination vp = (from s in entit.vel_restro_tabledefination
+                                                  where s.table_name == tbl.table_name
+                                                  where s.table_pax == tbl.table_pax
+                                                  where s.table_defination_id == tbl.table_defination_id
+                                                  where s.restaurent_id == tbl.restaurent_id
+                                                  select s).FirstOrDefault();
+                        vp.table_capatain = table_capatain;
+                        vp.table_steward = table_steward;
+                        vp.table_description = table_description;
+                        vp.table_status = table_status;
+                        vp.table_view = table_view;
+                        entit.SaveChanges();
+                    }
+                    return true;
                 }
             }
         }
