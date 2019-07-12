@@ -18,6 +18,7 @@ namespace VelfoodsApi.Models
         public int count;
         public Boolean AddingProperty(vel_restro_property resto)
         {
+
             List<vel_restro_property> list = new List<vel_restro_property>();
             using (velfoodsEntities1 entity = new velfoodsEntities1())
             {
@@ -25,6 +26,7 @@ namespace VelfoodsApi.Models
                 int c = list.Count;
                 if (c < 1)
                 {
+                    
                     for (int i = 0; i < c; i++)
                     {
                         property_name = list[i].property_name;
