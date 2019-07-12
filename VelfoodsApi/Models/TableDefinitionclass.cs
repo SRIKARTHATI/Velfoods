@@ -91,11 +91,11 @@ namespace VelfoodsApi.Models
                                                   where s.table_defination_id == tbl.table_defination_id
                                                   where s.restaurent_id == tbl.restaurent_id
                                                   select s).FirstOrDefault();
-                        vp.table_capatain = table_capatain;
-                        vp.table_steward = table_steward;
-                        vp.table_description = table_description;
-                        vp.table_status = table_status;
-                        vp.table_view = table_view;
+                        vp.table_capatain = tbl.table_capatain;
+                        vp.table_steward = tbl.table_steward;
+                        vp.table_description = tbl.table_description;
+                        vp.table_status = tbl.table_status;
+                        vp.table_view = tbl.table_view;
                         entit.SaveChanges();
                     }
                     return true;
