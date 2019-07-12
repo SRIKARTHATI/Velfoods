@@ -8,6 +8,7 @@ namespace VelfoodsApi.Models
 {
     public class RestaurantClass
     {
+        public int restoid;
         public string restoname;
         public string restoaddress;
         public long restomobile;
@@ -59,12 +60,8 @@ namespace VelfoodsApi.Models
                 int c = list.Count;
                 for (int i = 0; i < c; i++)
                 {
-                    restoname = list[i].restaurent_name;
-                    restoaddress = list[i].restaurent_address;
-                    restomobile = list[i].restaurent_mobile_no;
-                    restostatus = list[i].restaruent_status;
-                    restomanager = list[i].restrent_manger;
-                    if (resto.restaurent_name.Equals(restoname) && resto.restaurent_address.Equals(restoaddress) && resto.restaurent_mobile_no.Equals(restomobile) && resto.restrent_manger.Equals(restomanager) && resto.restaruent_status.Equals(restostatus) && resto.property_id.Equals(propertyid))
+                    restoid = list[i].restaurent_id;
+                    if (resto.restaurent_id.Equals(restoid))
                     {
                         count = 1;
                         break;
@@ -85,11 +82,11 @@ namespace VelfoodsApi.Models
                         vel_restro_restaurent vp = (from s in entit.vel_restro_restaurent
                                                          where s.restaurent_id == resto.restaurent_id
                                                          select s).FirstOrDefault();
-                        vp.restaurent_name = restoname;
-                        vp.restaurent_mobile_no = restomobile;
-                        vp.restaurent_address = restoaddress;
-                        vp.restrent_manger = restomanager;
-                        vp.restaruent_status = restostatus;
+                        vp.restaurent_name = resto.restaurent_name;
+                        vp.restaurent_mobile_no = resto.restaurent_mobile_no;
+                        vp.restaurent_address = resto.restaurent_address;
+                        vp.restrent_manger = resto.restrent_manger;
+                        vp.restaruent_status = resto.restaruent_status;
                         entit.SaveChanges();
                     }
                     return true;
