@@ -135,7 +135,6 @@
     <Compile Include="Controllers\empregController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
-    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\TableDefinitionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,7 +159,6 @@
     <Compile Include="Models\Offers.cs" />
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
-    <Compile Include="Models\RestaurantClass.cs" />
     <Compile Include="Models\TableDefinitionclass.cs" />
     <Compile Include="Models\vel_restro_empdepartment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
