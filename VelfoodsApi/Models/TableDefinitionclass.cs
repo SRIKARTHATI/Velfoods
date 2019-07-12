@@ -15,6 +15,7 @@ namespace VelfoodsApi.Models
         public string table_status;
         public string table_steward;
         public string table_view;
+        public int restaurent_id;
         public int count;
         public Boolean TableDef(vel_restro_tabledefination veltbl)
         {
@@ -33,8 +34,9 @@ namespace VelfoodsApi.Models
                     table_status = list[i].table_status;
                     table_steward = list[i].table_steward;
                     table_view = list[i].table_view;
-                    if (table_name.Equals(table_name) && table_description.Equals(table_description) && table_pax.Equals(table_pax) && table_status.Equals(table_status) &&
-                        table_steward.Equals(table_steward) && table_view.Equals(table_view))
+                    restaurent_id = list[i].restaurent_id;
+                    if (veltbl.table_name.Equals(table_name) && veltbl.table_description.Equals(table_description) && veltbl.table_pax.Equals(table_pax) && veltbl.table_status.Equals(table_status) &&
+                        veltbl.table_steward.Equals(table_steward) && veltbl.table_view.Equals(table_view) && veltbl.restaurent_id.Equals(restaurent_id)&& veltbl.table_capatain.Equals(table_capatain))
                     {
                         count = 1;
                         break;
