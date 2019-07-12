@@ -53,7 +53,9 @@ C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\Microsoft.CodeDom
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\Newtonsoft.Json.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Net.Http.Formatting.dll
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Cors.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Helpers.dll
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.WebHost.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Mvc.dll
@@ -63,6 +65,9 @@ C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Webpag
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Webpages.Razor.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\EntityFramework.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\EntityFramework.SqlServer.xml
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Net.Http.Formatting.xml
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.xml
+C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Razor.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Webpages.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Webpages.Deployment.xml
@@ -70,8 +75,6 @@ C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Webpag
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Helpers.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Mvc.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\Newtonsoft.Json.xml
-C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Net.Http.Formatting.xml
-C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.WebHost.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csprojAssemblyReference.cache
@@ -79,6 +82,3 @@ C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
 C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
-C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Cors.dll
-C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.dll
-C:\Users\Srikar\Desktop\velrestroapis\Velfoods\VelfoodsApi\bin\System.Web.Http.Cors.xml

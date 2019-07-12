@@ -39,6 +39,7 @@ namespace VelfoodsApi.Controllers
 
             if (b)
             {
+                dept.restaurent_id = 1;
                 entity.vel_restro_empdepartment.Add(dept);
                 entity.SaveChanges();
                 re.code = 200;
