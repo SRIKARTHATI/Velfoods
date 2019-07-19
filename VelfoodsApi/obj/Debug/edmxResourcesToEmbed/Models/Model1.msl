@@ -186,6 +186,7 @@
     <EntitySetMapping Name="vel_restro_tabledefination">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_tabledefination">
         <MappingFragment StoreEntitySet="vel_restro_tabledefination">
+          <ScalarProperty Name="BACKGROUND_COLOR" ColumnName="BACKGROUND_COLOR" />
           <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
           <ScalarProperty Name="table_name" ColumnName="table_name" />
           <ScalarProperty Name="table_pax" ColumnName="table_pax" />

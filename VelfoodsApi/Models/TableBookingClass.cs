@@ -16,6 +16,7 @@ namespace VelfoodsApi.Models
         public string tablebooking_splinstructions;
         public int restaurent_id;
         public int count;
+        public DateTime tablebooking_date;
 
         public Boolean AddTableBooking(vel_restro_tablebooking resto)
         {
@@ -36,9 +37,10 @@ namespace VelfoodsApi.Models
                         tablebooking_time = list[i].tablebooking_time;
                         table_booking_id = list[i].table_booking_id;
                         restaurent_id = list[i].restaurent_id;
+                        tablebooking_date = list[i].tablebooking_date;
 
                         if (resto.tablebookingf_name.Equals(tablebookingf_name) && resto.tablebooking_advance.Equals(tablebooking_advance) && resto.tablebooking_mobile_no.Equals(tablebooking_mobile_no) && resto.tablebooking_pax.Equals(tablebooking_pax) && 
-                            resto.tablebooking_splinstructions.Equals(tablebooking_splinstructions) && resto.tablebooking_time.Equals(tablebooking_time))
+                            resto.tablebooking_splinstructions.Equals(tablebooking_splinstructions) && resto.tablebooking_time.Equals(tablebooking_time) && resto.tablebooking_date.Equals(tablebooking_date))
                         {
                             count = 1;
                             break;

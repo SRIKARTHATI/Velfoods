@@ -214,6 +214,7 @@
     <Property Name="restaurent_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_tabledefination" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_order" Relationship="velfoodsModel.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_tabledefination" ToRole="vel_restro_order" />
+    <Property Name="BACKGROUND_COLOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vel_restro_tax">
     <Key>
