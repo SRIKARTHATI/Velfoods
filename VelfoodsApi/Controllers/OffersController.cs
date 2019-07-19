@@ -31,7 +31,6 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
             }
         }
-
         [HttpPost]
         [Route("OffersList")]
         public Responce OfferList(vel_restro_offers restro_Offers)
@@ -62,14 +61,14 @@ namespace VelfoodsApi.Controllers
             if (offersCount.ToString() == "" || offersCount.ToString() == null || offersCount == 0)
             {
                 re.Data = offers_list;
-                re.code = 200;
-                re.message = "Data Successfull";
+                re.code = 100;
+                re.message = "No Data found";
             }
             else
             {
                 re.Data = offers_list;
-                re.code = 100;
-                re.message = "No Data found";
+                re.code = 200;
+                re.message = "Data Successfull";
             }
             return re;
         }

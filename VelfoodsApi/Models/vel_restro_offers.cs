@@ -10,8 +10,6 @@
 namespace VelfoodsApi.Models
 {
     using System;
-    using System.Collections.Generic;
-
     public partial class vel_restro_offers
     {
         public int offers_id { get; set; }
