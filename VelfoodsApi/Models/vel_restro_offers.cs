@@ -11,7 +11,7 @@ namespace VelfoodsApi.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class vel_restro_offers
     {
         public int offers_id { get; set; }
@@ -33,6 +33,7 @@ namespace VelfoodsApi.Models
         public Nullable<decimal> maximum_bill_amount { get; set; }
         public string maximum_bill_status { get; set; }
         public int restaurent_id { get; set; }
+    
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }
 }

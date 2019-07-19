@@ -14,6 +14,12 @@ namespace VelfoodsApi.Models
     
     public partial class vel_restro_tabledefination
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public vel_restro_tabledefination()
+        {
+            this.vel_restro_order = new HashSet<vel_restro_order>();
+        }
+    
         public int table_defination_id { get; set; }
         public string table_name { get; set; }
         public int table_pax { get; set; }
@@ -25,5 +31,7 @@ namespace VelfoodsApi.Models
         public int restaurent_id { get; set; }
     
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
     }
 }

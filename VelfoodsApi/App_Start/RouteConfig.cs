@@ -16,7 +16,8 @@ namespace VelfoodsApi
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                // defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Views", action = "View", id = UrlParameter.Optional }
             );
         }
     }
