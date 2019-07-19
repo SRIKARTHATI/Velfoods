@@ -12,11 +12,12 @@ namespace VelfoodsApi.Controllers
     {
         velfoodsEntities1 ve = new velfoodsEntities1();
         Responce re = new Responce();
-        [HttpGet]
+        [HttpPost]
         [Route("getpaidouts")]
         public Responce getpaidouts(vel_restro_paidouts vp)
         {
             var a = (from s in ve.vel_restro_paidouts
+                     where s.restaurent_id == vp.restaurent_id
                      select new
                      {
                          s.paidout_id,
