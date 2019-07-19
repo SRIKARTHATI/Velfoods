@@ -133,9 +133,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\empcategoryController.cs" />
     <Compile Include="Controllers\empregController.cs" />
+    <Compile Include="Controllers\ItemcategoryController.cs" />
+    <Compile Include="Controllers\itemnameController.cs" />
+    <Compile Include="Controllers\MisCollectionController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Controllers\PaidoutsController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\TableBookingController.cs" />
     <Compile Include="Controllers\TableDefinitionController.cs" />
     <Compile Include="Controllers\TaxController.cs" />
     <Compile Include="Global.asax.cs">
@@ -143,6 +148,9 @@
     </Compile>
     <Compile Include="Models\empdeptclass.cs" />
     <Compile Include="Models\empregClass.cs" />
+    <Compile Include="Models\itemcategoryclass.cs" />
+    <Compile Include="Models\itemnameClass.cs" />
+    <Compile Include="Models\MiscollectionClass.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,9 +167,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Offers.cs" />
+    <Compile Include="Models\PaidoutsClass.cs" />
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
     <Compile Include="Models\RestaurantClass.cs" />
+    <Compile Include="Models\TableBookingClass.cs" />
     <Compile Include="Models\TableDefinitionclass.cs" />
     <Compile Include="Models\Tax.cs" />
     <Compile Include="Models\vel_restro_empdepartment.cs">
