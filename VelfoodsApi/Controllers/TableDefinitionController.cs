@@ -37,7 +37,7 @@ namespace VelfoodsApi.Controllers
         }
 
         [HttpPost]
-        [Route("tabledefadding")]
+        [Route("tableadding")]
         public IHttpActionResult AddingTable(vel_restro_tabledefination tbl)
         {
             Boolean b = new TableDefinitionclass().TableDef(tbl);
