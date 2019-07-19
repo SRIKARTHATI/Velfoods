@@ -20,6 +20,7 @@ namespace VelfoodsApi.Controllers
                        where c.restaurent_id == itemc.restaurent_id
                        select new
                        {
+                           c.itemcategory_id,
                            c.item_name,
                            c.item_description,
                            c.item_active_from,
