@@ -1,0 +1,2 @@
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csprojAssemblyReference.cache
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CoreCompileInputs.cache

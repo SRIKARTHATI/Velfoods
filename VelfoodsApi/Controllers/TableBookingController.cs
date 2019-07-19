@@ -29,6 +29,7 @@ namespace VelfoodsApi.Controllers
                          s.tablebooking_time,
                          s.tablebooking_splinstructions,
                          s.restaurent_id,
+                         s.tablebooking_date
                      });
             re.Data = a;
             re.message = "getting details successfully";

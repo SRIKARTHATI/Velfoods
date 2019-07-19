@@ -29,6 +29,7 @@ namespace VelfoodsApi.Models
         public string table_capatain { get; set; }
         public string table_steward { get; set; }
         public int restaurent_id { get; set; }
+        public string BACKGROUND_COLOR { get; set; }
     
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
