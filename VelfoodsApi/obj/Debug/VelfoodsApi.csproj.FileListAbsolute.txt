@@ -82,3 +82,6 @@ C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.CodeDom.Provider
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.ReportViewer.WebForms.DLL
