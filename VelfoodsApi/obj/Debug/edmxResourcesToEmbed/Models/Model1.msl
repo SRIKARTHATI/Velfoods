@@ -46,6 +46,9 @@
     <EntitySetMapping Name="vel_restro_itemname">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_itemname">
         <MappingFragment StoreEntitySet="vel_restro_itemname">
+          <ScalarProperty Name="itemname_homedelivary_total" ColumnName="itemname_homedelivary_total" />
+          <ScalarProperty Name="itemname_takeaway_total" ColumnName="itemname_takeaway_total" />
+          <ScalarProperty Name="itemname_dinein_total" ColumnName="itemname_dinein_total" />
           <ScalarProperty Name="itemname_id" ColumnName="itemname_id" />
           <ScalarProperty Name="itemname_item_name" ColumnName="itemname_item_name" />
           <ScalarProperty Name="itemname_description" ColumnName="itemname_description" />
@@ -183,6 +186,7 @@
     <EntitySetMapping Name="vel_restro_tabledefination">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_tabledefination">
         <MappingFragment StoreEntitySet="vel_restro_tabledefination">
+          <ScalarProperty Name="BACKGROUND_COLOR" ColumnName="BACKGROUND_COLOR" />
           <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
           <ScalarProperty Name="table_name" ColumnName="table_name" />
           <ScalarProperty Name="table_pax" ColumnName="table_pax" />
@@ -205,6 +209,24 @@
           <ScalarProperty Name="tax_status" ColumnName="tax_status" />
           <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
           <ScalarProperty Name="tax_employeename" ColumnName="tax_employeename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_order">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_order">
+        <MappingFragment StoreEntitySet="vel_restro_order">
+          <ScalarProperty Name="kot_id" ColumnName="kot_id" />
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
+          <ScalarProperty Name="itemname_id" ColumnName="itemname_id" />
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="order_totalamount" ColumnName="order_totalamount" />
+          <ScalarProperty Name="order_quantity" ColumnName="order_quantity" />
+          <ScalarProperty Name="order_rate" ColumnName="order_rate" />
+          <ScalarProperty Name="order_itemname" ColumnName="order_itemname" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

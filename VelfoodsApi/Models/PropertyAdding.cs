@@ -103,6 +103,16 @@ namespace VelfoodsApi.Models
                                                   where s.property_id == vrprpt.property_id
                                                   select s).FirstOrDefault();
                         vp.property_country = vrprpt.property_country;
+                        vp.property_name = vrprpt.property_name;
+                        vp.property_address = vrprpt.property_address;
+                        vp.property_land_mark = vrprpt.property_land_mark;
+                        vp.property_landline = vrprpt.property_landline;
+                        vp.property_city = vrprpt.property_city;
+                        vp.property_email = vrprpt.property_email;
+                        vp.property_state = vrprpt.property_state;
+                        vp.property_website = vrprpt.property_website;
+                        vp.property_pincode = vrprpt.property_pincode;
+                        vp.property_gst = vrprpt.property_gst;
                         entit.SaveChanges();
                     }
                     return true;

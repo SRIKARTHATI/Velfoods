@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="vel_restro_empdepartment">
           <Key>
             <PropertyRef Name="empdepartement_id" />
@@ -63,6 +63,9 @@
           <Property Name="item_homedelivery_deliverycharges" Type="decimal" Precision="17" Scale="2" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
           <Property Name="itemcategory_id" Type="int" Nullable="false" />
+          <Property Name="itemname_dinein_total" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="itemname_takeaway_total" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="itemname_homedelivary_total" Type="decimal" Precision="17" Scale="2" />
         </EntityType>
         <EntityType Name="vel_restro_manger">
           <Key>
@@ -114,6 +117,23 @@
           <Property Name="maximum_bill_amount" Type="decimal" Precision="17" Scale="2" />
           <Property Name="maximum_bill_status" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vel_restro_order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_itemname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="order_rate" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="order_quantity" Type="int" Nullable="false" />
+          <Property Name="order_totalamount" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="restaurent_id" Type="int" />
+          <Property Name="itemname_id" Type="int" Nullable="false" />
+          <Property Name="table_defination_id" Type="int" />
+          <Property Name="order_status" Type="nvarchar" MaxLength="20" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="20" />
+          <Property Name="insert_date" Type="date" />
+          <Property Name="kot_id" Type="int" />
         </EntityType>
         <EntityType Name="vel_restro_paidouts">
           <Key>
@@ -186,6 +206,7 @@
           <Property Name="table_capatain" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="table_steward" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
+          <Property Name="BACKGROUND_COLOR" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="vel_restro_tax">
           <Key>
@@ -223,6 +244,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__vel_restr__itemn__03F0984C">
+          <End Role="vel_restro_itemname" Type="Self.vel_restro_itemname" Multiplicity="1" />
+          <End Role="vel_restro_order" Type="Self.vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_itemname">
+              <PropertyRef Name="itemname_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="itemname_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__vel_restr__prope__5441852A">
           <End Role="vel_restro_property" Type="Self.vel_restro_property" Multiplicity="1" />
           <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="*" />
@@ -232,6 +265,18 @@
             </Principal>
             <Dependent Role="vel_restro_restaurent">
               <PropertyRef Name="property_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__02FC7413">
+          <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="0..1" />
+          <End Role="vel_restro_order" Type="Self.vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="restaurent_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -367,6 +412,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__vel_restr__table__04E4BC85">
+          <End Role="vel_restro_tabledefination" Type="Self.vel_restro_tabledefination" Multiplicity="0..1" />
+          <End Role="vel_restro_order" Type="Self.vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_tabledefination">
+              <PropertyRef Name="table_defination_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="table_defination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="velfoodsModelStoreContainer">
           <EntitySet Name="vel_restro_empdepartment" EntityType="Self.vel_restro_empdepartment" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_empregistration" EntityType="Self.vel_restro_empregistration" Schema="velfoods" store:Type="Tables" />
@@ -375,6 +432,7 @@
           <EntitySet Name="vel_restro_manger" EntityType="Self.vel_restro_manger" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_miscollection" EntityType="Self.vel_restro_miscollection" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_offers" EntityType="Self.vel_restro_offers" Schema="velfoods" store:Type="Tables" />
+          <EntitySet Name="vel_restro_order" EntityType="Self.vel_restro_order" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_paidouts" EntityType="Self.vel_restro_paidouts" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_property" EntityType="Self.vel_restro_property" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_restaurent" EntityType="Self.vel_restro_restaurent" Schema="velfoods" store:Type="Tables" />
@@ -389,9 +447,17 @@
             <End Role="vel_restro_itemcategory" EntitySet="vel_restro_itemcategory" />
             <End Role="vel_restro_itemname" EntitySet="vel_restro_itemname" />
           </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__itemn__03F0984C" Association="Self.FK__vel_restr__itemn__03F0984C">
+            <End Role="vel_restro_itemname" EntitySet="vel_restro_itemname" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
           <AssociationSet Name="FK__vel_restr__prope__5441852A" Association="Self.FK__vel_restr__prope__5441852A">
             <End Role="vel_restro_property" EntitySet="vel_restro_property" />
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__02FC7413" Association="Self.FK__vel_restr__resta__02FC7413">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
           </AssociationSet>
           <AssociationSet Name="FK__vel_restr__resta__571DF1D5" Association="Self.FK__vel_restr__resta__571DF1D5">
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
@@ -437,9 +503,12 @@
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
             <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
           </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__table__04E4BC85" Association="Self.FK__vel_restr__table__04E4BC85">
+            <End Role="vel_restro_tabledefination" EntitySet="vel_restro_tabledefination" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="velfoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -509,6 +578,10 @@
           <Property Name="itemcategory_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="vel_restro_itemcategory" Relationship="Self.FK__vel_restr__itemc__60A75C0F" FromRole="vel_restro_itemname" ToRole="vel_restro_itemcategory" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__5FB337D6" FromRole="vel_restro_itemname" ToRole="vel_restro_restaurent" />
+          <Property Name="itemname_dinein_total" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="itemname_takeaway_total" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="itemname_homedelivary_total" Type="Decimal" Precision="17" Scale="2" />
+          <NavigationProperty Name="vel_restro_order" Relationship="velfoodsModel.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_itemname" ToRole="vel_restro_order" />
         </EntityType>
         <EntityType Name="vel_restro_manger">
           <Key>
@@ -621,6 +694,7 @@
           <NavigationProperty Name="vel_restro_tax" Relationship="Self.FK__vel_restr__resta__571DF1D5" FromRole="vel_restro_restaurent" ToRole="vel_restro_tax" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_restaurent" ToRole="vel_restro_tabledefination" />
           <NavigationProperty Name="vel_restro_tablebooking" Relationship="Self.FK__vel_restr__resta__66603565" FromRole="vel_restro_restaurent" ToRole="vel_restro_tablebooking" />
+          <NavigationProperty Name="vel_restro_order" Relationship="velfoodsModel.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_restaurent" ToRole="vel_restro_order" />
         </EntityType>
         <EntityType Name="vel_restro_tablebooking">
           <Key>
@@ -651,6 +725,8 @@
           <Property Name="table_steward" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="restaurent_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_tabledefination" ToRole="vel_restro_restaurent" />
+          <NavigationProperty Name="vel_restro_order" Relationship="velfoodsModel.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_tabledefination" ToRole="vel_restro_order" />
+          <Property Name="BACKGROUND_COLOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vel_restro_tax">
           <Key>
@@ -903,7 +979,76 @@
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
             <End Role="vel_restro_tablebooking" EntitySet="vel_restro_tablebooking" />
           </AssociationSet>
+          <EntitySet Name="vel_restro_order" EntityType="velfoodsModel.vel_restro_order" />
+          <AssociationSet Name="FK__vel_restr__itemn__03F0984C" Association="velfoodsModel.FK__vel_restr__itemn__03F0984C">
+            <End Role="vel_restro_itemname" EntitySet="vel_restro_itemname" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__02FC7413" Association="velfoodsModel.FK__vel_restr__resta__02FC7413">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__table__04E4BC85" Association="velfoodsModel.FK__vel_restr__table__04E4BC85">
+            <End Role="vel_restro_tabledefination" EntitySet="vel_restro_tabledefination" />
+            <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="vel_restro_order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_itemname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="order_rate" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="order_quantity" Type="Int32" Nullable="false" />
+          <Property Name="order_totalamount" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="restaurent_id" Type="Int32" />
+          <Property Name="itemname_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vel_restro_itemname" Relationship="velfoodsModel.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_order" ToRole="vel_restro_itemname" />
+          <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_order" ToRole="vel_restro_restaurent" />
+          <Property Name="table_defination_id" Type="Int32" />
+          <NavigationProperty Name="vel_restro_tabledefination" Relationship="velfoodsModel.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_order" ToRole="vel_restro_tabledefination" />
+          <Property Name="order_status" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="insert_by" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
+          <Property Name="kot_id" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__vel_restr__itemn__03F0984C">
+          <End Type="velfoodsModel.vel_restro_itemname" Role="vel_restro_itemname" Multiplicity="1" />
+          <End Type="velfoodsModel.vel_restro_order" Role="vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_itemname">
+              <PropertyRef Name="itemname_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="itemname_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__02FC7413">
+          <End Type="velfoodsModel.vel_restro_restaurent" Role="vel_restro_restaurent" Multiplicity="0..1" />
+          <End Type="velfoodsModel.vel_restro_order" Role="vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="restaurent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__table__04E4BC85">
+          <End Type="velfoodsModel.vel_restro_tabledefination" Role="vel_restro_tabledefination" Multiplicity="0..1" />
+          <End Type="velfoodsModel.vel_restro_order" Role="vel_restro_order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_tabledefination">
+              <PropertyRef Name="table_defination_id" />
+            </Principal>
+            <Dependent Role="vel_restro_order">
+              <PropertyRef Name="table_defination_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -955,6 +1100,9 @@
           <EntitySetMapping Name="vel_restro_itemname">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_itemname">
               <MappingFragment StoreEntitySet="vel_restro_itemname">
+                <ScalarProperty Name="itemname_homedelivary_total" ColumnName="itemname_homedelivary_total" />
+                <ScalarProperty Name="itemname_takeaway_total" ColumnName="itemname_takeaway_total" />
+                <ScalarProperty Name="itemname_dinein_total" ColumnName="itemname_dinein_total" />
                 <ScalarProperty Name="itemname_id" ColumnName="itemname_id" />
                 <ScalarProperty Name="itemname_item_name" ColumnName="itemname_item_name" />
                 <ScalarProperty Name="itemname_description" ColumnName="itemname_description" />
@@ -1092,6 +1240,7 @@
           <EntitySetMapping Name="vel_restro_tabledefination">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_tabledefination">
               <MappingFragment StoreEntitySet="vel_restro_tabledefination">
+                <ScalarProperty Name="BACKGROUND_COLOR" ColumnName="BACKGROUND_COLOR" />
                 <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
                 <ScalarProperty Name="table_name" ColumnName="table_name" />
                 <ScalarProperty Name="table_pax" ColumnName="table_pax" />
@@ -1114,6 +1263,24 @@
                 <ScalarProperty Name="tax_status" ColumnName="tax_status" />
                 <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
                 <ScalarProperty Name="tax_employeename" ColumnName="tax_employeename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vel_restro_order">
+            <EntityTypeMapping TypeName="velfoodsModel.vel_restro_order">
+              <MappingFragment StoreEntitySet="vel_restro_order">
+                <ScalarProperty Name="kot_id" ColumnName="kot_id" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
+                <ScalarProperty Name="itemname_id" ColumnName="itemname_id" />
+                <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+                <ScalarProperty Name="order_totalamount" ColumnName="order_totalamount" />
+                <ScalarProperty Name="order_quantity" ColumnName="order_quantity" />
+                <ScalarProperty Name="order_rate" ColumnName="order_rate" />
+                <ScalarProperty Name="order_itemname" ColumnName="order_itemname" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

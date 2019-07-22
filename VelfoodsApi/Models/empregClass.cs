@@ -22,7 +22,7 @@ namespace VelfoodsApi.Models
                 {
                     empregname = list[i].empregistration_name;
                     empregid = list[i].empregistration_id;
-                    if (reg.empregistration_id.Equals(empregid) && reg.empregistration_name.Equals(empregname) || reg.empregistration_name.Equals(empregname))
+                    if (reg.empregistration_id.Equals(empregid) && reg.empregistration_name.Equals(empregname))
                     {
                         count = 1;
                         break;

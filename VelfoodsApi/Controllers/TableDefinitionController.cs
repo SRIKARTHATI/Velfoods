@@ -12,11 +12,12 @@ namespace VelfoodsApi.Controllers
     {
         velfoodsEntities1 ve = new velfoodsEntities1();
         Responce re = new Responce();
-        [HttpGet]
+        [HttpPost]
         [Route("gettabledefinition")]
-        public Responce getproperty()
+        public Responce getproperty(vel_restro_tabledefination tbl)
         {
             var ee = (from s in ve.vel_restro_tabledefination
+                      where s.restaurent_id ==tbl.restaurent_id
                       select new
                       {
                           s.table_defination_id,
@@ -36,7 +37,7 @@ namespace VelfoodsApi.Controllers
         }
 
         [HttpPost]
-        [Route("tabledefadding")]
+        [Route("tableadding")]
         public IHttpActionResult AddingTable(vel_restro_tabledefination tbl)
         {
             Boolean b = new TableDefinitionclass().TableDef(tbl);
