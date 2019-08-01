@@ -88,8 +88,6 @@ namespace VelfoodsApi.Models
                     using (velfoodsEntities1 entit = new velfoodsEntities1())
                     {
                         vel_restro_tabledefination vp = (from s in entit.vel_restro_tabledefination
-                                                  where s.table_name == tbl.table_name
-                                                  where s.table_pax == tbl.table_pax
                                                   where s.table_defination_id == tbl.table_defination_id
                                                   where s.restaurent_id == tbl.restaurent_id
                                                   select s).FirstOrDefault();
