@@ -7,7 +7,7 @@ namespace VelfoodsApi.Models
 {
     public class PropertyAdding
     {
-        public int property_id;
+        public int prptid;
         public string property_name;
         public long property_mobile_no;
         public string property_address;
@@ -79,8 +79,8 @@ namespace VelfoodsApi.Models
                 {
 
                     property_mobile_no = list[i].property_mobile_no;
-                    property_id = list[i].property_id;
-                    if (vrprpt.property_mobile_no.Equals(property_mobile_no) && vrprpt.property_id.Equals(property_id))
+                    prptid = list[i].property_id;
+                    if (vrprpt.property_mobile_no.Equals(property_mobile_no) && vrprpt.property_id.Equals(prptid))
                     {
                         count = 1;
                         break;
