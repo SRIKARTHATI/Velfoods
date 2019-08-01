@@ -12,6 +12,31 @@ namespace VelfoodsApi.Controllers
     {
         velfoodsEntities1 ve = new velfoodsEntities1();
         Responce re = new Responce();
+
+        [HttpPost]
+        [Route("getmiscollection")]
+        public Responce getmiscollection(vel_restro_miscollection vp)
+        {
+            var a = (from s in ve.vel_restro_miscollection
+                     where s.restaurent_id == vp.restaurent_id
+                     select new
+                     {
+                         s.miscollection_id,
+                         s.miscollection_name,
+                         s.miscollection_pariticular,
+                         s.miscollection_reportingname,
+                         s.restaurent_id,
+                         s.transaction_id,
+                         s.type_of_payment,
+                         s.Amoount,
+                         s.bank_name
+                     });
+            re.Data = a;
+            re.code = 200;
+            re.message = "getting details successfully";
+            return re;
+        }
+
         [HttpPost]
         [Route("addingmiscollection")]
         public IHttpActionResult AddingMiscol(vel_restro_miscollection vradd)
