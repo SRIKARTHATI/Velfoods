@@ -146,6 +146,7 @@
     <Compile Include="Controllers\empregController.cs" />
     <Compile Include="Controllers\ItemcategoryController.cs" />
     <Compile Include="Controllers\itemnameController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\orderController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Models\empregClass.cs" />
     <Compile Include="Models\itemcategoryclass.cs" />
     <Compile Include="Models\itemnameClass.cs" />
+    <Compile Include="Models\ManagerClass.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
