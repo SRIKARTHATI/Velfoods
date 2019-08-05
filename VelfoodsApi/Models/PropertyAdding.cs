@@ -99,7 +99,6 @@ namespace VelfoodsApi.Models
                     using (velfoodsEntities1 entit = new velfoodsEntities1())
                     {
                         vel_restro_property vp = (from s in entit.vel_restro_property
-                                                  where s.property_mobile_no == vrprpt.property_mobile_no
                                                   where s.property_id == vrprpt.property_id
                                                   select s).FirstOrDefault();
                         vp.property_country = vrprpt.property_country;
@@ -113,6 +112,7 @@ namespace VelfoodsApi.Models
                         vp.property_website = vrprpt.property_website;
                         vp.property_pincode = vrprpt.property_pincode;
                         vp.property_gst = vrprpt.property_gst;
+                        vp.property_mobile_no = vrprpt.property_mobile_no;
                         entit.SaveChanges();
                     }
                     return true;
