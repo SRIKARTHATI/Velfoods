@@ -40,7 +40,7 @@ namespace VelfoodsApi.Controllers
             return re;
         }
         [HttpPost]
-        [Route("addingproperty")]
+        [Route("addproperty")]
         public IHttpActionResult addingproperty(vel_restro_property vradd)
         {
             Boolean b = new PropertyAdding().AddingProperty(vradd);
@@ -60,7 +60,7 @@ namespace VelfoodsApi.Controllers
             }
         }
         [HttpPost]
-        [Route("updatingproperty")]
+        [Route("updateproperty")]
         public IHttpActionResult updatingproperty(vel_restro_property vru)
         {
             //var resup = (from a in ve.vel_restro_property
@@ -108,7 +108,7 @@ namespace VelfoodsApi.Controllers
             }
         }
         [HttpPost]
-        [Route("deletingproperty")]
+        [Route("deleteproperty")]
         public IHttpActionResult deletingproperty(vel_restro_property vru)
         {
             var resup = (from a in ve.vel_restro_property
