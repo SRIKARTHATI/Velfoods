@@ -13,11 +13,12 @@ namespace VelfoodsApi.Controllers
         velfoodsEntities1 ve = new velfoodsEntities1();
         Responce re = new Responce();
 
-        [HttpGet]
+        [HttpPost]
         [Route("gettablebooking")]
-        public Responce gettablebooking()
+        public Responce gettablebooking(vel_restro_tablebooking tbl)
         {
             var a = (from s in ve.vel_restro_tablebooking
+                     where s.restaurent_id == tbl.restaurent_id
                      select new
                      {
                          s.table_booking_id,
@@ -28,6 +29,7 @@ namespace VelfoodsApi.Controllers
                          s.tablebooking_time,
                          s.tablebooking_splinstructions,
                          s.restaurent_id,
+                         s.tablebooking_date
                      });
             re.Data = a;
             re.message = "getting details successfully";

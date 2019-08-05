@@ -7,7 +7,7 @@ namespace VelfoodsApi.Models
 {
     public class PropertyAdding
     {
-        public int property_id;
+        public int prptid;
         public string property_name;
         public long property_mobile_no;
         public string property_address;
@@ -79,8 +79,8 @@ namespace VelfoodsApi.Models
                 {
 
                     property_mobile_no = list[i].property_mobile_no;
-                    property_id = list[i].property_id;
-                    if (vrprpt.property_mobile_no.Equals(property_mobile_no) && vrprpt.property_id.Equals(property_id))
+                    prptid = list[i].property_id;
+                    if (vrprpt.property_mobile_no.Equals(property_mobile_no) && vrprpt.property_id.Equals(prptid))
                     {
                         count = 1;
                         break;
@@ -99,10 +99,20 @@ namespace VelfoodsApi.Models
                     using (velfoodsEntities1 entit = new velfoodsEntities1())
                     {
                         vel_restro_property vp = (from s in entit.vel_restro_property
-                                                  where s.property_mobile_no == vrprpt.property_mobile_no
                                                   where s.property_id == vrprpt.property_id
                                                   select s).FirstOrDefault();
                         vp.property_country = vrprpt.property_country;
+                        vp.property_name = vrprpt.property_name;
+                        vp.property_address = vrprpt.property_address;
+                        vp.property_land_mark = vrprpt.property_land_mark;
+                        vp.property_landline = vrprpt.property_landline;
+                        vp.property_city = vrprpt.property_city;
+                        vp.property_email = vrprpt.property_email;
+                        vp.property_state = vrprpt.property_state;
+                        vp.property_website = vrprpt.property_website;
+                        vp.property_pincode = vrprpt.property_pincode;
+                        vp.property_gst = vrprpt.property_gst;
+                        vp.property_mobile_no = vrprpt.property_mobile_no;
                         entit.SaveChanges();
                     }
                     return true;
