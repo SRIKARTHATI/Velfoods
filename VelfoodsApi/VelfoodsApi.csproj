@@ -146,10 +146,9 @@
     <Compile Include="Controllers\empregController.cs" />
     <Compile Include="Controllers\ItemcategoryController.cs" />
     <Compile Include="Controllers\itemnameController.cs" />
-    <Compile Include="Controllers\MisCollectionController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\orderController.cs" />
-    <Compile Include="Controllers\PaidoutsController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\TableDefinitionController.cs" />
@@ -161,7 +160,7 @@
     <Compile Include="Models\empregClass.cs" />
     <Compile Include="Models\itemcategoryclass.cs" />
     <Compile Include="Models\itemnameClass.cs" />
-    <Compile Include="Models\MiscollectionClass.cs" />
+    <Compile Include="Models\ManagerClass.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,7 +178,6 @@
     </Compile>
     <Compile Include="Models\Offers.cs" />
     <Compile Include="Models\order.cs" />
-    <Compile Include="Models\PaidoutsClass.cs" />
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
     <Compile Include="Models\RestaurantClass.cs" />
