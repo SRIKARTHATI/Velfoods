@@ -201,6 +201,7 @@
     <Property Name="table_capatain" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="table_steward" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
+    <Property Name="BACKGROUND_COLOR" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="vel_restro_tax">
     <Key>
