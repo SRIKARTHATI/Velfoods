@@ -27,7 +27,8 @@ namespace VelfoodsApi.Controllers
                           s.table_pax,
                           s.table_status,
                           s.table_steward,
-                          s.table_view
+                          s.table_view,
+                          s.BACKGROUND_COLOR
                       });
 
             re.Data = ee;
@@ -43,6 +44,7 @@ namespace VelfoodsApi.Controllers
             Boolean b = new TableDefinitionclass().TableDef(tbl);
             if (b)
             {
+                tbl.BACKGROUND_COLOR = "Green";
                 ve.vel_restro_tabledefination.Add(tbl);
                 ve.SaveChanges();
                 re.code = 200;
