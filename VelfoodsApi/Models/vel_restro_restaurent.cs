@@ -24,11 +24,11 @@ namespace VelfoodsApi.Models
             this.vel_restro_manger = new HashSet<vel_restro_manger>();
             this.vel_restro_miscollection = new HashSet<vel_restro_miscollection>();
             this.vel_restro_offers = new HashSet<vel_restro_offers>();
+            this.vel_restro_order = new HashSet<vel_restro_order>();
             this.vel_restro_paidouts = new HashSet<vel_restro_paidouts>();
             this.vel_restro_tax = new HashSet<vel_restro_tax>();
             this.vel_restro_tabledefination = new HashSet<vel_restro_tabledefination>();
             this.vel_restro_tablebooking = new HashSet<vel_restro_tablebooking>();
-            this.vel_restro_order = new HashSet<vel_restro_order>();
         }
     
         public int restaurent_id { get; set; }
@@ -54,6 +54,8 @@ namespace VelfoodsApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_offers> vel_restro_offers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_paidouts> vel_restro_paidouts { get; set; }
         public virtual vel_restro_property vel_restro_property { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -62,7 +64,5 @@ namespace VelfoodsApi.Models
         public virtual ICollection<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
     }
 }

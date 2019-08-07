@@ -20,7 +20,7 @@ namespace VelfoodsApi.Models
         {
 
             List<vel_restro_property> list = new List<vel_restro_property>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_property.OrderBy(a => a.property_id).ToList();
                 int c = list.Count;
@@ -71,7 +71,7 @@ namespace VelfoodsApi.Models
         public Boolean update(vel_restro_property vrprpt)
         {
             List<vel_restro_property> list = new List<vel_restro_property>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_property.OrderBy(a => a.property_id).ToList();
                 int c = list.Count;
@@ -96,10 +96,9 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_property vp = (from s in entit.vel_restro_property
-                                                  where s.property_mobile_no == vrprpt.property_mobile_no
                                                   where s.property_id == vrprpt.property_id
                                                   select s).FirstOrDefault();
                         vp.property_country = vrprpt.property_country;
@@ -113,6 +112,7 @@ namespace VelfoodsApi.Models
                         vp.property_website = vrprpt.property_website;
                         vp.property_pincode = vrprpt.property_pincode;
                         vp.property_gst = vrprpt.property_gst;
+                        vp.property_mobile_no = vrprpt.property_mobile_no;
                         entit.SaveChanges();
                     }
                     return true;

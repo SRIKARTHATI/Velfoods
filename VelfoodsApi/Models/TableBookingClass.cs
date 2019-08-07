@@ -22,7 +22,7 @@ namespace VelfoodsApi.Models
         {
 
             List<vel_restro_tablebooking> list = new List<vel_restro_tablebooking>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_tablebooking.OrderBy(a => a.table_booking_id).ToList();
                 int c = list.Count;
@@ -64,7 +64,7 @@ namespace VelfoodsApi.Models
         {
 
             List<vel_restro_tablebooking> list = new List<vel_restro_tablebooking>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_tablebooking.OrderBy(a => a.table_booking_id).ToList();
                 int c = list.Count;
@@ -91,7 +91,7 @@ namespace VelfoodsApi.Models
                     }
                     else
                     {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_tablebooking vp = (from s in entit.vel_restro_tablebooking
                                                   where s.restaurent_id == resto.restaurent_id

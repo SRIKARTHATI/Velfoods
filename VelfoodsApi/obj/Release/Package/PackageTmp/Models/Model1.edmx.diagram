@@ -4,29 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="234d3257c5a94f6e955c1ba8ba9779b5" Name="Diagram1">
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_empdepartment" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_empregistration" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_itemcategory" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_itemname" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_manger" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_miscollection" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_offers" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_paidouts" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_property" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_restaurent" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tablebooking" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tabledefination" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tax" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+      <Diagram DiagramId="72dae42a2bdc473e99529b564eaed0d2" Name="Diagram1">
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_empdepartment" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_empregistration" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_itemcategory" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_itemname" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_manger" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_miscollection" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_offers" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_order" Width="1.5" PointX="12.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_paidouts" Width="1.5" PointX="5.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_property" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_restaurent" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tablebooking" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tabledefination" Width="1.5" PointX="5.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_tax" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__empde__75A278F5" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__71D1E811" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__74AE54BC" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__itemc__60A75C0F" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__itemn__03F0984C" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__5FB337D6" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__6EF57B66" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__table__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__6C190EBB" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__prope__5441852A" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__571DF1D5" ManuallyRouted="false" />

@@ -10,7 +10,7 @@ namespace VelfoodsApi.Controllers
 {
     public class orderController : ApiController
     {
-        velfoodsEntities1 entity = new velfoodsEntities1();
+        velfoodsEntities2 entity = new velfoodsEntities2();
         Responce re = new Responce();
 
         [HttpPost]
@@ -48,7 +48,9 @@ namespace VelfoodsApi.Controllers
                 ord.insert_date = DateTime.Today.Date;
                 entity.vel_restro_order.Add(ord);
                 entity.SaveChanges();
-                return Content(HttpStatusCode.OK, ord);
+                re.code = 200;
+                re.message = "Item added successfully";
+                return Content(HttpStatusCode.OK, re);
             }
             else
             {
@@ -56,10 +58,53 @@ namespace VelfoodsApi.Controllers
                 ord.insert_date = DateTime.Today.Date;
                 ord.order_status = "Running";
                 ord.kot_id = order.kotid;
-                return Content(HttpStatusCode.OK, ord);
+
+                re.code = 200;
+                re.message = "Item added successfully";
+                return Content(HttpStatusCode.OK, re);
             }
+        }
 
+        [HttpPost]
+        [Route("orderupdate")]
+        public IHttpActionResult update(vel_restro_order order)
+        {
+            Boolean b = new order().update(order);
+            if (b)
+            {
+                re.code = 200;
+                re.message = "Item updated successfully";
+                return Content(HttpStatusCode.OK, re);
 
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "Item update fail please check the values";
+                return Content(HttpStatusCode.OK, re);
+
+            }
+        } 
+
+        [HttpPost]
+        [Route("orderDelete")]
+        public IHttpActionResult delete(vel_restro_order order)
+        {
+            Boolean b = new order().update(order);
+            if (b)
+            {
+                re.code = 200;
+                re.message = "Item deleted successfully";
+                return Content(HttpStatusCode.OK, re);
+
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "Item delete fail please check the values";
+                return Content(HttpStatusCode.OK, re);
+
+            }
         }
     }
 }
