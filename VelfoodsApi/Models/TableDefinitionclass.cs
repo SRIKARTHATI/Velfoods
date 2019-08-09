@@ -96,6 +96,7 @@ namespace VelfoodsApi.Models
                         vp.table_description = tbl.table_description;
                         vp.table_status = tbl.table_status;
                         vp.table_view = tbl.table_view;
+                        vp.BACKGROUND_COLOR = tbl.BACKGROUND_COLOR;
                         entit.SaveChanges();
                     }
                     return true;
