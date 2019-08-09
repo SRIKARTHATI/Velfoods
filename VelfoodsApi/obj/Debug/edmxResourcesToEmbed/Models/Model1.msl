@@ -124,6 +124,8 @@
     <EntitySetMapping Name="vel_restro_order">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_order">
         <MappingFragment StoreEntitySet="vel_restro_order">
+          <ScalarProperty Name="order_tax_amount" ColumnName="order_tax_amount" />
+          <ScalarProperty Name="order_captain" ColumnName="order_captain" />
           <ScalarProperty Name="order_id" ColumnName="order_id" />
           <ScalarProperty Name="order_itemname" ColumnName="order_itemname" />
           <ScalarProperty Name="order_rate" ColumnName="order_rate" />
@@ -227,6 +229,20 @@
           <ScalarProperty Name="tax_status" ColumnName="tax_status" />
           <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
           <ScalarProperty Name="tax_employeename" ColumnName="tax_employeename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_banks">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_banks">
+        <MappingFragment StoreEntitySet="vel_restro_banks">
+          <ScalarProperty Name="bank_reporting_name" ColumnName="bank_reporting_name" />
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="empregistration_id" ColumnName="empregistration_id" />
+          <ScalarProperty Name="bank_status" ColumnName="bank_status" />
+          <ScalarProperty Name="bank_account_no" ColumnName="bank_account_no" />
+          <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+          <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

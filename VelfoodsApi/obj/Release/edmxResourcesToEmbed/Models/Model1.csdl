@@ -30,6 +30,7 @@
     <Property Name="restaurent_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="vel_restro_empdepartment" Relationship="Self.FK__vel_restr__empde__75A278F5" FromRole="vel_restro_empregistration" ToRole="vel_restro_empdepartment" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__74AE54BC" FromRole="vel_restro_empregistration" ToRole="vel_restro_restaurent" />
+    <NavigationProperty Name="vel_restro_banks" Relationship="velfoodsModel.FK__vel_restr__empre__160F4887" FromRole="vel_restro_empregistration" ToRole="vel_restro_banks" />
   </EntityType>
   <EntityType Name="vel_restro_itemcategory">
     <Key>
@@ -144,6 +145,8 @@
     <NavigationProperty Name="vel_restro_itemname" Relationship="Self.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_order" ToRole="vel_restro_itemname" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_order" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_order" ToRole="vel_restro_tabledefination" />
+    <Property Name="order_captain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_tax_amount" Type="Decimal" Precision="17" Scale="2" />
   </EntityType>
   <EntityType Name="vel_restro_paidouts">
     <Key>
@@ -203,6 +206,7 @@
     <NavigationProperty Name="vel_restro_tax" Relationship="Self.FK__vel_restr__resta__571DF1D5" FromRole="vel_restro_restaurent" ToRole="vel_restro_tax" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_restaurent" ToRole="vel_restro_tabledefination" />
     <NavigationProperty Name="vel_restro_tablebooking" Relationship="Self.FK__vel_restr__resta__66603565" FromRole="vel_restro_restaurent" ToRole="vel_restro_tablebooking" />
+    <NavigationProperty Name="vel_restro_banks" Relationship="velfoodsModel.FK__vel_restr__resta__17036CC0" FromRole="vel_restro_restaurent" ToRole="vel_restro_banks" />
   </EntityType>
   <EntityType Name="vel_restro_tablebooking">
     <Key>
@@ -536,5 +540,53 @@
       <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
       <End Role="vel_restro_tablebooking" EntitySet="vel_restro_tablebooking" />
     </AssociationSet>
+    <EntitySet Name="vel_restro_banks" EntityType="velfoodsModel.vel_restro_banks" />
+    <AssociationSet Name="FK__vel_restr__empre__160F4887" Association="velfoodsModel.FK__vel_restr__empre__160F4887">
+      <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+      <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vel_restr__resta__17036CC0" Association="velfoodsModel.FK__vel_restr__resta__17036CC0">
+      <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+      <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="vel_restro_banks">
+    <Key>
+      <PropertyRef Name="bank_id" />
+    </Key>
+    <Property Name="bank_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bank_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bank_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bank_account_no" Type="Int64" Nullable="false" />
+    <Property Name="bank_status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="empregistration_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="vel_restro_empregistration" Relationship="velfoodsModel.FK__vel_restr__empre__160F4887" FromRole="vel_restro_banks" ToRole="vel_restro_empregistration" />
+    <Property Name="restaurent_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__17036CC0" FromRole="vel_restro_banks" ToRole="vel_restro_restaurent" />
+    <Property Name="bank_reporting_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__vel_restr__empre__160F4887">
+    <End Type="velfoodsModel.vel_restro_empregistration" Role="vel_restro_empregistration" Multiplicity="1" />
+    <End Type="velfoodsModel.vel_restro_banks" Role="vel_restro_banks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_empregistration">
+        <PropertyRef Name="empregistration_id" />
+      </Principal>
+      <Dependent Role="vel_restro_banks">
+        <PropertyRef Name="empregistration_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__vel_restr__resta__17036CC0">
+    <End Type="velfoodsModel.vel_restro_restaurent" Role="vel_restro_restaurent" Multiplicity="1" />
+    <End Type="velfoodsModel.vel_restro_banks" Role="vel_restro_banks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_restaurent">
+        <PropertyRef Name="restaurent_id" />
+      </Principal>
+      <Dependent Role="vel_restro_banks">
+        <PropertyRef Name="restaurent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

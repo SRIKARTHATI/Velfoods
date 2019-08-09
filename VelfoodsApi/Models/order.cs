@@ -148,3 +148,27 @@ namespace VelfoodsApi.Models
         }
     }
 }
+
+public class restroorder
+{
+    public int order_id { get; set; }
+    public string order_itemname { get; set; }
+    public decimal order_rate { get; set; }
+    public int order_quantity { get; set; }
+    public Nullable<decimal> order_totalamount { get; set; }
+    public Nullable<int> restaurent_id { get; set; }
+    public string itemnameid { get; set; }
+    public Nullable<int> table_defination_id { get; set; }
+    public string order_status { get; set; }
+    public string insert_by { get; set; }
+    public Nullable<System.DateTime> insert_date { get; set; }
+    public Nullable<int> kot_id { get; set; }
+
+    public string itemnames { get; set; }
+    public string Rate { get; set; }
+    public string quantity { get; set; }
+
+    public string order_captain { get; set; }
+    public  string tax { get; set; }
+    public string total { get; set; }
+}
