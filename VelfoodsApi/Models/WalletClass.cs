@@ -75,7 +75,7 @@ namespace VelfoodsApi.Models
                     return false;
                 }
                 else
-                {
+                { 
                     using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_wallet vp = (from s in entit.vel_restro_wallet
