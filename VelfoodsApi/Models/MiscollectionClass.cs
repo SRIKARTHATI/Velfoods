@@ -21,7 +21,7 @@ namespace VelfoodsApi.Models
         {
 
             List<vel_restro_miscollection> list = new List<vel_restro_miscollection>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_miscollection.OrderBy(a => a.miscollection_id).ToList();
                 int c = list.Count;

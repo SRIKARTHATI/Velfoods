@@ -20,7 +20,7 @@ namespace VelfoodsApi.Models
         public Boolean TableDef(vel_restro_tabledefination veltbl)
         {
             List<vel_restro_tabledefination> list = new List<vel_restro_tabledefination>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_tabledefination.OrderBy(a => a.table_defination_id).ToList();
                 int c = list.Count;
@@ -60,7 +60,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_tabledefination> list = new List<vel_restro_tabledefination>();
 
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_tabledefination.OrderBy(a => a.table_defination_id).ToList();
                 int c = list.Count;
@@ -85,7 +85,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_tabledefination vp = (from s in entit.vel_restro_tabledefination
                                                   where s.table_defination_id == tbl.table_defination_id

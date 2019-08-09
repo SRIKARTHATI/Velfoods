@@ -14,7 +14,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_empregistration> list = new List<vel_restro_empregistration>();
 
-            using(velfoodsEntities1 en =new velfoodsEntities1())
+            using(velfoodsEntities2 en =new velfoodsEntities2())
             {
                 list = en.vel_restro_empregistration.OrderBy(a => a.empregistration_id).ToList();
                 int cc = list.Count;
@@ -48,7 +48,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_empregistration> list = new List<vel_restro_empregistration>();
 
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_empregistration.OrderBy(a => a.empregistration_id).ToList();
                 int cc = list.Count;
@@ -72,7 +72,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 enn =new velfoodsEntities1())
+                    using (velfoodsEntities2 enn =new velfoodsEntities2())
                     {
                         vel_restro_empregistration registration = (from c in enn.vel_restro_empregistration
                                                                    where c.empregistration_id == reg.empregistration_id

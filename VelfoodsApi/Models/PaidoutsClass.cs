@@ -22,7 +22,7 @@ namespace VelfoodsApi.Models
         {
 
             List<vel_restro_paidouts> list = new List<vel_restro_paidouts>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_paidouts.OrderBy(a => a.paidout_id).ToList();
                 int c = list.Count;
@@ -63,7 +63,7 @@ namespace VelfoodsApi.Models
             {
 
                 List<vel_restro_paidouts> list = new List<vel_restro_paidouts>();
-                using (velfoodsEntities1 entity = new velfoodsEntities1())
+                using (velfoodsEntities2 entity = new velfoodsEntities2())
                 {
                     list = entity.vel_restro_paidouts.OrderBy(a => a.paidout_id).ToList();
                     int c = list.Count;
@@ -88,7 +88,7 @@ namespace VelfoodsApi.Models
                     }
                     else
                     {
-                        using (velfoodsEntities1 entit = new velfoodsEntities1())
+                        using (velfoodsEntities2 entit = new velfoodsEntities2())
                         {
                             vel_restro_paidouts vp = (from s in entit.vel_restro_paidouts
                                                           where s.paidout_id == resto.paidout_id

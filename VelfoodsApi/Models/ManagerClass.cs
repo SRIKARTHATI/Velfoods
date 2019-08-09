@@ -20,7 +20,7 @@ namespace VelfoodsApi.Models
         public Boolean AddingManager(vel_restro_manger mngr)
         {
             List<vel_restro_manger> list = new List<vel_restro_manger>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_manger.OrderBy(a => a.manger_id).ToList();
                 int c = list.Count;
@@ -59,7 +59,7 @@ namespace VelfoodsApi.Models
         public Boolean UpdatingManager(vel_restro_manger mngr)
         {
             List<vel_restro_manger> list = new List<vel_restro_manger>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_manger.OrderBy(a => a.manger_id).ToList();
                 int c = list.Count;
@@ -90,7 +90,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_manger vp = (from s in entit.vel_restro_manger
                                                 where s.restaurent_id == mngr.restaurent_id

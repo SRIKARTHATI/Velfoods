@@ -10,7 +10,7 @@ namespace VelfoodsApi.Controllers
 {
     public class RestaurantController : ApiController
     {
-        velfoodsEntities1 ve = new velfoodsEntities1();
+        velfoodsEntities2 ve = new velfoodsEntities2();
         Responce re = new Responce();
 
         [HttpPost]

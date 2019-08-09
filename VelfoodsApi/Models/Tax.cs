@@ -11,7 +11,7 @@ namespace VelfoodsApi.Models
         public Boolean adding(vel_restro_tax restro_Tax)
         {
             List<vel_restro_tax> list = new List<vel_restro_tax>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_tax.OrderBy(a => a.tax_id).ToList();
                 int cc = list.Count;
@@ -42,7 +42,7 @@ namespace VelfoodsApi.Models
         public Boolean updatetax(vel_restro_tax restro_Tax)
         {
             List<vel_restro_tax> list = new List<vel_restro_tax>();
-            using (velfoodsEntities1 enti = new velfoodsEntities1())
+            using (velfoodsEntities2 enti = new velfoodsEntities2())
             {
                 list = enti.vel_restro_tax.OrderBy(a => a.tax_id).ToList();
                 int c = list.Count;
@@ -61,7 +61,7 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 0)
                 {
-                    using (velfoodsEntities1 en = new velfoodsEntities1())
+                    using (velfoodsEntities2 en = new velfoodsEntities2())
                     {
                         vel_restro_tax tax = (from a in en.vel_restro_tax
                                                where restro_Tax.tax_id == a.tax_id
