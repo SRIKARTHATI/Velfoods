@@ -4,7 +4,20 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="vel_restro_banks">
+          <Key>
+            <PropertyRef Name="bank_id" />
+          </Key>
+          <Property Name="bank_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bank_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bank_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bank_account_no" Type="bigint" Nullable="false" />
+          <Property Name="bank_status" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="empregistration_id" Type="int" Nullable="false" />
+          <Property Name="restaurent_id" Type="int" Nullable="false" />
+          <Property Name="bank_reporting_name" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="vel_restro_empdepartment">
           <Key>
             <PropertyRef Name="empdepartement_id" />
@@ -134,6 +147,8 @@
           <Property Name="insert_by" Type="nvarchar" MaxLength="20" />
           <Property Name="insert_date" Type="date" />
           <Property Name="kot_id" Type="int" />
+          <Property Name="order_captain" Type="nvarchar" MaxLength="50" />
+          <Property Name="order_tax_amount" Type="decimal" Precision="17" Scale="2" />
         </EntityType>
         <EntityType Name="vel_restro_paidouts">
           <Key>
@@ -220,6 +235,18 @@
           <Property Name="restaurent_id" Type="int" Nullable="false" />
           <Property Name="tax_employeename" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="vel_restro_wallet">
+          <Key>
+            <PropertyRef Name="wallet_id" />
+          </Key>
+          <Property Name="wallet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wallet_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="wallet_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="wallet_reporting_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="wallet_status" Type="nvarchar" MaxLength="30" />
+          <Property Name="empregistration_id" Type="int" Nullable="false" />
+          <Property Name="restaurent_id" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK__vel_restr__empde__75A278F5">
           <End Role="vel_restro_empdepartment" Type="Self.vel_restro_empdepartment" Multiplicity="1" />
           <End Role="vel_restro_empregistration" Type="Self.vel_restro_empregistration" Multiplicity="*" />
@@ -229,6 +256,30 @@
             </Principal>
             <Dependent Role="vel_restro_empregistration">
               <PropertyRef Name="empdepartement_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__empre__160F4887">
+          <End Role="vel_restro_empregistration" Type="Self.vel_restro_empregistration" Multiplicity="1" />
+          <End Role="vel_restro_banks" Type="Self.vel_restro_banks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_empregistration">
+              <PropertyRef Name="empregistration_id" />
+            </Principal>
+            <Dependent Role="vel_restro_banks">
+              <PropertyRef Name="empregistration_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__empre__19DFD96B">
+          <End Role="vel_restro_empregistration" Type="Self.vel_restro_empregistration" Multiplicity="1" />
+          <End Role="vel_restro_wallet" Type="Self.vel_restro_wallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_empregistration">
+              <PropertyRef Name="empregistration_id" />
+            </Principal>
+            <Dependent Role="vel_restro_wallet">
+              <PropertyRef Name="empregistration_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -276,6 +327,30 @@
               <PropertyRef Name="restaurent_id" />
             </Principal>
             <Dependent Role="vel_restro_order">
+              <PropertyRef Name="restaurent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__17036CC0">
+          <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
+          <End Role="vel_restro_banks" Type="Self.vel_restro_banks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_banks">
+              <PropertyRef Name="restaurent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__1AD3FDA4">
+          <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
+          <End Role="vel_restro_wallet" Type="Self.vel_restro_wallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_wallet">
               <PropertyRef Name="restaurent_id" />
             </Dependent>
           </ReferentialConstraint>
@@ -425,6 +500,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="velfoodsModelStoreContainer">
+          <EntitySet Name="vel_restro_banks" EntityType="Self.vel_restro_banks" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_empdepartment" EntityType="Self.vel_restro_empdepartment" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_empregistration" EntityType="Self.vel_restro_empregistration" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_itemcategory" EntityType="Self.vel_restro_itemcategory" Schema="velfoods" store:Type="Tables" />
@@ -439,9 +515,18 @@
           <EntitySet Name="vel_restro_tablebooking" EntityType="Self.vel_restro_tablebooking" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_tabledefination" EntityType="Self.vel_restro_tabledefination" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_tax" EntityType="Self.vel_restro_tax" Schema="velfoods" store:Type="Tables" />
+          <EntitySet Name="vel_restro_wallet" EntityType="Self.vel_restro_wallet" Schema="velfoods" store:Type="Tables" />
           <AssociationSet Name="FK__vel_restr__empde__75A278F5" Association="Self.FK__vel_restr__empde__75A278F5">
             <End Role="vel_restro_empdepartment" EntitySet="vel_restro_empdepartment" />
             <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__empre__160F4887" Association="Self.FK__vel_restr__empre__160F4887">
+            <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+            <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__empre__19DFD96B" Association="Self.FK__vel_restr__empre__19DFD96B">
+            <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+            <End Role="vel_restro_wallet" EntitySet="vel_restro_wallet" />
           </AssociationSet>
           <AssociationSet Name="FK__vel_restr__itemc__60A75C0F" Association="Self.FK__vel_restr__itemc__60A75C0F">
             <End Role="vel_restro_itemcategory" EntitySet="vel_restro_itemcategory" />
@@ -458,6 +543,14 @@
           <AssociationSet Name="FK__vel_restr__resta__02FC7413" Association="Self.FK__vel_restr__resta__02FC7413">
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
             <End Role="vel_restro_order" EntitySet="vel_restro_order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__17036CC0" Association="Self.FK__vel_restr__resta__17036CC0">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__1AD3FDA4" Association="Self.FK__vel_restr__resta__1AD3FDA4">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_wallet" EntitySet="vel_restro_wallet" />
           </AssociationSet>
           <AssociationSet Name="FK__vel_restr__resta__571DF1D5" Association="Self.FK__vel_restr__resta__571DF1D5">
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
@@ -508,8 +601,7 @@
             <End Role="vel_restro_order" EntitySet="vel_restro_order" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="velfoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -543,6 +635,8 @@
           <Property Name="restaurent_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="vel_restro_empdepartment" Relationship="Self.FK__vel_restr__empde__75A278F5" FromRole="vel_restro_empregistration" ToRole="vel_restro_empdepartment" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__74AE54BC" FromRole="vel_restro_empregistration" ToRole="vel_restro_restaurent" />
+          <NavigationProperty Name="vel_restro_banks" Relationship="velfoodsModel.FK__vel_restr__empre__160F4887" FromRole="vel_restro_empregistration" ToRole="vel_restro_banks" />
+          <NavigationProperty Name="vel_restro_wallet" Relationship="velfoodsModel.FK__vel_restr__empre__19DFD96B" FromRole="vel_restro_empregistration" ToRole="vel_restro_wallet" />
         </EntityType>
         <EntityType Name="vel_restro_itemcategory">
           <Key>
@@ -657,6 +751,8 @@
           <NavigationProperty Name="vel_restro_itemname" Relationship="Self.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_order" ToRole="vel_restro_itemname" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_order" ToRole="vel_restro_restaurent" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_order" ToRole="vel_restro_tabledefination" />
+          <Property Name="order_captain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="order_tax_amount" Type="Decimal" Precision="17" Scale="2" />
         </EntityType>
         <EntityType Name="vel_restro_paidouts">
           <Key>
@@ -716,6 +812,8 @@
           <NavigationProperty Name="vel_restro_tax" Relationship="Self.FK__vel_restr__resta__571DF1D5" FromRole="vel_restro_restaurent" ToRole="vel_restro_tax" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_restaurent" ToRole="vel_restro_tabledefination" />
           <NavigationProperty Name="vel_restro_tablebooking" Relationship="Self.FK__vel_restr__resta__66603565" FromRole="vel_restro_restaurent" ToRole="vel_restro_tablebooking" />
+          <NavigationProperty Name="vel_restro_banks" Relationship="velfoodsModel.FK__vel_restr__resta__17036CC0" FromRole="vel_restro_restaurent" ToRole="vel_restro_banks" />
+          <NavigationProperty Name="vel_restro_wallet" Relationship="velfoodsModel.FK__vel_restr__resta__1AD3FDA4" FromRole="vel_restro_restaurent" ToRole="vel_restro_wallet" />
         </EntityType>
         <EntityType Name="vel_restro_tablebooking">
           <Key>
@@ -1049,7 +1147,102 @@
             <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
             <End Role="vel_restro_tablebooking" EntitySet="vel_restro_tablebooking" />
           </AssociationSet>
+          <EntitySet Name="vel_restro_banks" EntityType="velfoodsModel.vel_restro_banks" />
+          <AssociationSet Name="FK__vel_restr__empre__160F4887" Association="velfoodsModel.FK__vel_restr__empre__160F4887">
+            <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+            <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__17036CC0" Association="velfoodsModel.FK__vel_restr__resta__17036CC0">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_banks" EntitySet="vel_restro_banks" />
+          </AssociationSet>
+          <EntitySet Name="vel_restro_wallet" EntityType="velfoodsModel.vel_restro_wallet" />
+          <AssociationSet Name="FK__vel_restr__empre__19DFD96B" Association="velfoodsModel.FK__vel_restr__empre__19DFD96B">
+            <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
+            <End Role="vel_restro_wallet" EntitySet="vel_restro_wallet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__vel_restr__resta__1AD3FDA4" Association="velfoodsModel.FK__vel_restr__resta__1AD3FDA4">
+            <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+            <End Role="vel_restro_wallet" EntitySet="vel_restro_wallet" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="vel_restro_banks">
+          <Key>
+            <PropertyRef Name="bank_id" />
+          </Key>
+          <Property Name="bank_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bank_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bank_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bank_account_no" Type="Int64" Nullable="false" />
+          <Property Name="bank_status" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="empregistration_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vel_restro_empregistration" Relationship="velfoodsModel.FK__vel_restr__empre__160F4887" FromRole="vel_restro_banks" ToRole="vel_restro_empregistration" />
+          <Property Name="restaurent_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__17036CC0" FromRole="vel_restro_banks" ToRole="vel_restro_restaurent" />
+          <Property Name="bank_reporting_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__vel_restr__empre__160F4887">
+          <End Type="velfoodsModel.vel_restro_empregistration" Role="vel_restro_empregistration" Multiplicity="1" />
+          <End Type="velfoodsModel.vel_restro_banks" Role="vel_restro_banks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_empregistration">
+              <PropertyRef Name="empregistration_id" />
+            </Principal>
+            <Dependent Role="vel_restro_banks">
+              <PropertyRef Name="empregistration_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__17036CC0">
+          <End Type="velfoodsModel.vel_restro_restaurent" Role="vel_restro_restaurent" Multiplicity="1" />
+          <End Type="velfoodsModel.vel_restro_banks" Role="vel_restro_banks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_banks">
+              <PropertyRef Name="restaurent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vel_restro_wallet">
+          <Key>
+            <PropertyRef Name="wallet_id" />
+          </Key>
+          <Property Name="wallet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wallet_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wallet_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wallet_reporting_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wallet_status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="empregistration_id" Type="Int32" Nullable="false" />
+          <Property Name="restaurent_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vel_restro_empregistration" Relationship="velfoodsModel.FK__vel_restr__empre__19DFD96B" FromRole="vel_restro_wallet" ToRole="vel_restro_empregistration" />
+          <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__1AD3FDA4" FromRole="vel_restro_wallet" ToRole="vel_restro_restaurent" />
+        </EntityType>
+        <Association Name="FK__vel_restr__empre__19DFD96B">
+          <End Type="velfoodsModel.vel_restro_empregistration" Role="vel_restro_empregistration" Multiplicity="1" />
+          <End Type="velfoodsModel.vel_restro_wallet" Role="vel_restro_wallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_empregistration">
+              <PropertyRef Name="empregistration_id" />
+            </Principal>
+            <Dependent Role="vel_restro_wallet">
+              <PropertyRef Name="empregistration_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__vel_restr__resta__1AD3FDA4">
+          <End Type="velfoodsModel.vel_restro_restaurent" Role="vel_restro_restaurent" Multiplicity="1" />
+          <End Type="velfoodsModel.vel_restro_wallet" Role="vel_restro_wallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_restaurent">
+              <PropertyRef Name="restaurent_id" />
+            </Principal>
+            <Dependent Role="vel_restro_wallet">
+              <PropertyRef Name="restaurent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1179,6 +1372,8 @@
           <EntitySetMapping Name="vel_restro_order">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_order">
               <MappingFragment StoreEntitySet="vel_restro_order">
+                <ScalarProperty Name="order_tax_amount" ColumnName="order_tax_amount" />
+                <ScalarProperty Name="order_captain" ColumnName="order_captain" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="order_itemname" ColumnName="order_itemname" />
                 <ScalarProperty Name="order_rate" ColumnName="order_rate" />
@@ -1282,6 +1477,33 @@
                 <ScalarProperty Name="tax_status" ColumnName="tax_status" />
                 <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
                 <ScalarProperty Name="tax_employeename" ColumnName="tax_employeename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vel_restro_banks">
+            <EntityTypeMapping TypeName="velfoodsModel.vel_restro_banks">
+              <MappingFragment StoreEntitySet="vel_restro_banks">
+                <ScalarProperty Name="bank_reporting_name" ColumnName="bank_reporting_name" />
+                <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+                <ScalarProperty Name="empregistration_id" ColumnName="empregistration_id" />
+                <ScalarProperty Name="bank_status" ColumnName="bank_status" />
+                <ScalarProperty Name="bank_account_no" ColumnName="bank_account_no" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="bank_code" ColumnName="bank_code" />
+                <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vel_restro_wallet">
+            <EntityTypeMapping TypeName="velfoodsModel.vel_restro_wallet">
+              <MappingFragment StoreEntitySet="vel_restro_wallet">
+                <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+                <ScalarProperty Name="empregistration_id" ColumnName="empregistration_id" />
+                <ScalarProperty Name="wallet_status" ColumnName="wallet_status" />
+                <ScalarProperty Name="wallet_reporting_name" ColumnName="wallet_reporting_name" />
+                <ScalarProperty Name="wallet_name" ColumnName="wallet_name" />
+                <ScalarProperty Name="wallet_code" ColumnName="wallet_code" />
+                <ScalarProperty Name="wallet_id" ColumnName="wallet_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

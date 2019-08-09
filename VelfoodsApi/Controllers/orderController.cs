@@ -28,41 +28,97 @@ namespace VelfoodsApi.Controllers
                              c.order_totalamount,
                              c.restaurent_id,
                              c.table_defination_id,
-                             c.order_status
+                             c.order_status,
+                             c.kot_id,
+                             c.order_captain
+                             
                          });
             re.Data = order;
             re.message = "Data sucess";
             re.code = 200;
             return re;
         }
-
+        String itemnames,Rate,quantity,tax,total,itemid;
+        public static int kot;
         [HttpPost]
         [Route("Orderinsert")]
-        public IHttpActionResult insert(vel_restro_order ord)
+        public IHttpActionResult insert(restroorder ord)
         {
-
-            Boolean b = new order().adding(ord);
-            if (b)
+            itemid = ord.itemnameid;
+            itemnames = ord.itemnames;
+            Rate =ord.Rate;
+            quantity = ord.quantity;
+            tax = ord.tax;
+            total = ord.total;
+            string[] item = itemnames.Split(new char[] { ',' });
+            int c = item.Length;
+            string[] rate = Rate.Split(new char[] { ',' });
+            string[] quan = quantity.Split(new char[] { ',' });
+            string[] taxx = tax.Split(new char[] { ',' });
+            string[] totalamount = total.Split(new char[] { ',' });
+            string[] id = itemid.Split(new char[] { ',' });
+            List<vel_restro_order> list = new List<vel_restro_order>();
+            using (velfoodsEntities2 ent =new velfoodsEntities2())
             {
-                ord.restaurent_id = 1;
-                ord.insert_date = DateTime.Today.Date;
-                entity.vel_restro_order.Add(ord);
-                entity.SaveChanges();
-                re.code = 200;
-                re.message = "Item added successfully";
-                return Content(HttpStatusCode.OK, re);
-            }
-            else
-            {
-                ord.restaurent_id = 1;
-                ord.insert_date = DateTime.Today.Date;
-                ord.order_status = "Running";
-                ord.kot_id = order.kotid;
+                list = ent.vel_restro_order.OrderBy(a => a.order_id).ToList();
+                int cc = list.Count;
+                vel_restro_order order = new vel_restro_order();
+                for(int i =0; i<c; i++)
+                {
 
+                    order.order_itemname = item[i];
+                    order.order_rate =Convert.ToDecimal(rate[i]);
+                    order.order_quantity =Convert.ToInt32(quan[i]);
+                    order.order_tax_amount = Convert.ToDecimal(taxx[i]);
+                    order.order_totalamount = Convert.ToDecimal(totalamount[i]);
+                    if (i == 0)
+                    {
+                        order.kot_id = cc + 1;
+                        kot = cc + 1;
+                    }
+                    else
+                    {
+                        order.kot_id = kot;
+                    }
+                    order.itemname_id = Convert.ToInt32(id[i]);
+                    order.table_defination_id = ord.table_defination_id;
+                    order.order_captain = ord.order_captain;
+                    order.restaurent_id = ord.restaurent_id;
+                    order.order_status = ord.order_status;
+                    order.insert_by = "srikar";
+                    order.insert_date = DateTime.Now.Date;
+                    ent.vel_restro_order.Add(order);
+                    ent.SaveChanges();
+                   
+                }
                 re.code = 200;
-                re.message = "Item added successfully";
+                re.message = "items added sucessfully";
                 return Content(HttpStatusCode.OK, re);
+                
             }
+
+            //Boolean b = new order().adding(ord);
+            //if (b)
+            //{
+            //    ord.restaurent_id = 1;
+            //    ord.insert_date = DateTime.Today.Date;
+            //    entity.vel_restro_order.Add(ord);
+            //    entity.SaveChanges();
+            //    re.code = 200;
+            //    re.message = "Item added successfully";
+            //    return Content(HttpStatusCode.OK, re);
+            //}
+            //else
+            //{
+            //    ord.restaurent_id = 1;
+            //    ord.insert_date = DateTime.Today.Date;
+            //    ord.order_status = "Running";
+            //    ord.kot_id = order.kotid;
+
+            //    re.code = 200;
+            //    re.message = "Item added successfully";
+            //    return Content(HttpStatusCode.OK, re);
+            //}
         }
 
         [HttpPost]
