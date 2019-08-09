@@ -13,10 +13,10 @@ namespace VelfoodsApi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class velfoodsEntities1 : DbContext
+    public partial class velfoodsEntities2 : DbContext
     {
-        public velfoodsEntities1()
-            : base("name=velfoodsEntities1")
+        public velfoodsEntities2()
+            : base("name=velfoodsEntities2")
         {
         }
     
@@ -32,12 +32,12 @@ namespace VelfoodsApi.Models
         public virtual DbSet<vel_restro_manger> vel_restro_manger { get; set; }
         public virtual DbSet<vel_restro_miscollection> vel_restro_miscollection { get; set; }
         public virtual DbSet<vel_restro_offers> vel_restro_offers { get; set; }
+        public virtual DbSet<vel_restro_order> vel_restro_order { get; set; }
         public virtual DbSet<vel_restro_paidouts> vel_restro_paidouts { get; set; }
         public virtual DbSet<vel_restro_property> vel_restro_property { get; set; }
         public virtual DbSet<vel_restro_restaurent> vel_restro_restaurent { get; set; }
         public virtual DbSet<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
         public virtual DbSet<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
         public virtual DbSet<vel_restro_tax> vel_restro_tax { get; set; }
-        public virtual DbSet<vel_restro_order> vel_restro_order { get; set; }
     }
 }

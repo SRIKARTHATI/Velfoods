@@ -6,15 +6,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Srikar\Desktop\WebSitevelfoods</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Srikar\Desktop\WebSite</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
-    <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/19/2019 18:58:23</publishTime>
-    </File>
-    <File Include="bin/App_global.asax.dll">
-      <publishTime>07/19/2019 18:58:23</publishTime>
-    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
@@ -202,10 +196,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/VelfoodsApi.dll">
-      <publishTime>07/19/2019 18:58:01</publishTime>
+      <publishTime>08/05/2019 12:08:13</publishTime>
     </File>
     <File Include="bin/VelfoodsApi.pdb">
-      <publishTime>07/19/2019 18:58:01</publishTime>
+      <publishTime>08/05/2019 12:08:13</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
       <publishTime>07/15/2019 12:05:41</publishTime>
@@ -228,11 +222,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="fonts/glyphicons-halflings-regular.woff">
       <publishTime>07/15/2019 12:05:41</publishTime>
     </File>
-    <File Include="Models/Model1.edmx.diagram">
-      <publishTime>07/17/2019 15:59:50</publishTime>
+    <File Include="Global.asax">
+      <publishTime>07/05/2019 12:05:43</publishTime>
     </File>
-    <File Include="PrecompiledApp.config">
-      <publishTime>07/19/2019 18:58:05</publishTime>
+    <File Include="Models/Model1.edmx.diagram">
+      <publishTime>08/05/2019 11:42:21</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/15/2019 12:05:41</publishTime>
@@ -265,7 +259,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/15/2019 12:05:15</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/19/2019 18:58:02</publishTime>
+      <publishTime>08/05/2019 12:08:14</publishTime>
     </File>
   </ItemGroup>
 </Project>

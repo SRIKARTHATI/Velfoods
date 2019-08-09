@@ -19,7 +19,7 @@ namespace VelfoodsApi.Models
         public Boolean AddingRestaurant(vel_restro_restaurent resto)
         {
             List<vel_restro_restaurent> list = new List<vel_restro_restaurent>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_restaurent.OrderBy(a => a.restaurent_id).ToList();
                 int c = list.Count;
@@ -54,7 +54,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_restaurent> list = new List<vel_restro_restaurent>();
 
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_restaurent.OrderBy(a => a.restaurent_id).ToList();
                 int c = list.Count;
@@ -77,7 +77,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_restaurent vp = (from s in entit.vel_restro_restaurent
                                                          where s.restaurent_id == resto.restaurent_id

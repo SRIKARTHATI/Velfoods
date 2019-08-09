@@ -11,7 +11,7 @@ namespace VelfoodsApi.Models
         public Boolean adding(vel_restro_empdepartment dept)
         {
             List<vel_restro_empdepartment> list = new List<vel_restro_empdepartment>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_empdepartment.OrderBy(a => a.empdepartement_id).ToList();
                 int cc = list.Count;
@@ -43,7 +43,7 @@ namespace VelfoodsApi.Models
         public Boolean update(vel_restro_empdepartment dept)
         {
             List<vel_restro_empdepartment> list =new List<vel_restro_empdepartment>();
-            using (velfoodsEntities1  en =new velfoodsEntities1())
+            using (velfoodsEntities2 en =new velfoodsEntities2())
             {
                 list = en.vel_restro_empdepartment.OrderBy(a => a.empdepartement_id).ToList();
                 int cc = list.Count;
@@ -67,7 +67,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1  ent =new velfoodsEntities1())
+                    using (velfoodsEntities2 ent =new velfoodsEntities2())
                     {
                         vel_restro_empdepartment emp = (from c in ent.vel_restro_empdepartment
                                                         where c.empdepartement_id == dept.empdepartement_id

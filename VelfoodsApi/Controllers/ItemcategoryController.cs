@@ -10,7 +10,7 @@ namespace VelfoodsApi.Controllers
 {
     public class ItemcategoryController : ApiController
     {
-        velfoodsEntities1 entity = new velfoodsEntities1();
+        velfoodsEntities2 entity = new velfoodsEntities2();
         Responce re = new Responce();
         [HttpPost]
         [Route("getcategories")]

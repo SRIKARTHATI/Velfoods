@@ -132,6 +132,13 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -153,6 +160,7 @@
     <Compile Include="Controllers\PaidoutsController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\TableBookingController.cs" />
     <Compile Include="Controllers\TableDefinitionController.cs" />
     <Compile Include="Controllers\TaxController.cs" />
     <Compile Include="Global.asax.cs">
@@ -163,7 +171,9 @@
     <Compile Include="Models\itemcategoryclass.cs" />
     <Compile Include="Models\itemnameClass.cs" />
     <Compile Include="Models\ManagerClass.cs" />
+    <Compile Include="Models\ManagerController.cs" />
     <Compile Include="Models\MiscollectionClass.cs" />
+    <Compile Include="Models\MisCollectionController.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -182,9 +192,11 @@
     <Compile Include="Models\Offers.cs" />
     <Compile Include="Models\order.cs" />
     <Compile Include="Models\PaidoutsClass.cs" />
+    <Compile Include="Models\PaidoutsController.cs" />
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
     <Compile Include="Models\RestaurantClass.cs" />
+    <Compile Include="Models\TableBookingClass.cs" />
     <Compile Include="Models\TableDefinitionclass.cs" />
     <Compile Include="Models\Tax.cs" />
     <Compile Include="Models\vel_restro_empdepartment.cs">
@@ -233,13 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

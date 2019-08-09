@@ -13,7 +13,7 @@ namespace VelfoodsApi.Models
         public Boolean adding(vel_restro_order orde)
         {
             List<vel_restro_order> list = new List<vel_restro_order>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_order.OrderBy(a => a.order_id).ToList();
                 int coun = list.Count;
@@ -58,7 +58,7 @@ namespace VelfoodsApi.Models
         public Boolean update(vel_restro_order orde)
         {
             List<vel_restro_order> list = new List<vel_restro_order>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_order.OrderBy(a => a.order_id).ToList();
                 int coun = list.Count;
@@ -80,7 +80,7 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 1)
                 {
-                    using (velfoodsEntities1 ent = new velfoodsEntities1())
+                    using (velfoodsEntities2 ent = new velfoodsEntities2())
                     {
                         vel_restro_order orders = (from c in ent.vel_restro_order
                                                    where c.order_status == "Running"
@@ -106,7 +106,7 @@ namespace VelfoodsApi.Models
         public Boolean Delete(vel_restro_order delete)
         {
             List<vel_restro_order> list = new List<vel_restro_order>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_order.OrderBy(a => a.order_id).ToList();
                 int coun = list.Count;
@@ -128,7 +128,7 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 1)
                 {
-                    using (velfoodsEntities1 ent = new velfoodsEntities1())
+                    using (velfoodsEntities2 ent = new velfoodsEntities2())
                     {
                         vel_restro_order orders = (from c in ent.vel_restro_order
                                                    where c.order_status == "Running"
