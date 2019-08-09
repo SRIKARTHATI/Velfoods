@@ -24,7 +24,7 @@ namespace VelfoodsApi.Controllers
                           s.wallet_code,
                           s.wallet_name,
                           s.wallet_reporting_name,
-                          s.status,
+                          s.wallet_status,
                       });
 
             re.Data = ee;
@@ -40,8 +40,7 @@ namespace VelfoodsApi.Controllers
             Boolean b = new WalletClass().walletadd(tbl);
             if (b)
             {
-                tbl.BACKGROUND_COLOR = "Green";
-                ve.vel_restro_tabledefination.Add(tbl);
+                ve.vel_restro_wallet.Add(tbl);
                 ve.SaveChanges();
                 re.code = 200;
                 re.message = "data inserted succesfully";

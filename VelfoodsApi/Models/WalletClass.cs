@@ -7,12 +7,13 @@ namespace VelfoodsApi.Models
 {
     public class WalletClass
     {
-        public int wallet_code;
+        public string wallet_code;
         public string wallet_name;
         public string wallet_reporting_name;
-        public string status;
+        public string wallet_status;
         public int restaurent_id;
         public int count;
+        public int empregistration_id;
         public Boolean walletadd(vel_restro_wallet veltbl)
         {
             List<vel_restro_wallet> list = new List<vel_restro_wallet>();
@@ -26,9 +27,9 @@ namespace VelfoodsApi.Models
                     wallet_name = list[i].wallet_name;
                     wallet_reporting_name = list[i].wallet_reporting_name;
                     wallet_code = list[i].wallet_code;
-                    status = list[i].status;
+                    wallet_status = list[i].wallet_status;
                     restaurent_id = list[i].restaurent_id;
-                    if (veltbl.wallet_name.Equals(wallet_name) && veltbl.wallet_reporting_name.Equals(wallet_reporting_name) && veltbl.wallet_code.Equals(wallet_code) && veltbl.status.Equals(status) )
+                    if (veltbl.wallet_name.Equals(wallet_name)  && veltbl.wallet_code.Equals(wallet_code))
                     {
                         count = 1;
                         break;
@@ -58,9 +59,10 @@ namespace VelfoodsApi.Models
                 int c = list.Count;
                 for (int i = 0; i < c; i++)
                 {
-                    wallet_name = list[i].table_name;
+                    wallet_name = list[i].wallet_name;
                     wallet_code = list[i].wallet_code;
-                    if (wallet_code.Equals(wallet_code))
+                    
+                    if (wallet_code.Equals(tbl.wallet_code) && restaurent_id.Equals(tbl.restaurent_id))
                     {
                         count = 1;
                         break;
@@ -82,9 +84,11 @@ namespace VelfoodsApi.Models
                                                          where s.wallet_id == tbl.wallet_id
                                                          where s.restaurent_id == tbl.restaurent_id
                                                          select s).FirstOrDefault();
+                        vp.wallet_code = tbl.wallet_code;
                         vp.wallet_name = tbl.wallet_name;
                         vp.wallet_reporting_name = tbl.wallet_reporting_name;
-                        vp.status = tbl.status;
+                        vp.wallet_status = tbl.wallet_status;
+                        vp.empregistration_id = tbl.empregistration_id;
                         entit.SaveChanges();
                     }
                     return true;
