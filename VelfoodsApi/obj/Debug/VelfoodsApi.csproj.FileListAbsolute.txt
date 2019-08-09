@@ -168,3 +168,4 @@ C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Newtonsoft.Json.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\System.Web.Http.WebHost.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csprojAssemblyReference.cache

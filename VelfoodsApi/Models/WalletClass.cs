@@ -61,8 +61,8 @@ namespace VelfoodsApi.Models
                 {
                     wallet_name = list[i].wallet_name;
                     wallet_code = list[i].wallet_code;
-                    
-                    if (wallet_code.Equals(tbl.wallet_code) && restaurent_id.Equals(tbl.restaurent_id))
+                    restaurent_id = list[i].restaurent_id;
+                    if (tbl.wallet_code.Equals(wallet_code) && tbl.restaurent_id.Equals(restaurent_id))
                     {
                         count = 1;
                         break;
