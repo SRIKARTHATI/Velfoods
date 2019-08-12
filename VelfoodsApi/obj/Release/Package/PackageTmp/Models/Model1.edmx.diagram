@@ -39,9 +39,6 @@
         <EntityTypeShape EntityType="velfoodsModel.vel_restro_banks" Width="1.75" PointX="9.75" PointY="9.125" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__empre__160F4887" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__17036CC0" />
-        <EntityTypeShape EntityType="velfoodsModel.vel_restro_wallet" Width="1.5" PointX="9.75" PointY="19.75" />
-        <AssociationConnector Association="velfoodsModel.FK__vel_restr__empre__19DFD96B" />
-        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__1AD3FDA4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
