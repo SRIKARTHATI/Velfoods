@@ -85,9 +85,6 @@ C:\Users\VelsolAndroid\source\repos\apis\Velfoods\VelfoodsApi\obj\Debug\Velfoods
 C:\Users\VelsolAndroid\source\repos\apis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
 C:\Users\VelsolAndroid\source\repos\apis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
 C:\Users\VelsolAndroid\source\repos\apis\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
-C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CoreCompileInputs.cache
-C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
-C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\VelfoodsApi.dll.config
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\VelfoodsApi.dll
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\VelfoodsApi.pdb
@@ -167,5 +164,7 @@ C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\System.Web.Mvc.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Newtonsoft.Json.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\System.Web.Http.WebHost.xml
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CoreCompileInputs.cache
 C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csproj.CopyComplete
-C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.csprojAssemblyReference.cache
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.dll
+C:\Users\Velsol\source\repos\Velfoods\VelfoodsApi\obj\Debug\VelfoodsApi.pdb
