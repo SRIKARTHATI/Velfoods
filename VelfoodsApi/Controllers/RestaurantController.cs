@@ -10,14 +10,15 @@ namespace VelfoodsApi.Controllers
 {
     public class RestaurantController : ApiController
     {
-        velfoodsEntities1 ve = new velfoodsEntities1();
+        velfoodsEntities2 ve = new velfoodsEntities2();
         Responce re = new Responce();
 
-        [HttpGet]
+        [HttpPost]
         [Route("gettingrestaurant")]
-        public Responce gettingrestaurant()
+        public Responce gettingrestaurant(vel_restro_restaurent vres)
         {
             var ee = (from c in ve.vel_restro_restaurent
+                      where c.property_id == 1
                       select new
                       {
                           c.restaurent_id,

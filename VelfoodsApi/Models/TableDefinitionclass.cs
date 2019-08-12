@@ -15,11 +15,12 @@ namespace VelfoodsApi.Models
         public string table_status;
         public string table_steward;
         public string table_view;
+        public int restaurent_id;
         public int count;
         public Boolean TableDef(vel_restro_tabledefination veltbl)
         {
             List<vel_restro_tabledefination> list = new List<vel_restro_tabledefination>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_tabledefination.OrderBy(a => a.table_defination_id).ToList();
                 int c = list.Count;
@@ -33,8 +34,9 @@ namespace VelfoodsApi.Models
                     table_status = list[i].table_status;
                     table_steward = list[i].table_steward;
                     table_view = list[i].table_view;
-                    if (table_name.Equals(table_name) && table_description.Equals(table_description) && table_pax.Equals(table_pax) && table_status.Equals(table_status) &&
-                        table_steward.Equals(table_steward) && table_view.Equals(table_view))
+                    restaurent_id = list[i].restaurent_id;
+                    if (veltbl.table_name.Equals(table_name) && veltbl.table_description.Equals(table_description) && veltbl.table_pax.Equals(table_pax) && veltbl.table_status.Equals(table_status) &&
+                        veltbl.table_steward.Equals(table_steward) && veltbl.table_view.Equals(table_view) && veltbl.restaurent_id.Equals(restaurent_id)&& veltbl.table_capatain.Equals(table_capatain))
                     {
                         count = 1;
                         break;
@@ -58,7 +60,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_tabledefination> list = new List<vel_restro_tabledefination>();
 
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_tabledefination.OrderBy(a => a.table_defination_id).ToList();
                 int c = list.Count;
@@ -83,19 +85,18 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_tabledefination vp = (from s in entit.vel_restro_tabledefination
-                                                  where s.table_name == tbl.table_name
-                                                  where s.table_pax == tbl.table_pax
                                                   where s.table_defination_id == tbl.table_defination_id
                                                   where s.restaurent_id == tbl.restaurent_id
                                                   select s).FirstOrDefault();
-                        vp.table_capatain = table_capatain;
-                        vp.table_steward = table_steward;
-                        vp.table_description = table_description;
-                        vp.table_status = table_status;
-                        vp.table_view = table_view;
+                        vp.table_capatain = tbl.table_capatain;
+                        vp.table_steward = tbl.table_steward;
+                        vp.table_description = tbl.table_description;
+                        vp.table_status = tbl.table_status;
+                        vp.table_view = tbl.table_view;
+                        vp.BACKGROUND_COLOR = tbl.BACKGROUND_COLOR;
                         entit.SaveChanges();
                     }
                     return true;

@@ -14,6 +14,13 @@ namespace VelfoodsApi.Models
     
     public partial class vel_restro_empregistration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public vel_restro_empregistration()
+        {
+            this.vel_restro_banks = new HashSet<vel_restro_banks>();
+            this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
+        }
+    
         public int empregistration_id { get; set; }
         public string empregistration_name { get; set; }
         public long empregistration_mobile_no { get; set; }
@@ -30,5 +37,9 @@ namespace VelfoodsApi.Models
     
         public virtual vel_restro_empdepartment vel_restro_empdepartment { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_banks> vel_restro_banks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace VelfoodsApi.Models
         public Boolean adding(vel_restro_offers offers)
         {
             List<vel_restro_offers> list = new List<vel_restro_offers>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_offers.OrderBy(a => a.offers_id).ToList();
                 int cc = list.Count;

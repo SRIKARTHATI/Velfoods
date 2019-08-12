@@ -12,7 +12,7 @@ namespace VelfoodsApi.Models
         public Boolean adding (vel_restro_itemname iname)
         {
             List<vel_restro_itemname> list = new List<vel_restro_itemname>();
-            using (velfoodsEntities1 en =new velfoodsEntities1())
+            using (velfoodsEntities2 en =new velfoodsEntities2())
             {
                 list = en.vel_restro_itemname.OrderBy(a => a.itemname_id).ToList();
                 int c = list.Count;
@@ -44,7 +44,7 @@ namespace VelfoodsApi.Models
         public Boolean update(vel_restro_itemname name)
         {
             List<vel_restro_itemname> list = new List<vel_restro_itemname>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_itemname.OrderBy(a => a.itemname_id).ToList();
                 int c = list.Count;
@@ -64,7 +64,7 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 1)
                 {
-                    using (velfoodsEntities1 enn =new velfoodsEntities1())
+                    using (velfoodsEntities2 enn =new velfoodsEntities2())
                     {
                         vel_restro_itemname names = (from inam in enn.vel_restro_itemname
                                                      where inam.restaurent_id == name.restaurent_id

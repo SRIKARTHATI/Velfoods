@@ -10,13 +10,14 @@ namespace VelfoodsApi.Controllers
 {
     public class TableDefinitionController : ApiController
     {
-        velfoodsEntities1 ve = new velfoodsEntities1();
+        velfoodsEntities2 ve = new velfoodsEntities2();
         Responce re = new Responce();
-        [HttpGet]
+        [HttpPost]
         [Route("gettabledefinition")]
-        public Responce getproperty()
+        public Responce getproperty(vel_restro_tabledefination tbl)
         {
             var ee = (from s in ve.vel_restro_tabledefination
+                      where s.restaurent_id ==tbl.restaurent_id
                       select new
                       {
                           s.table_defination_id,
@@ -26,7 +27,8 @@ namespace VelfoodsApi.Controllers
                           s.table_pax,
                           s.table_status,
                           s.table_steward,
-                          s.table_view
+                          s.table_view,
+                          s.BACKGROUND_COLOR
                       });
 
             re.Data = ee;
@@ -36,12 +38,39 @@ namespace VelfoodsApi.Controllers
         }
 
         [HttpPost]
-        [Route("tabledefadding")]
+        [Route("gettablename")]
+        public Responce gettablename(vel_restro_tabledefination tbl)
+        {
+            var ee = (from s in ve.vel_restro_tabledefination
+                      where s.restaurent_id == tbl.restaurent_id
+                      where s.table_name == tbl.table_name
+                      select new
+                      {
+                          s.table_defination_id,
+                          s.table_capatain,
+                          s.table_description,
+                          s.table_name,
+                          s.table_pax,
+                          s.table_status,
+                          s.table_steward,
+                          s.table_view,
+                          s.BACKGROUND_COLOR
+                      });
+
+            re.Data = ee;
+            re.message = "getting details successfully";
+            re.code = 200;
+            return re;
+        }
+
+        [HttpPost]
+        [Route("tableadding")]
         public IHttpActionResult AddingTable(vel_restro_tabledefination tbl)
         {
             Boolean b = new TableDefinitionclass().TableDef(tbl);
             if (b)
             {
+                tbl.BACKGROUND_COLOR = "Green";
                 ve.vel_restro_tabledefination.Add(tbl);
                 ve.SaveChanges();
                 re.code = 200;

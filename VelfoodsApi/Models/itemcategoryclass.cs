@@ -12,17 +12,18 @@ namespace VelfoodsApi.Models
         public Boolean adding(vel_restro_itemcategory category)
         {
             List<vel_restro_itemcategory> list = new List<vel_restro_itemcategory>();
-            using (velfoodsEntities1 en =new velfoodsEntities1())
+            using (velfoodsEntities2 en =new velfoodsEntities2())
             {
-                list = en.vel_restro_itemcategory.OrderBy(a => a.itemcategory_id).ToList();
+                list = en.vel_restro_itemcategory.OrderBy(a => a.item_name).ToList();
                 int cou = list.Count;
                 for (int i=0; i<cou; i++)
                 {
-                    itemcategoryid = list[i].itemcategory_id;
                     itemcategoryname = list[i].item_name;
                     restrent_id = list[i].restaurent_id;
-                    if (category.item_name.Equals(itemcategoryname) && category.restaurent_id.Equals(restrent_id))
+
+                    if (category.item_name.Equals(itemcategoryname) )
                     {
+                        //&& category.restaurent_id.Equals(restrent_id)
                         count = 1;
                         break;
                     }
@@ -44,7 +45,7 @@ namespace VelfoodsApi.Models
         public Boolean update(vel_restro_itemcategory cate)
         {
             List<vel_restro_itemcategory> list = new List<vel_restro_itemcategory>();
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_itemcategory.OrderBy(a => a.itemcategory_id).ToList();
                 int cou = list.Count;
@@ -65,7 +66,7 @@ namespace VelfoodsApi.Models
                 }
                 if (count == 1)
                 {
-                    using(velfoodsEntities1 ent =new velfoodsEntities1())
+                    using(velfoodsEntities2 ent =new velfoodsEntities2())
                     {
                         vel_restro_itemcategory category = (from c in ent.vel_restro_itemcategory
                                                             where c.item_name == cate.item_name

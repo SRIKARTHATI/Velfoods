@@ -9,28 +9,28 @@ namespace VelfoodsApi.Models
     public class RestaurantClass
     {
         public int restoid;
-        public string restoname;
-        public string restoaddress;
-        public long restomobile;
+        public string restaurent_name;
+        public string restaurent_address;
+        public long restaurent_mobile_no;
         public string restostatus;
-        public string restomanager;
+        public string restrent_manger;
         public int propertyid;
         public int count;
         public Boolean AddingRestaurant(vel_restro_restaurent resto)
         {
             List<vel_restro_restaurent> list = new List<vel_restro_restaurent>();
-            using (velfoodsEntities1 entity = new velfoodsEntities1())
+            using (velfoodsEntities2 entity = new velfoodsEntities2())
             {
                 list = entity.vel_restro_restaurent.OrderBy(a => a.restaurent_id).ToList();
                 int c = list.Count;
                 for (int i = 0; i < c; i++)
                 {
-                    restoname = list[i].restaurent_name;
-                    restoaddress = list[i].restaurent_address;
-                    restomobile = list[i].restaurent_mobile_no;
+                    restaurent_name = list[i].restaurent_name;
+                    restaurent_address = list[i].restaurent_address;
+                    restaurent_mobile_no = list[i].restaurent_mobile_no;
                     restostatus = list[i].restaruent_status;
-                    restomanager = list[i].restrent_manger;
-                    if (resto.restaurent_name.Equals(restoname) && resto.restaurent_address.Equals(restoaddress) && resto.restaurent_mobile_no.Equals(restomobile) && resto.restrent_manger.Equals(restomanager) && resto.restaruent_status.Equals(restostatus) && resto.property_id.Equals(propertyid))
+                    restrent_manger = list[i].restrent_manger;
+                    if (resto.restaurent_name.Equals(restaurent_name) && resto.restaurent_address.Equals(restaurent_address) && resto.restaurent_mobile_no.Equals(restaurent_mobile_no) && resto.restrent_manger.Equals(restrent_manger))
                     {
                         count = 1;
                         break;
@@ -54,7 +54,7 @@ namespace VelfoodsApi.Models
         {
             List<vel_restro_restaurent> list = new List<vel_restro_restaurent>();
 
-            using (velfoodsEntities1 en = new velfoodsEntities1())
+            using (velfoodsEntities2 en = new velfoodsEntities2())
             {
                 list = en.vel_restro_restaurent.OrderBy(a => a.restaurent_id).ToList();
                 int c = list.Count;
@@ -77,7 +77,7 @@ namespace VelfoodsApi.Models
                 }
                 else
                 {
-                    using (velfoodsEntities1 entit = new velfoodsEntities1())
+                    using (velfoodsEntities2 entit = new velfoodsEntities2())
                     {
                         vel_restro_restaurent vp = (from s in entit.vel_restro_restaurent
                                                          where s.restaurent_id == resto.restaurent_id

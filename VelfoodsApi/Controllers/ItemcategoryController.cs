@@ -10,7 +10,7 @@ namespace VelfoodsApi.Controllers
 {
     public class ItemcategoryController : ApiController
     {
-        velfoodsEntities1 entity = new velfoodsEntities1();
+        velfoodsEntities2 entity = new velfoodsEntities2();
         Responce re = new Responce();
         [HttpPost]
         [Route("getcategories")]
@@ -20,6 +20,7 @@ namespace VelfoodsApi.Controllers
                        where c.restaurent_id == itemc.restaurent_id
                        select new
                        {
+                           c.itemcategory_id,
                            c.item_name,
                            c.item_description,
                            c.item_active_from,
