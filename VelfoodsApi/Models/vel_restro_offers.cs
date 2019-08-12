@@ -18,11 +18,11 @@ namespace VelfoodsApi.Models
         public string promo_code_name { get; set; }
         public string promo_code { get; set; }
         public string promo_code_description { get; set; }
-        public Nullable<System.DateTime> from_date { get; set; }
-        public Nullable<System.DateTime> to_date { get; set; }
+        public string from_date { get; set; }
+        public string to_date { get; set; }
         public string Active_dare_status { get; set; }
-        public Nullable<System.TimeSpan> from_time { get; set; }
-        public Nullable<System.TimeSpan> to_time { get; set; }
+        public string from_time { get; set; }
+        public string to_time { get; set; }
         public string Active_time_status { get; set; }
         public string Day_type { get; set; }
         public string Days { get; set; }
