@@ -46,7 +46,7 @@ namespace VelfoodsApi.Controllers
         {
             var ee = (from c in entity.vel_restro_empregistration
                       join cc in entity.vel_restro_empdepartment on c.empdepartement_id  equals cc.empdepartement_id
-                      where c.restaurent_id == reg.restaurent_id
+                     // where c.restaurent_id == reg.restaurent_id
                       where cc.empdepartement_name == "Captain"
                       select new
                       {

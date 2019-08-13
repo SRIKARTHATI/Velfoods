@@ -38,6 +38,37 @@ namespace VelfoodsApi.Controllers
             re.code = 200;
             return re;
         }
+        [HttpPost]
+        [Route("getorderitems")]
+        public Responce getitems(vel_restro_order ord)
+        {
+            var order = (from c in entity.vel_restro_order
+                         where c.table_defination_id == ord.table_defination_id
+                         where c.restaurent_id == ord.restaurent_id
+                         where c.order_status =="Running"
+                         select new
+                         {
+                             c.order_id,
+                             c.order_itemname,
+                             c.order_rate,
+                             c.order_quantity,
+                             c.order_totalamount,
+                             c.order_tax_amount,
+                             c.restaurent_id,
+                             c.table_defination_id,
+                             c.order_status,
+                             c.kot_id,
+                             c.order_captain
+
+                         });
+            re.Data = order;
+            re.message = "Data sucess";
+            re.code = 200;
+            return re;
+        }
+
+
+
         String itemnames,Rate,quantity,tax,total,itemid;
         public static int kot;
         [HttpPost]
