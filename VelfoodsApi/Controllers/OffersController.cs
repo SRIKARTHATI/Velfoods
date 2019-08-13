@@ -32,6 +32,24 @@ namespace VelfoodsApi.Controllers
             }
         }
         [HttpPost]
+        [Route("OfferUpdate")]
+        public IHttpActionResult updateOffer(vel_restro_offers offers)
+        {
+            Boolean b = new Offers().update(offers);
+            if (b)
+            {
+                re.code = 200;
+                re.message = "Offer Updated Successfully";
+                return Content(HttpStatusCode.OK, re);
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "Failed to Update Please check the values..!";
+                return Content(HttpStatusCode.OK, re);
+            }
+        }
+        [HttpPost]
         [Route("OffersList")]
         public Responce OfferList(vel_restro_offers restro_Offers)
         {
