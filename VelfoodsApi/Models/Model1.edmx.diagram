@@ -42,6 +42,18 @@
         <EntityTypeShape EntityType="velfoodsModel.vel_restro_wallet" Width="1.5" PointX="9.75" PointY="19.75" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__empre__19DFD96B" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__1AD3FDA4" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_billpayment" Width="1.5" PointX="9.75" PointY="25.125" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_billstatus" Width="1.5" PointX="5.25" PointY="39.5" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_print" Width="1.5" PointX="7.5" PointY="25.125" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__print__236943A5" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__245D67DE" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__table__22751F6C" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__29221CFB" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__2BFE89A6" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__2CF2ADDF" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__offer__1F98B2C1" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__1DB06A4F" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__table__1EA48E88" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

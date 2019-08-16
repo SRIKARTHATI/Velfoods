@@ -10,10 +10,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/12/2019 18:38:16</publishTime>
+      <publishTime>08/14/2019 14:14:26</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/12/2019 18:38:15</publishTime>
+      <publishTime>08/14/2019 14:14:25</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
@@ -202,10 +202,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/VelfoodsApi.dll">
-      <publishTime>08/12/2019 18:37:43</publishTime>
+      <publishTime>08/14/2019 14:13:51</publishTime>
     </File>
     <File Include="bin/VelfoodsApi.pdb">
-      <publishTime>08/12/2019 18:37:43</publishTime>
+      <publishTime>08/14/2019 14:13:51</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
       <publishTime>07/15/2019 12:05:41</publishTime>
@@ -232,7 +232,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/12/2019 13:20:19</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/12/2019 18:37:53</publishTime>
+      <publishTime>08/14/2019 14:13:57</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/15/2019 12:05:41</publishTime>

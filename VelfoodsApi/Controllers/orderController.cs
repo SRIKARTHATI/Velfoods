@@ -43,6 +43,8 @@ namespace VelfoodsApi.Controllers
         public Responce getitems(vel_restro_order ord)
         {
             var order = (from c in entity.vel_restro_order
+                         join cc in entity.vel_restro_tabledefination on c.table_defination_id equals cc.table_defination_id
+                         join r in entity.vel_restro_restaurent on c.restaurent_id equals r.restaurent_id
                          where c.table_defination_id == ord.table_defination_id
                          where c.restaurent_id == ord.restaurent_id
                          where c.order_status =="Running"
@@ -58,7 +60,9 @@ namespace VelfoodsApi.Controllers
                              c.table_defination_id,
                              c.order_status,
                              c.kot_id,
-                             c.order_captain
+                             c.order_captain,
+                             cc.table_pax,
+                             r.restaurent_name
 
                          });
             re.Data = order;
@@ -94,6 +98,7 @@ namespace VelfoodsApi.Controllers
                 list = ent.vel_restro_order.OrderBy(a => a.order_id).ToList();
                 int cc = list.Count;
                 vel_restro_order order = new vel_restro_order();
+                vel_restro_tabledefination tbl = new vel_restro_tabledefination();
                 for(int i =0; i<c; i++)
                 {
 
@@ -113,6 +118,10 @@ namespace VelfoodsApi.Controllers
                     }
                     order.itemname_id = Convert.ToInt32(id[i]);
                     order.table_defination_id = ord.table_defination_id;
+                    var tbls = (from c1 in ent.vel_restro_tabledefination
+                                where c1.table_defination_id == order.table_defination_id
+                                select c1).FirstOrDefault();
+                    tbls.BACKGROUND_COLOR = "Orange";
                     order.order_captain = ord.order_captain;
                     order.restaurent_id = ord.restaurent_id;
                     order.order_status = ord.order_status;
@@ -127,29 +136,6 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
                 
             }
-
-            //Boolean b = new order().adding(ord);
-            //if (b)
-            //{
-            //    ord.restaurent_id = 1;
-            //    ord.insert_date = DateTime.Today.Date;
-            //    entity.vel_restro_order.Add(ord);
-            //    entity.SaveChanges();
-            //    re.code = 200;
-            //    re.message = "Item added successfully";
-            //    return Content(HttpStatusCode.OK, re);
-            //}
-            //else
-            //{
-            //    ord.restaurent_id = 1;
-            //    ord.insert_date = DateTime.Today.Date;
-            //    ord.order_status = "Running";
-            //    ord.kot_id = order.kotid;
-
-            //    re.code = 200;
-            //    re.message = "Item added successfully";
-            //    return Content(HttpStatusCode.OK, re);
-            //}
         }
 
         [HttpPost]
