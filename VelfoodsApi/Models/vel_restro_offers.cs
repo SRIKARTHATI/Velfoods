@@ -19,7 +19,6 @@ namespace VelfoodsApi.Models
         {
             this.vel_restro_print = new HashSet<vel_restro_print>();
         }
-    
         public int offers_id { get; set; }
         public string promo_code_name { get; set; }
         public string promo_code { get; set; }
