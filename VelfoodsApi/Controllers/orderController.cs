@@ -142,20 +142,10 @@ namespace VelfoodsApi.Controllers
         [Route("orderupdate")]
         public IHttpActionResult update(restroorder order)
         {
-            itemid = order.itemnameid;
-            itemnames = order.itemnames;
-            Rate = order.Rate;
             quantity = order.quantity;
-            tax = order.tax;
             total = order.total;
-            string[] item = itemnames.Split(new char[] { ',' });
-            int c = item.Length;
-            string[] rate = Rate.Split(new char[] { ',' });
             string[] quan = quantity.Split(new char[] { ',' });
-            string[] taxx = tax.Split(new char[] { ',' });
             string[] totalamount = total.Split(new char[] { ',' });
-            string[] id = itemid.Split(new char[] { ',' });
-            List<vel_restro_order> list = new List<vel_restro_order>();
             using (velfoodsEntities2 ent = new velfoodsEntities2())
             {
                 var ee = (from oitm in ent.vel_restro_order
@@ -163,7 +153,7 @@ namespace VelfoodsApi.Controllers
                           where oitm.table_defination_id == order.table_defination_id
                           where oitm.restaurent_id == order.restaurent_id
                           select oitm).ToList();
-                int cou = ee.Count;
+                int cou = ee.Count; 
                 if (ee.Count <= 0)
                 {
                     count = 0;
@@ -172,13 +162,15 @@ namespace VelfoodsApi.Controllers
                 {
                     for (int i = 0; i < cou; i++)
                     {
+                        int ordid = ee[i].order_id;
+
                         vel_restro_order orders = (from cit in ent.vel_restro_order
                                                    where cit.order_status == "Running"
                                                    where cit.restaurent_id == order.restaurent_id
                                                    where cit.table_defination_id == order.table_defination_id
+                                                   where cit.order_id == ordid
                                                    select cit).FirstOrDefault();
-                        orders.order_itemname = item[i];
-                        orders.order_rate = Convert.ToDecimal(rate[i]);
+                        
                         orders.order_quantity = Convert.ToInt32(quan[i]);
                         orders.order_totalamount = Convert.ToDecimal(totalamount[i]);
                         ent.SaveChanges();
