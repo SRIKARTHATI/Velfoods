@@ -150,6 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\bankController.cs" />
+    <Compile Include="Controllers\BillpaymentController.cs" />
     <Compile Include="Controllers\empcategoryController.cs" />
     <Compile Include="Controllers\empregController.cs" />
     <Compile Include="Controllers\ItemcategoryController.cs" />
@@ -170,6 +171,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\bankdetailsClass.cs" />
+    <Compile Include="Models\billpayment.cs" />
     <Compile Include="Models\empdeptclass.cs" />
     <Compile Include="Models\empregClass.cs" />
     <Compile Include="Models\itemcategoryclass.cs" />
@@ -201,6 +203,7 @@
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
     <Compile Include="Models\RestaurantClass.cs" />
+    <Compile Include="Models\settle.cs" />
     <Compile Include="Models\TableBookingClass.cs" />
     <Compile Include="Models\TableDefinitionclass.cs" />
     <Compile Include="Models\Tax.cs" />

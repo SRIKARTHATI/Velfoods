@@ -19,7 +19,6 @@ namespace VelfoodsApi.Models
         {
             this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
         }
-    
         public int print_id { get; set; }
         public int table_defination_id { get; set; }
         public decimal total_amount { get; set; }
@@ -27,6 +26,9 @@ namespace VelfoodsApi.Models
         public decimal discount_amount { get; set; }
         public string print_status { get; set; }
         public int restaurent_id { get; set; }
+        public decimal total_after_discount { get; set; }
+        public string insert_by { get; set; }
+        public Nullable<System.DateTime> insert_date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }

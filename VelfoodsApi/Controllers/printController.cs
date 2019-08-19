@@ -66,7 +66,6 @@ namespace VelfoodsApi.Controllers
                 re.code = 200;
                 re.message = "Data updated sucuessfully";
                 return Content(HttpStatusCode.OK, re);
-
             }
             else
             {

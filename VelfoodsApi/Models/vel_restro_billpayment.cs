@@ -25,6 +25,9 @@ namespace VelfoodsApi.Models
         public decimal due_amount { get; set; }
         public string payment_status { get; set; }
         public int restaurent_id { get; set; }
+        public string name { get; set; }
+        public Nullable<long> mobile_no { get; set; }
+        public string reference { get; set; }
     
         public virtual vel_restro_print vel_restro_print { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
