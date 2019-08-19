@@ -110,11 +110,11 @@
     <Property Name="promo_code_name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="promo_code" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="promo_code_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="from_date" Type="DateTime" Precision="0" />
-    <Property Name="to_date" Type="DateTime" Precision="0" />
+    <Property Name="from_date" Type="String" />
+    <Property Name="to_date" Type="String" />
     <Property Name="Active_dare_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="from_time" Type="Time" Precision="7" />
-    <Property Name="to_time" Type="Time" Precision="7" />
+    <Property Name="from_time" Type="String" />
+    <Property Name="to_time" Type="String" />
     <Property Name="Active_time_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Day_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Days" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />

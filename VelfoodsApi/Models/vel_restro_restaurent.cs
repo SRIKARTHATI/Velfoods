@@ -31,6 +31,11 @@ namespace VelfoodsApi.Models
             this.vel_restro_tablebooking = new HashSet<vel_restro_tablebooking>();
             this.vel_restro_banks = new HashSet<vel_restro_banks>();
             this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
+            this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
+            this.vel_restro_billstatus = new HashSet<vel_restro_billstatus>();
+            this.vel_restro_billstatus1 = new HashSet<vel_restro_billstatus>();
+            this.vel_restro_billstatus2 = new HashSet<vel_restro_billstatus>();
+            this.vel_restro_print = new HashSet<vel_restro_print>();
         }
     
         public int restaurent_id { get; set; }
@@ -70,5 +75,15 @@ namespace VelfoodsApi.Models
         public virtual ICollection<vel_restro_banks> vel_restro_banks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
     }
 }

@@ -171,4 +171,6 @@ public class restroorder
     public string order_captain { get; set; }
     public  string tax { get; set; }
     public string total { get; set; }
+
+    public string BACKGROUND_COLOR { get; set; }
 }
