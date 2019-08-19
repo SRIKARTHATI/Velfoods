@@ -28,6 +28,9 @@
     <Property Name="due_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="payment_status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="30" />
+    <Property Name="mobile_no" Type="bigint" />
+    <Property Name="reference" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="vel_restro_billstatus">
     <Key>
@@ -198,6 +201,9 @@
     <Property Name="discount_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="print_status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
+    <Property Name="total_after_discount" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+    <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_date" Type="date" />
   </EntityType>
   <EntityType Name="vel_restro_property">
     <Key>

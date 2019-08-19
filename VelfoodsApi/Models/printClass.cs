@@ -32,7 +32,13 @@ namespace VelfoodsApi.Models
                 }
                 if(count == 0)
                 {
+                    var ee = (from c in entity.vel_restro_tabledefination
+                              where c.table_defination_id == print.table_defination_id
+                              select c).FirstOrDefault();
+                    ee.BACKGROUND_COLOR = "Darkslategray";
+                    entity.SaveChanges();
                     return true;
+                    
                 }
                 else
                 {
