@@ -131,7 +131,7 @@ namespace VelfoodsApi.Models
                     using (velfoodsEntities2 ent = new velfoodsEntities2())
                     {
                         vel_restro_order orders = (from c in ent.vel_restro_order
-                                                   where c.order_status == "Running"
+                                                   where c.order_status == "Close"
                                                    where c.restaurent_id == delete.restaurent_id
                                                    where c.table_defination_id == delete.table_defination_id
                                                    select c).FirstOrDefault();
