@@ -150,6 +150,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\bankController.cs" />
+    <Compile Include="Controllers\BillpaymentController.cs" />
     <Compile Include="Controllers\empcategoryController.cs" />
     <Compile Include="Controllers\empregController.cs" />
     <Compile Include="Controllers\ItemcategoryController.cs" />
