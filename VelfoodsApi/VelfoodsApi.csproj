@@ -171,6 +171,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\bankdetailsClass.cs" />
+    <Compile Include="Models\billpayment.cs" />
     <Compile Include="Models\empdeptclass.cs" />
     <Compile Include="Models\empregClass.cs" />
     <Compile Include="Models\itemcategoryclass.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\PropertyAdding.cs" />
     <Compile Include="Models\Responce.cs" />
     <Compile Include="Models\RestaurantClass.cs" />
+    <Compile Include="Models\settle.cs" />
     <Compile Include="Models\TableBookingClass.cs" />
     <Compile Include="Models\TableDefinitionclass.cs" />
     <Compile Include="Models\Tax.cs" />
