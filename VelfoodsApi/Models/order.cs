@@ -23,7 +23,7 @@ namespace VelfoodsApi.Models
                     status = list[i].order_status;
                     resid = Convert.ToInt32(list[i].restaurent_id);
                     tableid = Convert.ToInt32(list[i].table_defination_id);
-                    if (orde.order_status.Equals(status) && orde.restaurent_id.Equals(resid) && orde.table_defination_id.Equals(tableid))
+                    if (status.Equals(orde.order_status) && resid.Equals(orde.restaurent_id) && tableid.Equals(orde.table_defination_id))
                     {
                         count = 1;
                         var aa = (from c in en.vel_restro_order
@@ -68,7 +68,7 @@ namespace VelfoodsApi.Models
                     status = list[i].order_status;
                     resid = Convert.ToInt32(list[i].restaurent_id);
                     tableid = Convert.ToInt32(list[i].table_defination_id);
-                    if (orde.order_status.Equals(status) && orde.restaurent_id.Equals(resid) && orde.table_defination_id.Equals(tableid))
+                    if (status.Equals(orde.order_status) && resid.Equals(orde.restaurent_id) && tableid.Equals(orde.table_defination_id))
                     {
                         count = 1;
                         break;
@@ -116,7 +116,7 @@ namespace VelfoodsApi.Models
                     status = list[i].order_status;
                     resid = Convert.ToInt32(list[i].restaurent_id);
                     tableid = Convert.ToInt32(list[i].table_defination_id);
-                    if (delete.order_status.Equals(status) && delete.restaurent_id.Equals(resid) && delete.table_defination_id.Equals(tableid))
+                    if (status.Equals(delete.order_status) && resid.Equals(delete.restaurent_id) && tableid.Equals(delete.table_defination_id))
                     {
                         count = 1;
                         break;
