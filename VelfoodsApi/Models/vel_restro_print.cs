@@ -19,7 +19,6 @@ namespace VelfoodsApi.Models
         {
             this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
         }
-    
         public int print_id { get; set; }
         public int table_defination_id { get; set; }
         public decimal total_amount { get; set; }
