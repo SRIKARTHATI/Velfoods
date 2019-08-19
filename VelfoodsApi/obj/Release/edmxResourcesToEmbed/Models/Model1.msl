@@ -246,5 +246,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_wallet">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_wallet">
+        <MappingFragment StoreEntitySet="vel_restro_wallet">
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="empregistration_id" ColumnName="empregistration_id" />
+          <ScalarProperty Name="wallet_status" ColumnName="wallet_status" />
+          <ScalarProperty Name="wallet_reporting_name" ColumnName="wallet_reporting_name" />
+          <ScalarProperty Name="wallet_name" ColumnName="wallet_name" />
+          <ScalarProperty Name="wallet_code" ColumnName="wallet_code" />
+          <ScalarProperty Name="wallet_id" ColumnName="wallet_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

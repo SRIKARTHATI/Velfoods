@@ -35,7 +35,8 @@ namespace VelfoodsApi.Controllers
                           c.item_takeaway_tax,
                           c.item_homedelivary_amount,
                           c.item_homedelivary_tax,
-                          c.item_homedelivery_deliverycharges
+                          c.item_homedelivery_deliverycharges,
+                          c.itemcategory_id
                       });
             re.Data = cc;
             re.message = "Data success";

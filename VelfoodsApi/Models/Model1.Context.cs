@@ -41,5 +41,8 @@ namespace VelfoodsApi.Models
         public virtual DbSet<vel_restro_tax> vel_restro_tax { get; set; }
         public virtual DbSet<vel_restro_banks> vel_restro_banks { get; set; }
         public virtual DbSet<vel_restro_wallet> vel_restro_wallet { get; set; }
+        public virtual DbSet<vel_restro_billpayment> vel_restro_billpayment { get; set; }
+        public virtual DbSet<vel_restro_billstatus> vel_restro_billstatus { get; set; }
+        public virtual DbSet<vel_restro_print> vel_restro_print { get; set; }
     }
 }
