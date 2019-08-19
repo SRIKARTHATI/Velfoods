@@ -213,9 +213,6 @@
     <Compile Include="Models\vel_restro_billpayment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vel_restro_billstatus.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\vel_restro_empdepartment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

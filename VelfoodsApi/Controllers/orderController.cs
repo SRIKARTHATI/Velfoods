@@ -47,7 +47,7 @@ namespace VelfoodsApi.Controllers
                          join r in entity.vel_restro_restaurent on c.restaurent_id equals r.restaurent_id
                          where c.table_defination_id == ord.table_defination_id
                          where c.restaurent_id == ord.restaurent_id
-                         where c.order_status =="Running"
+                         //where c.order_status =="Running"
                          select new
                          {
                              c.order_id,
@@ -137,26 +137,74 @@ namespace VelfoodsApi.Controllers
                 
             }
         }
-
+        int count;
         [HttpPost]
         [Route("orderupdate")]
-        public IHttpActionResult update(vel_restro_order order)
+        public IHttpActionResult update(restroorder order)
         {
-            Boolean b = new order().update(order);
-            if (b)
+            quantity = order.quantity;
+            total = order.total;
+            string[] quan = quantity.Split(new char[] { ',' });
+            string[] totalamount = total.Split(new char[] { ',' });
+            using (velfoodsEntities2 ent = new velfoodsEntities2())
             {
-                re.code = 200;
-                re.message = "Item updated successfully";
-                return Content(HttpStatusCode.OK, re);
+                var ee = (from oitm in ent.vel_restro_order
+                          where oitm.order_status == "Running"
+                          where oitm.table_defination_id == order.table_defination_id
+                          where oitm.restaurent_id == order.restaurent_id
+                          select oitm).ToList();
+                int cou = ee.Count; 
+                if (ee.Count <= 0)
+                {
+                    count = 0;
+                }
+                else
+                {
+                    for (int i = 0; i < cou; i++)
+                    {
+                        int ordid = ee[i].order_id;
 
+                        vel_restro_order orders = (from cit in ent.vel_restro_order
+                                                   where cit.order_status == "Running"
+                                                   where cit.restaurent_id == order.restaurent_id
+                                                   where cit.table_defination_id == order.table_defination_id
+                                                   where cit.order_id == ordid
+                                                   select cit).FirstOrDefault();
+                        
+                        orders.order_quantity = Convert.ToInt32(quan[i]);
+                        orders.order_totalamount = Convert.ToDecimal(totalamount[i]);
+                        ent.SaveChanges();
+                    }
+                    count = 1;
+                }
+                if(count == 0)
+                {
+                    re.code = 100;
+                    re.message = "updated fail";
+                    return Content(HttpStatusCode.OK, re);
+                }
+                else
+                {
+                    re.code = 200;
+                    re.message = "updated sucessfully";
+                    return Content(HttpStatusCode.OK, re);
+                }
             }
-            else
-            {
-                re.code = 100;
-                re.message = "Item update fail please check the values";
-                return Content(HttpStatusCode.OK, re);
+            //Boolean b = new order().update(order);
+            //if (b)
+            //{
+            //    re.code = 200;
+            //    re.message = "Item updated successfully";
+            //    return Content(HttpStatusCode.OK, re);
 
-            }
+            //}
+            //else
+            //{
+            //    re.code = 100;
+            //    re.message = "Item update fail please check the values";
+            //    return Content(HttpStatusCode.OK, re);
+
+            //}
         } 
 
         [HttpPost]
