@@ -259,5 +259,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_billpayment">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
+        <MappingFragment StoreEntitySet="vel_restro_billpayment">
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="due_amount" ColumnName="due_amount" />
+          <ScalarProperty Name="bill_amount" ColumnName="bill_amount" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+          <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+          <ScalarProperty Name="payment_mode" ColumnName="payment_mode" />
+          <ScalarProperty Name="print_id" ColumnName="print_id" />
+          <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
+          <ScalarProperty Name="billment_id" ColumnName="billment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_billstatus">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billstatus">
+        <MappingFragment StoreEntitySet="vel_restro_billstatus">
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="billpayment_id" ColumnName="billpayment_id" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Billstatus" ColumnName="Billstatus" />
+          <ScalarProperty Name="billstatus_id" ColumnName="billstatus_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_print">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
+        <MappingFragment StoreEntitySet="vel_restro_print">
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="print_status" ColumnName="print_status" />
+          <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
+          <ScalarProperty Name="offers_id" ColumnName="offers_id" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
+          <ScalarProperty Name="print_id" ColumnName="print_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
