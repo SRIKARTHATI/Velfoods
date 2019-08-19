@@ -203,6 +203,9 @@
           <Property Name="discount_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="print_status" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
+          <Property Name="total_after_discount" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+          <Property Name="insert_date" Type="date" />
         </EntityType>
         <EntityType Name="vel_restro_property">
           <Key>
@@ -1526,6 +1529,9 @@
           <NavigationProperty Name="vel_restro_offers" Relationship="velfoodsModel.FK__vel_restr__offer__1F98B2C1" FromRole="vel_restro_print" ToRole="vel_restro_offers" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__1DB06A4F" FromRole="vel_restro_print" ToRole="vel_restro_restaurent" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="velfoodsModel.FK__vel_restr__table__1EA48E88" FromRole="vel_restro_print" ToRole="vel_restro_tabledefination" />
+          <Property Name="total_after_discount" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK__vel_restr__print__236943A5">
           <End Type="velfoodsModel.vel_restro_print" Role="vel_restro_print" Multiplicity="1" />
@@ -1932,6 +1938,9 @@
           <EntitySetMapping Name="vel_restro_print">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
               <MappingFragment StoreEntitySet="vel_restro_print">
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+                <ScalarProperty Name="total_after_discount" ColumnName="total_after_discount" />
                 <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
                 <ScalarProperty Name="print_status" ColumnName="print_status" />
                 <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
