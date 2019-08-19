@@ -38,5 +38,74 @@ namespace VelfoodsApi.Controllers
             re.message = "Data sucess";
             return re; 
         }
+        
+        [HttpPost]
+        [Route("billinsert")]
+        public IHttpActionResult insert(vel_restro_billpayment bills)
+        {
+            //int cc;
+            //using (velfoodsEntities2 en =new velfoodsEntities2())
+            //{
+            //    List<vel_restro_billpayment> list = new List<vel_restro_billpayment>();
+            //    list = en.vel_restro_billpayment.OrderBy(a => a.billment_id).ToList();
+            //    cc = list.Count;
+            //}
+
+            //vel_restro_billpayment bills = new vel_restro_billpayment();
+            //settle.table_defination_id = bills.table_defination_id;
+            //settle.print_id = bills.print_id;
+            //settle.payment_mode = bills.payment_mode;
+            //settle.bank_name = bills.bank_name;
+            //settle.transaction_id = bills.transaction_id;
+            //settle.amount = bills.amount;
+            //settle.bill_amount = bills.bill_amount;
+            //settle.due_amount = bills.due_amount;
+            //vel_restro_billstatus status = new vel_restro_billstatus();
+            //if (settle.payment_status == "pending")
+            //{
+            //    status.Billstatus = "pending";
+            //    settle.name = status.name;
+            //    settle.mobile_no = status.mobile_no;
+            //    settle.discription = status.discription;
+            //    status.billpayment_id = cc + 1;
+            //    settle.restaurent_id = status.restaurent_id;
+            //    entity.vel_restro_billstatus.Add(status);
+            //    entity.SaveChanges();
+            //}
+            //else if(settle.payment_status == "Complementory")
+            //{
+            //    status.Billstatus = "Complementory";
+            //    settle.name = status.name;
+            //    settle.mobile_no = status.mobile_no;
+            //    settle.discription = status.discription;
+            //    status.billpayment_id = cc + 1;
+            //    settle.restaurent_id = status.restaurent_id;
+            //    entity.vel_restro_billstatus.Add(status);
+            //    entity.SaveChanges();
+            //}
+            //else
+            //{
+            //settle.payment_status = bills.payment_status;
+            //settle.restaurent_id = bills.restaurent_id;
+            //entity.vel_restro_billpayment.Add(bills);
+            //entity.SaveChanges();
+            // }
+
+            Boolean bb = new billpayment().adding(bills);
+            if (bb)
+            {
+                entity.vel_restro_billpayment.Add(bills);
+                entity.SaveChanges();
+                re.code = 200;
+                re.Data = "inserted sucessfully";
+                return Content(HttpStatusCode.OK, re);
+            }
+            else
+            {
+                re.code = 100;
+                re.Data = "inserted fail";
+                return Content(HttpStatusCode.OK, re);
+            }
+        }
     }
 }

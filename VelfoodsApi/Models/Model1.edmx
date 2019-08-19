@@ -33,6 +33,9 @@
           <Property Name="due_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="payment_status" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="mobile_no" Type="bigint" />
+          <Property Name="reference" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="vel_restro_billstatus">
           <Key>
@@ -1498,6 +1501,9 @@
           <NavigationProperty Name="vel_restro_print" Relationship="velfoodsModel.FK__vel_restr__print__236943A5" FromRole="vel_restro_billpayment" ToRole="vel_restro_print" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__245D67DE" FromRole="vel_restro_billpayment" ToRole="vel_restro_restaurent" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="velfoodsModel.FK__vel_restr__table__22751F6C" FromRole="vel_restro_billpayment" ToRole="vel_restro_tabledefination" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="mobile_no" Type="Int64" />
+          <Property Name="reference" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vel_restro_billstatus">
           <Key>
@@ -1908,6 +1914,9 @@
           <EntitySetMapping Name="vel_restro_billpayment">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
               <MappingFragment StoreEntitySet="vel_restro_billpayment">
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
                 <ScalarProperty Name="payment_status" ColumnName="payment_status" />
                 <ScalarProperty Name="due_amount" ColumnName="due_amount" />
