@@ -221,7 +221,7 @@ namespace VelfoodsApi.Controllers
         [Route("ordinsert")]
         public IHttpActionResult ordinsert(vel_restro_order ord)
         {
-            int tablid, residd; string staus;
+            int tablid, residd,itemidd; string staus;
             var change = (from c in entity.vel_restro_order
                           where c.table_defination_id == ord.table_defination_id
                           where c.restaurent_id == ord.restaurent_id
@@ -232,6 +232,7 @@ namespace VelfoodsApi.Controllers
             {
                 tablid =Convert.ToInt32(change[i].table_defination_id);
                 residd = Convert.ToInt32(change[i].restaurent_id);
+                
                 staus = "Running";
                 if (tablid.Equals(ord.table_defination_id) && residd.Equals(ord.restaurent_id) && staus.Equals(ord.order_status))
                 {
