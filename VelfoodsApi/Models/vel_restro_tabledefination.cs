@@ -17,8 +17,8 @@ namespace VelfoodsApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public vel_restro_tabledefination()
         {
-            this.vel_restro_order = new HashSet<vel_restro_order>();
             this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
+            this.vel_restro_order = new HashSet<vel_restro_order>();
             this.vel_restro_print = new HashSet<vel_restro_print>();
         }
     
@@ -34,11 +34,11 @@ namespace VelfoodsApi.Models
         public string BACKGROUND_COLOR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
-        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
+        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }
 }

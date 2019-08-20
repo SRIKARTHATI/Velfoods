@@ -87,6 +87,7 @@ namespace VelfoodsApi.Models
                         off.minbill_amount = offers.minbill_amount;
                         off.maximum_bill_status = offers.maximum_bill_status;
                         off.maximum_bill_amount = offers.maximum_bill_amount;
+                        off.offers_status = offers.offers_status;
                         ent.SaveChanges();
                     }
                     return true;
