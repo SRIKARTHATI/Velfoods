@@ -38,6 +38,7 @@ namespace VelfoodsApi.Models
                     ee.BACKGROUND_COLOR = "Darkslategray";
                     entity.SaveChanges();
                     return true;
+                    
                 }
                 else
                 {
