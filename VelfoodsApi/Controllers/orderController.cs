@@ -74,6 +74,7 @@ namespace VelfoodsApi.Controllers
 
 
         String itemnames,Rate,quantity,tax,total,itemid;
+        String quant,tot;
         public static int kot;
         [HttpPost]
         [Route("Orderinsert")]
@@ -142,10 +143,10 @@ namespace VelfoodsApi.Controllers
         [Route("orderupdate")]
         public IHttpActionResult update(restroorder order)
         {
-            quantity = order.quantity;
-            total = order.total;
-            string[] quan = quantity.Split(new char[] { ',' });
-            string[] totalamount = total.Split(new char[] { ',' });
+            quant = order.quantity;
+            tot = order.total;
+            string[] quan = quant.Split(new char[] { ',' });
+            string[] totalamount = tot.Split(new char[] { ',' });
             using (velfoodsEntities2 ent = new velfoodsEntities2())
             {
                 var ee = (from oitm in ent.vel_restro_order
@@ -187,7 +188,10 @@ namespace VelfoodsApi.Controllers
                 {
                     re.code = 200;
                     re.message = "updated sucessfully";
+                    quant = "";
+                    tot = "";
                     return Content(HttpStatusCode.OK, re);
+                   
                 }
             }
             //Boolean b = new order().update(order);
