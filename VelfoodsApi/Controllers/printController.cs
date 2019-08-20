@@ -34,6 +34,29 @@ namespace VelfoodsApi.Controllers
             re.message = "Data success";
             return re;
         }
+        [HttpPost]
+        [Route("getprintid")]
+        public Responce getprintid(vel_restro_print print)
+        {
+            var ee = (from c in entity.vel_restro_print
+                      where c.restaurent_id == print.restaurent_id
+                      where c.table_defination_id ==print.table_defination_id
+                      where c.print_status =="printed"
+                      select new
+                      {
+                          c.print_id,
+                          c.total_amount,
+                          c.table_defination_id,
+                          c.offers_id,
+                          c.discount_amount,
+                          c.print_status,
+                          c.restaurent_id
+                      });
+            re.Data = ee;
+            re.code = 200;
+            re.message = "Data success";
+            return re;
+        }
 
         [HttpPost]
         [Route("printinsert")]
