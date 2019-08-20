@@ -17,6 +17,8 @@ namespace VelfoodsApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public vel_restro_restaurent()
         {
+            this.vel_restro_banks = new HashSet<vel_restro_banks>();
+            this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
             this.vel_restro_empdepartment = new HashSet<vel_restro_empdepartment>();
             this.vel_restro_empregistration = new HashSet<vel_restro_empregistration>();
             this.vel_restro_itemcategory = new HashSet<vel_restro_itemcategory>();
@@ -26,16 +28,11 @@ namespace VelfoodsApi.Models
             this.vel_restro_offers = new HashSet<vel_restro_offers>();
             this.vel_restro_order = new HashSet<vel_restro_order>();
             this.vel_restro_paidouts = new HashSet<vel_restro_paidouts>();
+            this.vel_restro_print = new HashSet<vel_restro_print>();
+            this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
             this.vel_restro_tax = new HashSet<vel_restro_tax>();
             this.vel_restro_tabledefination = new HashSet<vel_restro_tabledefination>();
             this.vel_restro_tablebooking = new HashSet<vel_restro_tablebooking>();
-            this.vel_restro_banks = new HashSet<vel_restro_banks>();
-            this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
-            this.vel_restro_billpayment = new HashSet<vel_restro_billpayment>();
-            this.vel_restro_billstatus = new HashSet<vel_restro_billstatus>();
-            this.vel_restro_billstatus1 = new HashSet<vel_restro_billstatus>();
-            this.vel_restro_billstatus2 = new HashSet<vel_restro_billstatus>();
-            this.vel_restro_print = new HashSet<vel_restro_print>();
         }
     
         public int restaurent_id { get; set; }
@@ -46,6 +43,10 @@ namespace VelfoodsApi.Models
         public string restrent_manger { get; set; }
         public int property_id { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_banks> vel_restro_banks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_empdepartment> vel_restro_empdepartment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -64,26 +65,16 @@ namespace VelfoodsApi.Models
         public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_paidouts> vel_restro_paidouts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
         public virtual vel_restro_property vel_restro_property { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tax> vel_restro_tax { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_banks> vel_restro_banks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_billstatus> vel_restro_billstatus2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
     }
 }

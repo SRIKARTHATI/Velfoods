@@ -19,7 +19,6 @@ namespace VelfoodsApi.Models
         {
             this.vel_restro_print = new HashSet<vel_restro_print>();
         }
-    
         public int offers_id { get; set; }
         public string promo_code_name { get; set; }
         public string promo_code { get; set; }
@@ -39,9 +38,12 @@ namespace VelfoodsApi.Models
         public Nullable<decimal> maximum_bill_amount { get; set; }
         public string maximum_bill_status { get; set; }
         public int restaurent_id { get; set; }
+        public string offers_status { get; set; }
+        public string insert_by { get; set; }
+        public Nullable<System.DateTime> insert_date { get; set; }
     
-        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
+        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }
 }

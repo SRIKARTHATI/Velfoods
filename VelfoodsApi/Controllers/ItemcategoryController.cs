@@ -54,7 +54,6 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
             }
         }
-
         [HttpPost]
         [Route("itemcatupdate")]
         public IHttpActionResult update(vel_restro_itemcategory itcate)

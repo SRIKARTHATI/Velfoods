@@ -25,6 +25,8 @@ namespace VelfoodsApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<vel_restro_banks> vel_restro_banks { get; set; }
+        public virtual DbSet<vel_restro_billpayment> vel_restro_billpayment { get; set; }
         public virtual DbSet<vel_restro_empdepartment> vel_restro_empdepartment { get; set; }
         public virtual DbSet<vel_restro_empregistration> vel_restro_empregistration { get; set; }
         public virtual DbSet<vel_restro_itemcategory> vel_restro_itemcategory { get; set; }
@@ -34,15 +36,12 @@ namespace VelfoodsApi.Models
         public virtual DbSet<vel_restro_offers> vel_restro_offers { get; set; }
         public virtual DbSet<vel_restro_order> vel_restro_order { get; set; }
         public virtual DbSet<vel_restro_paidouts> vel_restro_paidouts { get; set; }
+        public virtual DbSet<vel_restro_print> vel_restro_print { get; set; }
         public virtual DbSet<vel_restro_property> vel_restro_property { get; set; }
         public virtual DbSet<vel_restro_restaurent> vel_restro_restaurent { get; set; }
         public virtual DbSet<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
         public virtual DbSet<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
         public virtual DbSet<vel_restro_tax> vel_restro_tax { get; set; }
-        public virtual DbSet<vel_restro_banks> vel_restro_banks { get; set; }
         public virtual DbSet<vel_restro_wallet> vel_restro_wallet { get; set; }
-        public virtual DbSet<vel_restro_billpayment> vel_restro_billpayment { get; set; }
-        public virtual DbSet<vel_restro_billstatus> vel_restro_billstatus { get; set; }
-        public virtual DbSet<vel_restro_print> vel_restro_print { get; set; }
     }
 }

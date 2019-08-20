@@ -35,11 +35,11 @@ namespace VelfoodsApi.Models
         public string password { get; set; }
         public int restaurent_id { get; set; }
     
-        public virtual vel_restro_empdepartment vel_restro_empdepartment { get; set; }
-        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_banks> vel_restro_banks { get; set; }
+        public virtual vel_restro_empdepartment vel_restro_empdepartment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
+        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }
 }
