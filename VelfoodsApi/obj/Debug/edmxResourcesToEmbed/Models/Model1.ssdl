@@ -339,7 +339,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__vel_restr__offer__1F98B2C1">
+  <Association Name="FK__vel_restr__offer__2DE6D218">
     <End Role="vel_restro_offers" Type="Self.vel_restro_offers" Multiplicity="0..1" />
     <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="*" />
     <ReferentialConstraint>
@@ -642,7 +642,7 @@
       <End Role="vel_restro_itemname" EntitySet="vel_restro_itemname" />
       <End Role="vel_restro_order" EntitySet="vel_restro_order" />
     </AssociationSet>
-    <AssociationSet Name="FK__vel_restr__offer__1F98B2C1" Association="Self.FK__vel_restr__offer__1F98B2C1">
+    <AssociationSet Name="FK__vel_restr__offer__2DE6D218" Association="Self.FK__vel_restr__offer__2DE6D218">
       <End Role="vel_restro_offers" EntitySet="vel_restro_offers" />
       <End Role="vel_restro_print" EntitySet="vel_restro_print" />
     </AssociationSet>

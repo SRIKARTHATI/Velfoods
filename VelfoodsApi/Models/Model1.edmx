@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="vel_restro_banks">
           <Key>
             <PropertyRef Name="bank_id" />
@@ -344,7 +344,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__vel_restr__offer__1F98B2C1">
+        <Association Name="FK__vel_restr__offer__2DE6D218">
           <End Role="vel_restro_offers" Type="Self.vel_restro_offers" Multiplicity="0..1" />
           <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="*" />
           <ReferentialConstraint>
@@ -647,7 +647,7 @@
             <End Role="vel_restro_itemname" EntitySet="vel_restro_itemname" />
             <End Role="vel_restro_order" EntitySet="vel_restro_order" />
           </AssociationSet>
-          <AssociationSet Name="FK__vel_restr__offer__1F98B2C1" Association="Self.FK__vel_restr__offer__1F98B2C1">
+          <AssociationSet Name="FK__vel_restr__offer__2DE6D218" Association="Self.FK__vel_restr__offer__2DE6D218">
             <End Role="vel_restro_offers" EntitySet="vel_restro_offers" />
             <End Role="vel_restro_print" EntitySet="vel_restro_print" />
           </AssociationSet>
@@ -736,8 +736,7 @@
             <End Role="vel_restro_billpayment" EntitySet="vel_restro_billpayment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="velfoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
