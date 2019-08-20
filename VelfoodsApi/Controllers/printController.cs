@@ -34,7 +34,6 @@ namespace VelfoodsApi.Controllers
             re.message = "Data success";
             return re;
         }
-
         [HttpPost]
         [Route("printinsert")]
         public IHttpActionResult insert(vel_restro_print print)
