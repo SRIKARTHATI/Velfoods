@@ -703,6 +703,9 @@
     <NavigationProperty Name="vel_restro_print" Relationship="velfoodsModel.FK__vel_restr__print__236943A5" FromRole="vel_restro_billpayment" ToRole="vel_restro_print" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__245D67DE" FromRole="vel_restro_billpayment" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="velfoodsModel.FK__vel_restr__table__22751F6C" FromRole="vel_restro_billpayment" ToRole="vel_restro_tabledefination" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="mobile_no" Type="Int64" />
+    <Property Name="reference" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="vel_restro_billstatus">
     <Key>
@@ -734,6 +737,9 @@
     <NavigationProperty Name="vel_restro_offers" Relationship="velfoodsModel.FK__vel_restr__offer__1F98B2C1" FromRole="vel_restro_print" ToRole="vel_restro_offers" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__1DB06A4F" FromRole="vel_restro_print" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="velfoodsModel.FK__vel_restr__table__1EA48E88" FromRole="vel_restro_print" ToRole="vel_restro_tabledefination" />
+    <Property Name="total_after_discount" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+    <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="insert_date" Type="DateTime" Precision="0" />
   </EntityType>
   <Association Name="FK__vel_restr__print__236943A5">
     <End Type="velfoodsModel.vel_restro_print" Role="vel_restro_print" Multiplicity="1" />

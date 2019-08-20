@@ -262,6 +262,9 @@
     <EntitySetMapping Name="vel_restro_billpayment">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
         <MappingFragment StoreEntitySet="vel_restro_billpayment">
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
           <ScalarProperty Name="payment_status" ColumnName="payment_status" />
           <ScalarProperty Name="due_amount" ColumnName="due_amount" />
@@ -292,6 +295,9 @@
     <EntitySetMapping Name="vel_restro_print">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
         <MappingFragment StoreEntitySet="vel_restro_print">
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="total_after_discount" ColumnName="total_after_discount" />
           <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
           <ScalarProperty Name="print_status" ColumnName="print_status" />
           <ScalarProperty Name="discount_amount" ColumnName="discount_amount" />
