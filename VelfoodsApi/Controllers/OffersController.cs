@@ -10,7 +10,7 @@ namespace VelfoodsApi.Controllers
     {
         velfoodsEntities2 entity = new velfoodsEntities2();
         Responce re = new Responce();
-        int offersCount,seloff_count;
+        int offersCount,seloff_count,acoffersCount;
         [HttpPost]
         [Route("OfferAdding")]
         public IHttpActionResult addOffer(vel_restro_offers offers)
@@ -74,6 +74,9 @@ namespace VelfoodsApi.Controllers
                                     a.minbill_amount,
                                     a.maximum_bill_status,
                                     a.maximum_bill_amount,
+                                    a.offers_status,
+                                    a.insert_by,
+                                    a.insert_date,
                                 });
             offersCount = offers_list.AsQueryable().Count();
             if (offersCount.ToString() == "" || offersCount.ToString() == null || offersCount == 0)
@@ -91,42 +94,45 @@ namespace VelfoodsApi.Controllers
             return re;
         }
         [HttpPost]
-        [Route("SelectedOffer")]
-        public Responce SelectedOfferCount(vel_restro_offers restro_Offers)
+        [Route("ActiveOffers")]
+        public Responce ActiveOfers(vel_restro_offers restro_Offers)
         {
-            var selectedOffer = (from a in entity.vel_restro_offers
-                                 where restro_Offers.restaurent_id == a.restaurent_id
-                                 where restro_Offers.promo_code == a.promo_code
-                                 select new
-                                 {
-                                     a.offers_id,
-                                     a.promo_code_name,
-                                     a.promo_code,
-                                     a.percentage,
-                                     a.Active_dare_status,
-                                     a.from_date,
-                                     a.to_date,
-                                     a.Active_time_status,
-                                     a.from_time,
-                                     a.to_time,
-                                     a.Day_status,
-                                     a.Day_type,
-                                     a.Days,
-                                     a.minbill_status,
-                                     a.minbill_amount,
-                                     a.maximum_bill_status,
-                                     a.maximum_bill_amount,
-                                 });
-            seloff_count = selectedOffer.AsQueryable().Count();
-            if (seloff_count.ToString() == "" || seloff_count.ToString() == null || seloff_count == 0)
+            var offers_list = (from a in entity.vel_restro_offers
+                               where a.restaurent_id == restro_Offers.restaurent_id
+                               where a.offers_status == "Active"
+                               select new
+                               {
+                                   a.offers_id,
+                                   a.promo_code_name,
+                                   a.promo_code,
+                                   a.percentage,
+                                   a.Active_dare_status,
+                                   a.from_date,
+                                   a.to_date,
+                                   a.Active_time_status,
+                                   a.from_time,
+                                   a.to_time,
+                                   a.Day_status,
+                                   a.Day_type,
+                                   a.Days,
+                                   a.minbill_status,
+                                   a.minbill_amount,
+                                   a.maximum_bill_status,
+                                   a.maximum_bill_amount,
+                                   a.offers_status,
+                                   a.insert_by,
+                                   a.insert_date,
+                               });
+            acoffersCount = offers_list.AsQueryable().Count();
+            if (acoffersCount.ToString() == "" || acoffersCount.ToString() == null || acoffersCount == 0)
             {
-                re.Data = selectedOffer;
+                re.Data = offers_list;
                 re.code = 100;
                 re.message = "No Data found";
             }
             else
             {
-                re.Data = selectedOffer;
+                re.Data = offers_list;
                 re.code = 200;
                 re.message = "Data Successfull";
             }
