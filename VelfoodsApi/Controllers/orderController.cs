@@ -194,21 +194,7 @@ namespace VelfoodsApi.Controllers
                    
                 }
             }
-            //Boolean b = new order().update(order);
-            //if (b)
-            //{
-            //    re.code = 200;
-            //    re.message = "Item updated successfully";
-            //    return Content(HttpStatusCode.OK, re);
-
-            //}
-            //else
-            //{
-            //    re.code = 100;
-            //    re.message = "Item update fail please check the values";
-            //    return Content(HttpStatusCode.OK, re);
-
-            //}
+           
         } 
 
         [HttpPost]
@@ -229,6 +215,46 @@ namespace VelfoodsApi.Controllers
                 re.message = "Item delete fail please check the values";
                 return Content(HttpStatusCode.OK, re);
 
+            }
+        }
+        [HttpPost]
+        [Route("ordinsert")]
+        public IHttpActionResult ordinsert(vel_restro_order ord)
+        {
+            int tablid, residd; string staus;
+            var change = (from c in entity.vel_restro_order
+                          where c.table_defination_id == ord.table_defination_id
+                          where c.restaurent_id == ord.restaurent_id
+                          where c.order_status == "Running"
+                          select c).ToList();
+            int co = change.Count;
+            for(int i=0; i<co; i++)
+            {
+                tablid =Convert.ToInt32(change[i].table_defination_id);
+                residd = Convert.ToInt32(change[i].restaurent_id);
+                staus = "Running";
+                if (tablid.Equals(ord.table_defination_id) && residd.Equals(ord.restaurent_id) && staus.Equals(ord.order_status))
+                {
+                    count = 1;
+                }
+                else
+                {
+                    count = 0;
+                    entity.vel_restro_order.Add(ord);
+                    entity.SaveChanges();
+                }
+            }
+            if(count == 0)
+            {
+                re.code = 200;
+                re.message = "Item added successfully";
+                return Content(HttpStatusCode.OK, re);
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "item added fail please check the values";
+                return Content(HttpStatusCode.OK, re);
             }
         }
     }
