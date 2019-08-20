@@ -59,7 +59,7 @@ namespace VelfoodsApi.Controllers
         }
 
         [HttpPost]
-        [Route("printinsert")]
+        [Route("printinsert")] 
         public IHttpActionResult insert(vel_restro_print print)
         {
             Boolean b = new printClass().addprints(print);
