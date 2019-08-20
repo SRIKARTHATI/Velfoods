@@ -34,7 +34,6 @@ namespace VelfoodsApi.Controllers
             re.message = "Data success";
             return re;
         }
-
         [HttpPost]
         [Route("getprintid")]
         public Responce getprintid(vel_restro_print print)
@@ -64,7 +63,7 @@ namespace VelfoodsApi.Controllers
         public IHttpActionResult insert(vel_restro_print print)
         {
             Boolean b = new printClass().addprints(print);
-            if (b)
+            if (b == true)
             {
                 entity.vel_restro_print.Add(print);
                 entity.SaveChanges();
@@ -73,10 +72,16 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
 
             }
-            else
+            else if(b == false)
             {
                 re.code = 100;
                 re.message = "Data inserted fail please check the value";
+                return Content(HttpStatusCode.OK, re);
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "table not found";
                 return Content(HttpStatusCode.OK, re);
             }
         }
