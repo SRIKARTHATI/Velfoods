@@ -145,7 +145,7 @@ namespace VelfoodsApi.Controllers
                       select new
                       {
                           c.table_name
-                      });,ok
+                      });
             re.Data = ee;
             re.code = 200;
             re.message = "Data success";
