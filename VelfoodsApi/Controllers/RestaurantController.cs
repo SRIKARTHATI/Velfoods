@@ -18,7 +18,7 @@ namespace VelfoodsApi.Controllers
         public Responce gettingrestaurant(vel_restro_restaurent vres)
         {
             var ee = (from c in ve.vel_restro_restaurent
-                      where c.property_id == 1
+                      where c.restaurent_id ==vres.restaurent_id
                       select new
                       {
                           c.restaurent_id,

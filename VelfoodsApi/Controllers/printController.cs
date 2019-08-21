@@ -40,8 +40,8 @@ namespace VelfoodsApi.Controllers
         {
             var ee = (from c in entity.vel_restro_print
                       where c.restaurent_id == print.restaurent_id
-                      where c.table_defination_id ==print.table_defination_id
-                      where c.print_status =="Printed"
+                      where c.table_defination_id == print.table_defination_id
+                      where c.print_status == "Printed"
                       select new
                       {
                           c.print_id,
@@ -73,7 +73,7 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
 
             }
-            else if(b == false)
+            else if (b == false)
             {
                 re.code = 100;
                 re.message = "Data inserted fail please check the value";
