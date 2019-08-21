@@ -165,6 +165,7 @@
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\TableBookingController.cs" />
     <Compile Include="Controllers\TableDefinitionController.cs" />
+    <Compile Include="Controllers\tabletransferController.cs" />
     <Compile Include="Controllers\TaxController.cs" />
     <Compile Include="Controllers\WalletController.cs" />
     <Compile Include="Global.asax.cs">
@@ -253,6 +254,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vel_restro_tabledefination.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vel_restro_table_transfer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vel_restro_tax.cs">

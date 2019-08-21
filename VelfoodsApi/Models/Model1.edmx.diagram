@@ -50,6 +50,10 @@
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__6383C8BA" ManuallyRouted="false" />
         <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__66603565" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="velfoodsModel.vel_restro_table_transfer" Width="1.5" PointX="15.75" PointY="32.25" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__itemn__31B762FC" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__resta__30C33EC3" />
+        <AssociationConnector Association="velfoodsModel.FK__vel_restr__table__32AB8735" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

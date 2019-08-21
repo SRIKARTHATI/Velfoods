@@ -298,5 +298,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_table_transfer">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_table_transfer">
+        <MappingFragment StoreEntitySet="vel_restro_table_transfer">
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
+          <ScalarProperty Name="itemname_id" ColumnName="itemname_id" />
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="kot_id" ColumnName="kot_id" />
+          <ScalarProperty Name="table_t_tax_amount" ColumnName="table_t_tax_amount" />
+          <ScalarProperty Name="table_t_captain" ColumnName="table_t_captain" />
+          <ScalarProperty Name="table_t_status" ColumnName="table_t_status" />
+          <ScalarProperty Name="table_t_totalamount" ColumnName="table_t_totalamount" />
+          <ScalarProperty Name="table_t_quantity" ColumnName="table_t_quantity" />
+          <ScalarProperty Name="table_t_rate" ColumnName="table_t_rate" />
+          <ScalarProperty Name="table_t_itemname" ColumnName="table_t_itemname" />
+          <ScalarProperty Name="table_transfer_id" ColumnName="table_transfer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
