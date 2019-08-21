@@ -41,10 +41,9 @@ namespace VelfoodsApi.Controllers
 
         [HttpPost]
         [Route("tabletransfer")]
-        public IHttpActionResult transfer(vel_restro_table_transfer trans,int tid)
+        public IHttpActionResult transfer(vel_restro_table_transfer trans)
         {
             int tblid, resid;
-            string status;
             var ord = (from c in entity.vel_restro_order
                        where c.restaurent_id == trans.restaurent_id
                        where c.table_defination_id == trans.table_defination_id
@@ -65,7 +64,7 @@ namespace VelfoodsApi.Controllers
                     trans.table_t_tax_amount = Convert.ToDecimal(ord[i].order_tax_amount);
                     trans.restaurent_id = Convert.ToInt32(ord[i].restaurent_id);
                     trans.itemname_id = ord[i].itemname_id;
-                    trans.table_defination_id = tid;
+                    trans.table_defination_id = trans.tid;
                     entity.vel_restro_table_transfer.Add(trans);
                     entity.SaveChanges();
                 }
@@ -112,10 +111,16 @@ namespace VelfoodsApi.Controllers
                     trans.restaurent_id = Convert.ToInt32(ord[i].restaurent_id);
                     orderr.itemname_id = ord[i].itemname_id;
                     trans.itemname_id = ord[i].itemname_id;
-                    orderr.table_defination_id = tid;
-                    trans.table_defination_id = tid;
+                    orderr.table_defination_id = trans.tid;
+                    trans.table_defination_id = trans.tid;
                     entity.vel_restro_table_transfer.Add(trans);
                     entity.vel_restro_order.Add(orderr);
+                    entity.SaveChanges();
+                    vel_restro_tabledefination tbled = (from cc in entity.vel_restro_tabledefination
+                                                        where cc.restaurent_id == trans.restaurent_id
+                                                        where cc.table_defination_id == trans.tid
+                                                        select cc).FirstOrDefault();
+                    tbled.BACKGROUND_COLOR = "Orange";
                     entity.SaveChanges();
                 }
                 re.code = 200;
@@ -128,7 +133,39 @@ namespace VelfoodsApi.Controllers
                 re.message = "Table transfer fail";
                 return Content(HttpStatusCode.OK, re);
             }
+        }
 
+        [HttpPost]
+        [Route("occupied")]
+        public Responce occupied(vel_restro_tabledefination def)
+        {
+            var ee = (from c in entity.vel_restro_tabledefination
+                      where c.BACKGROUND_COLOR == "Orange"
+                      where c.restaurent_id == def.restaurent_id
+                      select new
+                      {
+                          c.table_name
+                      });
+            re.Data = ee;
+            re.code = 200;
+            re.message = "Data success";
+            return re;
+        }
+        [HttpPost]
+        [Route("vacant")]
+        public Responce vacant(vel_restro_tabledefination def)
+        {
+            var ee = (from c in entity.vel_restro_tabledefination
+                      where c.BACKGROUND_COLOR == "Green"
+                      where c.restaurent_id == def.restaurent_id
+                      select new
+                      {
+                          c.table_name
+                      });
+            re.Data = ee;
+            re.code = 200;
+            re.message = "Data success";
+            return re;
         }
     }
 }
