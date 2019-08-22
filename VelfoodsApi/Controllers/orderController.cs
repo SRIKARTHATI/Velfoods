@@ -47,7 +47,7 @@ namespace VelfoodsApi.Controllers
                          join r in entity.vel_restro_restaurent on c.restaurent_id equals r.restaurent_id
                          where c.table_defination_id == ord.table_defination_id
                          where c.restaurent_id == ord.restaurent_id
-                         //where c.order_status =="Running"
+                         where c.order_status =="Running"
                          select new
                          {
                              c.order_id,
@@ -62,6 +62,7 @@ namespace VelfoodsApi.Controllers
                              c.kot_id,
                              c.order_captain,
                              cc.table_pax,
+                             c.itemname_id,
                              r.restaurent_name
 
                          });
