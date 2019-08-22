@@ -7,6 +7,7 @@ namespace VelfoodsApi.Models
 {
     public class billpayment
     {
+        velfoodsEntities2 entity = new velfoodsEntities2();
         int billpaymentid, tableid, printid, count;
         public Boolean adding (vel_restro_billpayment bills)
         {
@@ -30,6 +31,11 @@ namespace VelfoodsApi.Models
             }
             if(count == 0)
             {
+                var ee = (from c in entity.vel_restro_tabledefination
+                          where c.table_defination_id == bills.table_defination_id
+                          select c).FirstOrDefault();
+                ee.BACKGROUND_COLOR = "Green";
+                entity.SaveChanges();
                 return true;
             }
             else
