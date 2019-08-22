@@ -62,6 +62,7 @@ namespace VelfoodsApi.Controllers
                              c.kot_id,
                              c.order_captain,
                              cc.table_pax,
+                             c.itemname_id,
                              r.restaurent_name
 
                          });
