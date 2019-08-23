@@ -173,4 +173,11 @@ public class restroorder
     public string total { get; set; }
 
     public string BACKGROUND_COLOR { get; set; }
+    
+    public string discount { get; set; }
+    public string plan { get; set; }
+    public decimal amount { get; set; }
+    public decimal parecel { get; set; }
+    public decimal t_total { get; set; }
+
 }
