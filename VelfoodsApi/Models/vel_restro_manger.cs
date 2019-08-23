@@ -22,6 +22,8 @@ namespace VelfoodsApi.Models
         public string manger_id_no { get; set; }
         public int restaurent_id { get; set; }
         public string manger_status { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
     
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }

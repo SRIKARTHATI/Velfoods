@@ -38,7 +38,35 @@ namespace VelfoodsApi.Controllers
             re.message = "Data sucess";
             return re; 
         }
-        
+
+        [HttpPost]
+        [Route("billsettle")]
+        public Responce billsettle(vel_restro_billpayment settle)
+        {
+            var billsettle = (from c in entity.vel_restro_billpayment
+                        where c.restaurent_id == settle.restaurent_id
+                       // where 
+                        select new
+                        {
+                            c.billment_id,
+                            c.table_defination_id,
+                            c.print_id,
+                            c.payment_mode,
+                            c.bank_name,
+                            c.transaction_id,
+                            c.amount,
+                            c.bill_amount,
+                            c.due_amount,
+                            c.payment_status,
+                            c.restaurent_id
+                        });
+            re.Data = billsettle;
+            re.code = 200;
+            re.message = "Data sucess";
+            return re;
+        }
+
+
         [HttpPost]
         [Route("billinsert")]
         public IHttpActionResult insert(vel_restro_billpayment bills)

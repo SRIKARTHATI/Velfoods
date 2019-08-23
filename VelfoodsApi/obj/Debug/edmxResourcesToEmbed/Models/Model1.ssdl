@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="vel_restro_Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admin_fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admin_mobilenumber" Type="bigint" Nullable="false" />
+    <Property Name="admin_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admin_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="insert_date" Type="date" />
+    <Property Name="admin_status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="vel_restro_banks">
     <Key>
       <PropertyRef Name="bank_id" />
@@ -106,6 +120,8 @@
     <Property Name="manger_id_no" Type="nvarchar" MaxLength="36" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
     <Property Name="manger_status" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="30" />
+    <Property Name="password" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="vel_restro_miscollection">
     <Key>
@@ -213,6 +229,7 @@
     <Property Name="property_pincode" Type="int" Nullable="false" />
     <Property Name="property_gst" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="property_country" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="admin_id" Type="int" />
   </EntityType>
   <EntityType Name="vel_restro_restaurent">
     <Key>
@@ -298,6 +315,18 @@
     <Property Name="empregistration_id" Type="int" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK__vel_restr__admin__3C34F16F">
+    <End Role="vel_restro_Admin" Type="Self.vel_restro_Admin" Multiplicity="0..1" />
+    <End Role="vel_restro_property" Type="Self.vel_restro_property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_Admin">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="vel_restro_property">
+        <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__vel_restr__empde__75A278F5">
     <End Role="vel_restro_empdepartment" Type="Self.vel_restro_empdepartment" Multiplicity="1" />
     <End Role="vel_restro_empregistration" Type="Self.vel_restro_empregistration" Multiplicity="*" />
@@ -659,6 +688,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="velfoodsModelStoreContainer">
+    <EntitySet Name="vel_restro_Admin" EntityType="Self.vel_restro_Admin" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_banks" EntityType="Self.vel_restro_banks" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_billpayment" EntityType="Self.vel_restro_billpayment" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_empdepartment" EntityType="Self.vel_restro_empdepartment" Schema="velfoods" store:Type="Tables" />
@@ -678,6 +708,10 @@
     <EntitySet Name="vel_restro_tabledefination" EntityType="Self.vel_restro_tabledefination" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_tax" EntityType="Self.vel_restro_tax" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_wallet" EntityType="Self.vel_restro_wallet" Schema="velfoods" store:Type="Tables" />
+    <AssociationSet Name="FK__vel_restr__admin__3C34F16F" Association="Self.FK__vel_restr__admin__3C34F16F">
+      <End Role="vel_restro_Admin" EntitySet="vel_restro_Admin" />
+      <End Role="vel_restro_property" EntitySet="vel_restro_property" />
+    </AssociationSet>
     <AssociationSet Name="FK__vel_restr__empde__75A278F5" Association="Self.FK__vel_restr__empde__75A278F5">
       <End Role="vel_restro_empdepartment" EntitySet="vel_restro_empdepartment" />
       <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
