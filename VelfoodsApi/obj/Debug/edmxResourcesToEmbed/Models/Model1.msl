@@ -18,6 +18,8 @@
     <EntitySetMapping Name="vel_restro_billpayment">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
         <MappingFragment StoreEntitySet="vel_restro_billpayment">
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
           <ScalarProperty Name="billment_id" ColumnName="billment_id" />
           <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
           <ScalarProperty Name="print_id" ColumnName="print_id" />

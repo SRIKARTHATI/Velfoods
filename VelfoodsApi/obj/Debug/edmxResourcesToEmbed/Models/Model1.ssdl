@@ -45,6 +45,8 @@
     <Property Name="name" Type="nvarchar" MaxLength="30" />
     <Property Name="mobile_no" Type="bigint" />
     <Property Name="reference" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_date" Type="date" />
   </EntityType>
   <EntityType Name="vel_restro_empdepartment">
     <Key>
