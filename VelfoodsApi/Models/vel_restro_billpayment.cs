@@ -28,6 +28,8 @@ namespace VelfoodsApi.Models
         public string name { get; set; }
         public Nullable<long> mobile_no { get; set; }
         public string reference { get; set; }
+        public string insert_by { get; set; }
+        public Nullable<System.DateTime> insert_date { get; set; }
     
         public virtual vel_restro_print vel_restro_print { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }

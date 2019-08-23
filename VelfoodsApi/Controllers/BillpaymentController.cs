@@ -45,7 +45,7 @@ namespace VelfoodsApi.Controllers
         {
             var billsettle = (from c in entity.vel_restro_billpayment
                         where c.restaurent_id == settle.restaurent_id
-                       // where 
+                        where c.insert_date ==DateTime.Today 
                         select new
                         {
                             c.billment_id,
@@ -122,6 +122,7 @@ namespace VelfoodsApi.Controllers
             Boolean bb = new billpayment().adding(bills);
             if (bb)
             {
+                bills.insert_date = DateTime.Today;
                 entity.vel_restro_billpayment.Add(bills);
                 entity.SaveChanges();
                 re.code = 200;

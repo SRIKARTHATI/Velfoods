@@ -50,6 +50,8 @@
           <Property Name="name" Type="nvarchar" MaxLength="30" />
           <Property Name="mobile_no" Type="bigint" />
           <Property Name="reference" Type="nvarchar" MaxLength="30" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+          <Property Name="insert_date" Type="date" />
         </EntityType>
         <EntityType Name="vel_restro_empdepartment">
           <Key>
@@ -878,6 +880,8 @@
           <NavigationProperty Name="vel_restro_print" Relationship="Self.FK__vel_restr__print__236943A5" FromRole="vel_restro_billpayment" ToRole="vel_restro_print" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__245D67DE" FromRole="vel_restro_billpayment" ToRole="vel_restro_restaurent" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__22751F6C" FromRole="vel_restro_billpayment" ToRole="vel_restro_tabledefination" />
+          <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="vel_restro_empdepartment">
           <Key>
@@ -1760,6 +1764,8 @@
           <EntitySetMapping Name="vel_restro_billpayment">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
               <MappingFragment StoreEntitySet="vel_restro_billpayment">
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
                 <ScalarProperty Name="billment_id" ColumnName="billment_id" />
                 <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
                 <ScalarProperty Name="print_id" ColumnName="print_id" />
