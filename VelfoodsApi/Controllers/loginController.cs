@@ -155,7 +155,7 @@ namespace VelfoodsApi.Controllers
                           select cash).ToList();
             int count2 = casier.Count;
             if(count >0 || count1 >0 ||count2 > 0)
-            {
+            { 
                 if (count > 0)
                 {
                     
