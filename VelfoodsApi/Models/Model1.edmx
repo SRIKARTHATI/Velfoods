@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="velfoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="vel_restro_Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_mobilenumber" Type="bigint" Nullable="false" />
+          <Property Name="admin_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="insert_date" Type="date" />
+          <Property Name="admin_status" Type="nvarchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="vel_restro_banks">
           <Key>
             <PropertyRef Name="bank_id" />
@@ -36,6 +50,8 @@
           <Property Name="name" Type="nvarchar" MaxLength="30" />
           <Property Name="mobile_no" Type="bigint" />
           <Property Name="reference" Type="nvarchar" MaxLength="30" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+          <Property Name="insert_date" Type="date" />
         </EntityType>
         <EntityType Name="vel_restro_empdepartment">
           <Key>
@@ -111,6 +127,8 @@
           <Property Name="manger_id_no" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
           <Property Name="manger_status" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="vel_restro_miscollection">
           <Key>
@@ -218,6 +236,7 @@
           <Property Name="property_pincode" Type="int" Nullable="false" />
           <Property Name="property_gst" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="property_country" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="admin_id" Type="int" />
         </EntityType>
         <EntityType Name="vel_restro_restaurent">
           <Key>
@@ -303,6 +322,18 @@
           <Property Name="empregistration_id" Type="int" Nullable="false" />
           <Property Name="restaurent_id" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK__vel_restr__admin__3C34F16F">
+          <End Role="vel_restro_Admin" Type="Self.vel_restro_Admin" Multiplicity="0..1" />
+          <End Role="vel_restro_property" Type="Self.vel_restro_property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_Admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="vel_restro_property">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__vel_restr__empde__75A278F5">
           <End Role="vel_restro_empdepartment" Type="Self.vel_restro_empdepartment" Multiplicity="1" />
           <End Role="vel_restro_empregistration" Type="Self.vel_restro_empregistration" Multiplicity="*" />
@@ -664,6 +695,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="velfoodsModelStoreContainer">
+          <EntitySet Name="vel_restro_Admin" EntityType="Self.vel_restro_Admin" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_banks" EntityType="Self.vel_restro_banks" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_billpayment" EntityType="Self.vel_restro_billpayment" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_empdepartment" EntityType="Self.vel_restro_empdepartment" Schema="velfoods" store:Type="Tables" />
@@ -683,6 +715,10 @@
           <EntitySet Name="vel_restro_tabledefination" EntityType="Self.vel_restro_tabledefination" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_tax" EntityType="Self.vel_restro_tax" Schema="velfoods" store:Type="Tables" />
           <EntitySet Name="vel_restro_wallet" EntityType="Self.vel_restro_wallet" Schema="velfoods" store:Type="Tables" />
+          <AssociationSet Name="FK__vel_restr__admin__3C34F16F" Association="Self.FK__vel_restr__admin__3C34F16F">
+            <End Role="vel_restro_Admin" EntitySet="vel_restro_Admin" />
+            <End Role="vel_restro_property" EntitySet="vel_restro_property" />
+          </AssociationSet>
           <AssociationSet Name="FK__vel_restr__empde__75A278F5" Association="Self.FK__vel_restr__empde__75A278F5">
             <End Role="vel_restro_empdepartment" EntitySet="vel_restro_empdepartment" />
             <End Role="vel_restro_empregistration" EntitySet="vel_restro_empregistration" />
@@ -844,6 +880,8 @@
           <NavigationProperty Name="vel_restro_print" Relationship="Self.FK__vel_restr__print__236943A5" FromRole="vel_restro_billpayment" ToRole="vel_restro_print" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__245D67DE" FromRole="vel_restro_billpayment" ToRole="vel_restro_restaurent" />
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__22751F6C" FromRole="vel_restro_billpayment" ToRole="vel_restro_tabledefination" />
+          <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="vel_restro_empdepartment">
           <Key>
@@ -932,6 +970,8 @@
           <Property Name="restaurent_id" Type="Int32" Nullable="false" />
           <Property Name="manger_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__59FA5E80" FromRole="vel_restro_manger" ToRole="vel_restro_restaurent" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vel_restro_miscollection">
           <Key>
@@ -1051,6 +1091,8 @@
           <Property Name="property_gst" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="property_country" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__prope__5441852A" FromRole="vel_restro_property" ToRole="vel_restro_restaurent" />
+          <Property Name="admin_id" Type="Int32" />
+          <NavigationProperty Name="vel_restro_Admin" Relationship="velfoodsModel.FK__vel_restr__admin__3C34F16F" FromRole="vel_restro_property" ToRole="vel_restro_Admin" />
         </EntityType>
         <EntityType Name="vel_restro_restaurent">
           <Key>
@@ -1608,6 +1650,11 @@
             <End Role="vel_restro_tabledefination" EntitySet="vel_restro_tabledefination" />
             <End Role="vel_restro_table_transfer" EntitySet="vel_restro_table_transfer" />
           </AssociationSet>
+          <EntitySet Name="vel_restro_Admin" EntityType="velfoodsModel.vel_restro_Admin" />
+          <AssociationSet Name="FK__vel_restr__admin__3C34F16F" Association="velfoodsModel.FK__vel_restr__admin__3C34F16F">
+            <End Role="vel_restro_Admin" EntitySet="vel_restro_Admin" />
+            <End Role="vel_restro_property" EntitySet="vel_restro_property" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="vel_restro_table_transfer">
           <Key>
@@ -1667,6 +1714,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vel_restro_Admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_mobilenumber" Type="Int64" Nullable="false" />
+          <Property Name="admin_email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="vel_restro_property" Relationship="velfoodsModel.FK__vel_restr__admin__3C34F16F" FromRole="vel_restro_Admin" ToRole="vel_restro_property" />
+          <Property Name="admin_status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__vel_restr__admin__3C34F16F">
+          <End Type="velfoodsModel.vel_restro_Admin" Role="vel_restro_Admin" Multiplicity="0..1" />
+          <End Type="velfoodsModel.vel_restro_property" Role="vel_restro_property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vel_restro_Admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="vel_restro_property">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1690,6 +1764,8 @@
           <EntitySetMapping Name="vel_restro_billpayment">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_billpayment">
               <MappingFragment StoreEntitySet="vel_restro_billpayment">
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
                 <ScalarProperty Name="billment_id" ColumnName="billment_id" />
                 <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />
                 <ScalarProperty Name="print_id" ColumnName="print_id" />
@@ -1776,6 +1852,8 @@
           <EntitySetMapping Name="vel_restro_manger">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_manger">
               <MappingFragment StoreEntitySet="vel_restro_manger">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="manger_id" ColumnName="manger_id" />
                 <ScalarProperty Name="manger_name" ColumnName="manger_name" />
                 <ScalarProperty Name="manger_mobile_no" ColumnName="manger_mobile_no" />
@@ -1884,6 +1962,7 @@
           <EntitySetMapping Name="vel_restro_property">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_property">
               <MappingFragment StoreEntitySet="vel_restro_property">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
                 <ScalarProperty Name="property_id" ColumnName="property_id" />
                 <ScalarProperty Name="property_name" ColumnName="property_name" />
                 <ScalarProperty Name="property_address" ColumnName="property_address" />
@@ -1987,6 +2066,21 @@
                 <ScalarProperty Name="table_t_rate" ColumnName="table_t_rate" />
                 <ScalarProperty Name="table_t_itemname" ColumnName="table_t_itemname" />
                 <ScalarProperty Name="table_transfer_id" ColumnName="table_transfer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vel_restro_Admin">
+            <EntityTypeMapping TypeName="velfoodsModel.vel_restro_Admin">
+              <MappingFragment StoreEntitySet="vel_restro_Admin">
+                <ScalarProperty Name="admin_status" ColumnName="admin_status" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+                <ScalarProperty Name="admin_mobilenumber" ColumnName="admin_mobilenumber" />
+                <ScalarProperty Name="admin_fullname" ColumnName="admin_fullname" />
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

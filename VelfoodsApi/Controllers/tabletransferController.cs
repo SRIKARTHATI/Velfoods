@@ -167,5 +167,25 @@ namespace VelfoodsApi.Controllers
             re.message = "Data success";
             return re;
         }
+
+        //[HttpPost]
+        //[Route("tableswap")]
+        //public IHttpActionResult swap(vel_restro_table_transfer tswap)
+        //{
+        //    var sw = (from c in entity.vel_restro_order
+        //               where c.restaurent_id == tswap.restaurent_id
+        //               where c.table_defination_id == tswap.table_defination_id
+        //               where c.order_status == "Running"
+        //               select c).ToList();
+        //    var swp = (from c in entity.vel_restro_order
+        //               where c.restaurent_id == tswap.restaurent_id
+        //               where c.table_defination_id == tswap.tid
+        //               where c.order_status == "Running"
+        //               select c).ToList();
+
+        //    int cnt = sw.Count;
+        //    int cntt = swp.Count;
+        //    return;
+        //}
     }
 }

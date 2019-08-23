@@ -124,6 +124,8 @@
     <Property Name="restaurent_id" Type="Int32" Nullable="false" />
     <Property Name="manger_status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__59FA5E80" FromRole="vel_restro_manger" ToRole="vel_restro_restaurent" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="vel_restro_miscollection">
     <Key>
@@ -243,6 +245,8 @@
     <Property Name="property_gst" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="property_country" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__prope__5441852A" FromRole="vel_restro_property" ToRole="vel_restro_restaurent" />
+    <Property Name="admin_id" Type="Int32" />
+    <NavigationProperty Name="vel_restro_Admin" Relationship="velfoodsModel.FK__vel_restr__admin__3C34F16F" FromRole="vel_restro_property" ToRole="vel_restro_Admin" />
   </EntityType>
   <EntityType Name="vel_restro_restaurent">
     <Key>
@@ -800,6 +804,11 @@
       <End Role="vel_restro_tabledefination" EntitySet="vel_restro_tabledefination" />
       <End Role="vel_restro_table_transfer" EntitySet="vel_restro_table_transfer" />
     </AssociationSet>
+    <EntitySet Name="vel_restro_Admin" EntityType="velfoodsModel.vel_restro_Admin" />
+    <AssociationSet Name="FK__vel_restr__admin__3C34F16F" Association="velfoodsModel.FK__vel_restr__admin__3C34F16F">
+      <End Role="vel_restro_Admin" EntitySet="vel_restro_Admin" />
+      <End Role="vel_restro_property" EntitySet="vel_restro_property" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="vel_restro_table_transfer">
     <Key>
@@ -856,6 +865,33 @@
       </Principal>
       <Dependent Role="vel_restro_table_transfer">
         <PropertyRef Name="table_defination_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vel_restro_Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="admin_fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="admin_mobilenumber" Type="Int64" Nullable="false" />
+    <Property Name="admin_email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="admin_password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="insert_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="vel_restro_property" Relationship="velfoodsModel.FK__vel_restr__admin__3C34F16F" FromRole="vel_restro_Admin" ToRole="vel_restro_property" />
+    <Property Name="admin_status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__vel_restr__admin__3C34F16F">
+    <End Type="velfoodsModel.vel_restro_Admin" Role="vel_restro_Admin" Multiplicity="0..1" />
+    <End Type="velfoodsModel.vel_restro_property" Role="vel_restro_property" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_Admin">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="vel_restro_property">
+        <PropertyRef Name="admin_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
