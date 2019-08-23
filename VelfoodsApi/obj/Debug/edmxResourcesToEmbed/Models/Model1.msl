@@ -165,6 +165,7 @@
     <EntitySetMapping Name="vel_restro_order">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_order">
         <MappingFragment StoreEntitySet="vel_restro_order">
+          <ScalarProperty Name="ordering_type" ColumnName="ordering_type" />
           <ScalarProperty Name="order_id" ColumnName="order_id" />
           <ScalarProperty Name="order_itemname" ColumnName="order_itemname" />
           <ScalarProperty Name="order_rate" ColumnName="order_rate" />
@@ -335,6 +336,22 @@
           <ScalarProperty Name="admin_fullname" ColumnName="admin_fullname" />
           <ScalarProperty Name="admin_username" ColumnName="admin_username" />
           <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_takeaway">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_takeaway">
+        <MappingFragment StoreEntitySet="vel_restro_takeaway">
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+          <ScalarProperty Name="takeaway_total" ColumnName="takeaway_total" />
+          <ScalarProperty Name="takeaway_parecel" ColumnName="takeaway_parecel" />
+          <ScalarProperty Name="takeaway_amount" ColumnName="takeaway_amount" />
+          <ScalarProperty Name="takeaway_plan" ColumnName="takeaway_plan" />
+          <ScalarProperty Name="takeaway_discount" ColumnName="takeaway_discount" />
+          <ScalarProperty Name="kot_id" ColumnName="kot_id" />
+          <ScalarProperty Name="takeaway_id" ColumnName="takeaway_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

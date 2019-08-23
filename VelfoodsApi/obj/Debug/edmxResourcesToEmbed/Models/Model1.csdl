@@ -189,11 +189,12 @@
     <Property Name="insert_by" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="insert_date" Type="DateTime" Precision="0" />
     <Property Name="kot_id" Type="Int32" />
-    <Property Name="order_captain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_captain" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="order_tax_amount" Type="Decimal" Precision="17" Scale="2" />
     <NavigationProperty Name="vel_restro_itemname" Relationship="Self.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_order" ToRole="vel_restro_itemname" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_order" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_order" ToRole="vel_restro_tabledefination" />
+    <Property Name="ordering_type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="vel_restro_paidouts">
     <Key>
@@ -279,6 +280,7 @@
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__resta__6383C8BA" FromRole="vel_restro_restaurent" ToRole="vel_restro_tabledefination" />
     <NavigationProperty Name="vel_restro_tablebooking" Relationship="Self.FK__vel_restr__resta__66603565" FromRole="vel_restro_restaurent" ToRole="vel_restro_tablebooking" />
     <NavigationProperty Name="vel_restro_table_transfer" Relationship="velfoodsModel.FK__vel_restr__resta__30C33EC3" FromRole="vel_restro_restaurent" ToRole="vel_restro_table_transfer" />
+    <NavigationProperty Name="vel_restro_takeaway" Relationship="velfoodsModel.FK__vel_restr__resta__3F115E1A" FromRole="vel_restro_restaurent" ToRole="vel_restro_takeaway" />
   </EntityType>
   <EntityType Name="vel_restro_tablebooking">
     <Key>
@@ -811,6 +813,11 @@
       <End Role="vel_restro_Admin" EntitySet="vel_restro_Admin" />
       <End Role="vel_restro_property" EntitySet="vel_restro_property" />
     </AssociationSet>
+    <EntitySet Name="vel_restro_takeaway" EntityType="velfoodsModel.vel_restro_takeaway" />
+    <AssociationSet Name="FK__vel_restr__resta__3F115E1A" Association="velfoodsModel.FK__vel_restr__resta__3F115E1A">
+      <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+      <End Role="vel_restro_takeaway" EntitySet="vel_restro_takeaway" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="vel_restro_table_transfer">
     <Key>
@@ -894,6 +901,34 @@
       </Principal>
       <Dependent Role="vel_restro_property">
         <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="vel_restro_takeaway">
+    <Key>
+      <PropertyRef Name="takeaway_id" />
+    </Key>
+    <Property Name="takeaway_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kot_id" Type="Int32" Nullable="false" />
+    <Property Name="takeaway_discount" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="takeaway_plan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="takeaway_amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="takeaway_parecel" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="takeaway_total" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="restaurent_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="vel_restro_restaurent" Relationship="velfoodsModel.FK__vel_restr__resta__3F115E1A" FromRole="vel_restro_takeaway" ToRole="vel_restro_restaurent" />
+    <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="insert_date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK__vel_restr__resta__3F115E1A">
+    <End Type="velfoodsModel.vel_restro_restaurent" Role="vel_restro_restaurent" Multiplicity="1" />
+    <End Type="velfoodsModel.vel_restro_takeaway" Role="vel_restro_takeaway" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_restaurent">
+        <PropertyRef Name="restaurent_id" />
+      </Principal>
+      <Dependent Role="vel_restro_takeaway">
+        <PropertyRef Name="restaurent_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
