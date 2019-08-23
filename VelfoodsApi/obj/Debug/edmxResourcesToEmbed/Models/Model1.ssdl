@@ -45,6 +45,8 @@
     <Property Name="name" Type="nvarchar" MaxLength="30" />
     <Property Name="mobile_no" Type="bigint" />
     <Property Name="reference" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_date" Type="date" />
   </EntityType>
   <EntityType Name="vel_restro_empdepartment">
     <Key>
@@ -180,8 +182,9 @@
     <Property Name="insert_by" Type="nvarchar" MaxLength="20" />
     <Property Name="insert_date" Type="date" />
     <Property Name="kot_id" Type="int" />
-    <Property Name="order_captain" Type="nvarchar" MaxLength="50" />
+    <Property Name="order_captain" Type="nvarchar" MaxLength="30" />
     <Property Name="order_tax_amount" Type="decimal" Precision="17" Scale="2" />
+    <Property Name="ordering_type" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="vel_restro_paidouts">
     <Key>
@@ -290,6 +293,21 @@
     <Property Name="table_steward" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="restaurent_id" Type="int" Nullable="false" />
     <Property Name="BACKGROUND_COLOR" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="vel_restro_takeaway">
+    <Key>
+      <PropertyRef Name="takeaway_id" />
+    </Key>
+    <Property Name="takeaway_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kot_id" Type="int" Nullable="false" />
+    <Property Name="takeaway_discount" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="takeaway_plan" Type="nvarchar" MaxLength="30" />
+    <Property Name="takeaway_amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="takeaway_parecel" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="takeaway_total" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="restaurent_id" Type="int" Nullable="false" />
+    <Property Name="insert_by" Type="nvarchar" MaxLength="30" />
+    <Property Name="insert_date" Type="date" />
   </EntityType>
   <EntityType Name="vel_restro_tax">
     <Key>
@@ -507,6 +525,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__vel_restr__resta__3F115E1A">
+    <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
+    <End Role="vel_restro_takeaway" Type="Self.vel_restro_takeaway" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_restaurent">
+        <PropertyRef Name="restaurent_id" />
+      </Principal>
+      <Dependent Role="vel_restro_takeaway">
+        <PropertyRef Name="restaurent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__vel_restr__resta__571DF1D5">
     <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
     <End Role="vel_restro_tax" Type="Self.vel_restro_tax" Multiplicity="*" />
@@ -706,6 +736,7 @@
     <EntitySet Name="vel_restro_table_transfer" EntityType="Self.vel_restro_table_transfer" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_tablebooking" EntityType="Self.vel_restro_tablebooking" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_tabledefination" EntityType="Self.vel_restro_tabledefination" Schema="velfoods" store:Type="Tables" />
+    <EntitySet Name="vel_restro_takeaway" EntityType="Self.vel_restro_takeaway" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_tax" EntityType="Self.vel_restro_tax" Schema="velfoods" store:Type="Tables" />
     <EntitySet Name="vel_restro_wallet" EntityType="Self.vel_restro_wallet" Schema="velfoods" store:Type="Tables" />
     <AssociationSet Name="FK__vel_restr__admin__3C34F16F" Association="Self.FK__vel_restr__admin__3C34F16F">
@@ -771,6 +802,10 @@
     <AssociationSet Name="FK__vel_restr__resta__30C33EC3" Association="Self.FK__vel_restr__resta__30C33EC3">
       <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
       <End Role="vel_restro_table_transfer" EntitySet="vel_restro_table_transfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vel_restr__resta__3F115E1A" Association="Self.FK__vel_restr__resta__3F115E1A">
+      <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+      <End Role="vel_restro_takeaway" EntitySet="vel_restro_takeaway" />
     </AssociationSet>
     <AssociationSet Name="FK__vel_restr__resta__571DF1D5" Association="Self.FK__vel_restr__resta__571DF1D5">
       <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />

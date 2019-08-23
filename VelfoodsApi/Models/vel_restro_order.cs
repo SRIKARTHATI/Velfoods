@@ -28,6 +28,7 @@ namespace VelfoodsApi.Models
         public Nullable<int> kot_id { get; set; }
         public string order_captain { get; set; }
         public Nullable<decimal> order_tax_amount { get; set; }
+        public string ordering_type { get; set; }
     
         public virtual vel_restro_itemname vel_restro_itemname { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }

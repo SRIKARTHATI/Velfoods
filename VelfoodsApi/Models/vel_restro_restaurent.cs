@@ -34,6 +34,7 @@ namespace VelfoodsApi.Models
             this.vel_restro_tabledefination = new HashSet<vel_restro_tabledefination>();
             this.vel_restro_tablebooking = new HashSet<vel_restro_tablebooking>();
             this.vel_restro_table_transfer = new HashSet<vel_restro_table_transfer>();
+            this.vel_restro_takeaway = new HashSet<vel_restro_takeaway>();
         }
     
         public int restaurent_id { get; set; }
@@ -79,5 +80,7 @@ namespace VelfoodsApi.Models
         public virtual ICollection<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_takeaway> vel_restro_takeaway { get; set; }
     }
 }
