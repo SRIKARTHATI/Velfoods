@@ -12,7 +12,8 @@ namespace VelfoodsApi.Controllers
     {
         velfoodsEntities2 entity = new velfoodsEntities2();
         Responce re = new Responce();
-
+        [HttpPost]
+        [Route("gettakeaways")]
         public Responce gettakeaway(vel_restro_order take)
         {
             var away = (from c in entity.vel_restro_order
