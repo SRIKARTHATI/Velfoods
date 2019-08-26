@@ -25,6 +25,7 @@ namespace VelfoodsApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<vel_restro_Admin> vel_restro_Admin { get; set; }
         public virtual DbSet<vel_restro_banks> vel_restro_banks { get; set; }
         public virtual DbSet<vel_restro_billpayment> vel_restro_billpayment { get; set; }
         public virtual DbSet<vel_restro_empdepartment> vel_restro_empdepartment { get; set; }
@@ -39,12 +40,11 @@ namespace VelfoodsApi.Models
         public virtual DbSet<vel_restro_print> vel_restro_print { get; set; }
         public virtual DbSet<vel_restro_property> vel_restro_property { get; set; }
         public virtual DbSet<vel_restro_restaurent> vel_restro_restaurent { get; set; }
+        public virtual DbSet<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
         public virtual DbSet<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
         public virtual DbSet<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
+        public virtual DbSet<vel_restro_takeaway> vel_restro_takeaway { get; set; }
         public virtual DbSet<vel_restro_tax> vel_restro_tax { get; set; }
         public virtual DbSet<vel_restro_wallet> vel_restro_wallet { get; set; }
-        public virtual DbSet<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
-        public virtual DbSet<vel_restro_Admin> vel_restro_Admin { get; set; }
-        public virtual DbSet<vel_restro_takeaway> vel_restro_takeaway { get; set; }
     }
 }

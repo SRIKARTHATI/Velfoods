@@ -15,8 +15,8 @@ namespace VelfoodsApi.Models
     public partial class vel_restro_billpayment
     {
         public int billment_id { get; set; }
-        public int table_defination_id { get; set; }
-        public int print_id { get; set; }
+        public Nullable<int> table_defination_id { get; set; }
+        public Nullable<int> print_id { get; set; }
         public string payment_mode { get; set; }
         public string bank_name { get; set; }
         public string transaction_id { get; set; }

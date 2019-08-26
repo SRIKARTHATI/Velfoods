@@ -30,11 +30,11 @@ namespace VelfoodsApi.Models
             this.vel_restro_paidouts = new HashSet<vel_restro_paidouts>();
             this.vel_restro_print = new HashSet<vel_restro_print>();
             this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
+            this.vel_restro_table_transfer = new HashSet<vel_restro_table_transfer>();
+            this.vel_restro_takeaway = new HashSet<vel_restro_takeaway>();
             this.vel_restro_tax = new HashSet<vel_restro_tax>();
             this.vel_restro_tabledefination = new HashSet<vel_restro_tabledefination>();
             this.vel_restro_tablebooking = new HashSet<vel_restro_tablebooking>();
-            this.vel_restro_table_transfer = new HashSet<vel_restro_table_transfer>();
-            this.vel_restro_takeaway = new HashSet<vel_restro_takeaway>();
         }
     
         public int restaurent_id { get; set; }
@@ -73,14 +73,14 @@ namespace VelfoodsApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_wallet> vel_restro_wallet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_takeaway> vel_restro_takeaway { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tax> vel_restro_tax { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tabledefination> vel_restro_tabledefination { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_tablebooking> vel_restro_tablebooking { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vel_restro_takeaway> vel_restro_takeaway { get; set; }
     }
 }

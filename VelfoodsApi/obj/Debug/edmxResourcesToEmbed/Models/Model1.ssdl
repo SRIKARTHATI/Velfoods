@@ -32,8 +32,8 @@
       <PropertyRef Name="billment_id" />
     </Key>
     <Property Name="billment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="table_defination_id" Type="int" Nullable="false" />
-    <Property Name="print_id" Type="int" Nullable="false" />
+    <Property Name="table_defination_id" Type="int" />
+    <Property Name="print_id" Type="int" />
     <Property Name="payment_mode" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="bank_name" Type="nvarchar" MaxLength="50" />
     <Property Name="transaction_id" Type="nvarchar" MaxLength="50" />
@@ -430,7 +430,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__vel_restr__print__236943A5">
-    <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="1" />
+    <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="0..1" />
     <End Role="vel_restro_billpayment" Type="Self.vel_restro_billpayment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="vel_restro_print">
@@ -694,7 +694,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__vel_restr__table__22751F6C">
-    <End Role="vel_restro_tabledefination" Type="Self.vel_restro_tabledefination" Multiplicity="1" />
+    <End Role="vel_restro_tabledefination" Type="Self.vel_restro_tabledefination" Multiplicity="0..1" />
     <End Role="vel_restro_billpayment" Type="Self.vel_restro_billpayment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="vel_restro_tabledefination">

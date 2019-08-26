@@ -43,8 +43,8 @@ namespace VelfoodsApi.Models
         public virtual vel_restro_itemcategory vel_restro_itemcategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
-        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_table_transfer> vel_restro_table_transfer { get; set; }
+        public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }
 }
