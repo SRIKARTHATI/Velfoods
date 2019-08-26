@@ -161,6 +161,7 @@
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\orderController.cs" />
     <Compile Include="Controllers\PaidoutsController.cs" />
+    <Compile Include="Controllers\planController.cs" />
     <Compile Include="Controllers\printController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
