@@ -246,6 +246,9 @@
     <Compile Include="Models\vel_restro_paidouts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vel_restro_plan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\vel_restro_print.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

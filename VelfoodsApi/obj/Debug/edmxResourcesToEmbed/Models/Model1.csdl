@@ -226,12 +226,24 @@
     <Property Name="restaurent_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__6C190EBB" FromRole="vel_restro_paidouts" ToRole="vel_restro_restaurent" />
   </EntityType>
+  <EntityType Name="vel_restro_plan">
+    <Key>
+      <PropertyRef Name="plan_id" />
+    </Key>
+    <Property Name="plan_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="plan_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="plan_percentage" Type="Int32" Nullable="false" />
+    <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="insert_date" Type="DateTime" Precision="0" />
+    <Property Name="restaurent_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__41EDCAC5" FromRole="vel_restro_plan" ToRole="vel_restro_restaurent" />
+  </EntityType>
   <EntityType Name="vel_restro_print">
     <Key>
       <PropertyRef Name="print_id" />
     </Key>
     <Property Name="print_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="table_defination_id" Type="Int32" Nullable="false" />
+    <Property Name="table_defination_id" Type="Int32" />
     <Property Name="total_amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="offers_id" Type="Int32" />
     <Property Name="discount_amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
@@ -240,6 +252,8 @@
     <Property Name="total_after_discount" Type="Decimal" Precision="17" Scale="2" Nullable="false" />
     <Property Name="insert_by" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="insert_date" Type="DateTime" Precision="0" />
+    <Property Name="parcel_charges" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="vel_restro_billpayment" Relationship="Self.FK__vel_restr__print__236943A5" FromRole="vel_restro_print" ToRole="vel_restro_billpayment" />
     <NavigationProperty Name="vel_restro_offers" Relationship="Self.FK__vel_restr__offer__2DE6D218" FromRole="vel_restro_print" ToRole="vel_restro_offers" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__1DB06A4F" FromRole="vel_restro_print" ToRole="vel_restro_restaurent" />
@@ -288,6 +302,7 @@
     <NavigationProperty Name="vel_restro_offers" Relationship="Self.FK__vel_restr__resta__693CA210" FromRole="vel_restro_restaurent" ToRole="vel_restro_offers" />
     <NavigationProperty Name="vel_restro_order" Relationship="Self.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_restaurent" ToRole="vel_restro_order" />
     <NavigationProperty Name="vel_restro_paidouts" Relationship="Self.FK__vel_restr__resta__6C190EBB" FromRole="vel_restro_restaurent" ToRole="vel_restro_paidouts" />
+    <NavigationProperty Name="vel_restro_plan" Relationship="Self.FK__vel_restr__resta__41EDCAC5" FromRole="vel_restro_restaurent" ToRole="vel_restro_plan" />
     <NavigationProperty Name="vel_restro_print" Relationship="Self.FK__vel_restr__resta__1DB06A4F" FromRole="vel_restro_restaurent" ToRole="vel_restro_print" />
     <NavigationProperty Name="vel_restro_property" Relationship="Self.FK__vel_restr__prope__5441852A" FromRole="vel_restro_restaurent" ToRole="vel_restro_property" />
     <NavigationProperty Name="vel_restro_wallet" Relationship="Self.FK__vel_restr__resta__1AD3FDA4" FromRole="vel_restro_restaurent" ToRole="vel_restro_wallet" />
@@ -661,6 +676,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__vel_restr__resta__41EDCAC5">
+    <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
+    <End Role="vel_restro_plan" Type="Self.vel_restro_plan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vel_restro_restaurent">
+        <PropertyRef Name="restaurent_id" />
+      </Principal>
+      <Dependent Role="vel_restro_plan">
+        <PropertyRef Name="restaurent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__vel_restr__resta__1DB06A4F">
     <End Role="vel_restro_restaurent" Type="Self.vel_restro_restaurent" Multiplicity="1" />
     <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="*" />
@@ -674,7 +701,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__vel_restr__table__1EA48E88">
-    <End Role="vel_restro_tabledefination" Type="Self.vel_restro_tabledefination" Multiplicity="1" />
+    <End Role="vel_restro_tabledefination" Type="Self.vel_restro_tabledefination" Multiplicity="0..1" />
     <End Role="vel_restro_print" Type="Self.vel_restro_print" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="vel_restro_tabledefination">
@@ -794,6 +821,7 @@
     <EntitySet Name="vel_restro_offers" EntityType="Self.vel_restro_offers" />
     <EntitySet Name="vel_restro_order" EntityType="Self.vel_restro_order" />
     <EntitySet Name="vel_restro_paidouts" EntityType="Self.vel_restro_paidouts" />
+    <EntitySet Name="vel_restro_plan" EntityType="Self.vel_restro_plan" />
     <EntitySet Name="vel_restro_print" EntityType="Self.vel_restro_print" />
     <EntitySet Name="vel_restro_property" EntityType="Self.vel_restro_property" />
     <EntitySet Name="vel_restro_restaurent" EntityType="Self.vel_restro_restaurent" />
@@ -890,6 +918,10 @@
     <AssociationSet Name="FK__vel_restr__resta__6C190EBB" Association="Self.FK__vel_restr__resta__6C190EBB">
       <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
       <End Role="vel_restro_paidouts" EntitySet="vel_restro_paidouts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__vel_restr__resta__41EDCAC5" Association="Self.FK__vel_restr__resta__41EDCAC5">
+      <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />
+      <End Role="vel_restro_plan" EntitySet="vel_restro_plan" />
     </AssociationSet>
     <AssociationSet Name="FK__vel_restr__resta__1DB06A4F" Association="Self.FK__vel_restr__resta__1DB06A4F">
       <End Role="vel_restro_restaurent" EntitySet="vel_restro_restaurent" />

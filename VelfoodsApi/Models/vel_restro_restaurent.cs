@@ -28,6 +28,7 @@ namespace VelfoodsApi.Models
             this.vel_restro_offers = new HashSet<vel_restro_offers>();
             this.vel_restro_order = new HashSet<vel_restro_order>();
             this.vel_restro_paidouts = new HashSet<vel_restro_paidouts>();
+            this.vel_restro_plan = new HashSet<vel_restro_plan>();
             this.vel_restro_print = new HashSet<vel_restro_print>();
             this.vel_restro_wallet = new HashSet<vel_restro_wallet>();
             this.vel_restro_table_transfer = new HashSet<vel_restro_table_transfer>();
@@ -67,6 +68,8 @@ namespace VelfoodsApi.Models
         public virtual ICollection<vel_restro_order> vel_restro_order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_paidouts> vel_restro_paidouts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<vel_restro_plan> vel_restro_plan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_print> vel_restro_print { get; set; }
         public virtual vel_restro_property vel_restro_property { get; set; }

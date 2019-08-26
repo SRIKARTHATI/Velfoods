@@ -213,6 +213,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vel_restro_plan">
+      <EntityTypeMapping TypeName="velfoodsModel.vel_restro_plan">
+        <MappingFragment StoreEntitySet="vel_restro_plan">
+          <ScalarProperty Name="plan_id" ColumnName="plan_id" />
+          <ScalarProperty Name="plan_name" ColumnName="plan_name" />
+          <ScalarProperty Name="plan_percentage" ColumnName="plan_percentage" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="restaurent_id" ColumnName="restaurent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vel_restro_print">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
         <MappingFragment StoreEntitySet="vel_restro_print">
@@ -226,6 +238,8 @@
           <ScalarProperty Name="total_after_discount" ColumnName="total_after_discount" />
           <ScalarProperty Name="insert_by" ColumnName="insert_by" />
           <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+          <ScalarProperty Name="parcel_charges" ColumnName="parcel_charges" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
