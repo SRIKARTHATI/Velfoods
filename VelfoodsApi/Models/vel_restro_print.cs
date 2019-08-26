@@ -21,7 +21,7 @@ namespace VelfoodsApi.Models
         }
     
         public int print_id { get; set; }
-        public int table_defination_id { get; set; }
+        public Nullable<int> table_defination_id { get; set; }
         public decimal total_amount { get; set; }
         public Nullable<int> offers_id { get; set; }
         public decimal discount_amount { get; set; }
@@ -31,6 +31,8 @@ namespace VelfoodsApi.Models
         public string insert_by { get; set; }
         public string table_name { get; set; }
         public Nullable<System.DateTime> insert_date { get; set; }
+        public Nullable<decimal> parcel_charges { get; set; }
+        public string status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }

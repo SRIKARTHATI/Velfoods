@@ -23,14 +23,13 @@ namespace VelfoodsApi.Models
         public string table_t_captain { get; set; }
         public decimal table_t_tax_amount { get; set; }
         public int kot_id { get; set; }
+        public int tid { get; set; }
         public int restaurent_id { get; set; }
         public int itemname_id { get; set; }
         public int table_defination_id { get; set; }
         public string insert_by { get; set; }
         public Nullable<System.DateTime> insert_date { get; set; }
-
-        public int tid { get; set; }
-
+    
         public virtual vel_restro_itemname vel_restro_itemname { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         public virtual vel_restro_tabledefination vel_restro_tabledefination { get; set; }

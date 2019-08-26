@@ -16,8 +16,8 @@ namespace VelfoodsApi.Models
             for(int i =0; i<cc; i++)
             {
                 billpaymentid = list[i].billment_id;
-                tableid = list[i].table_defination_id;
-                printid = list[i].print_id;
+                tableid =Convert.ToInt32(list[i].table_defination_id);
+                printid =Convert.ToInt32(list[i].print_id);
 
                 if (billpaymentid.Equals(bills.billment_id) && tableid.Equals(bills.table_defination_id) && printid.Equals(bills.print_id))
                 {
