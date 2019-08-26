@@ -12,18 +12,18 @@ namespace VelfoodsApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class vel_restro_manger
+    public partial class vel_restro_takeaway
     {
-        public int manger_id { get; set; }
-        public string manger_name { get; set; }
-        public long manger_mobile_no { get; set; }
-        public Nullable<long> manger_contact_no { get; set; }
-        public string manger_id_proof { get; set; }
-        public string manger_id_no { get; set; }
+        public int takeaway_id { get; set; }
+        public int kot_id { get; set; }
+        public string takeaway_discount { get; set; }
+        public string takeaway_plan { get; set; }
+        public Nullable<decimal> takeaway_amount { get; set; }
+        public Nullable<decimal> takeaway_parecel { get; set; }
+        public Nullable<decimal> takeaway_total { get; set; }
         public int restaurent_id { get; set; }
-        public string manger_status { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        public string insert_by { get; set; }
+        public Nullable<System.DateTime> insert_date { get; set; }
     
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
     }

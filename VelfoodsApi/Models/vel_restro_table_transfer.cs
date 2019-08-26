@@ -30,7 +30,7 @@ namespace VelfoodsApi.Models
         public Nullable<System.DateTime> insert_date { get; set; }
 
         public int tid { get; set; }
-    
+
         public virtual vel_restro_itemname vel_restro_itemname { get; set; }
         public virtual vel_restro_restaurent vel_restro_restaurent { get; set; }
         public virtual vel_restro_tabledefination vel_restro_tabledefination { get; set; }

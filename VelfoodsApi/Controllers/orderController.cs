@@ -19,6 +19,7 @@ namespace VelfoodsApi.Controllers
         {
             var order = (from c in entity.vel_restro_order
                          where c.restaurent_id == ord.restaurent_id
+                         where c.ordering_type =="Dinein"
                          select new
                          {
                              c.order_id,
@@ -127,11 +128,11 @@ namespace VelfoodsApi.Controllers
                     order.order_captain = ord.order_captain;
                     order.restaurent_id = ord.restaurent_id;
                     order.order_status = ord.order_status;
+                    order.ordering_type = "Dinein";
                     order.insert_by = "srikar";
                     order.insert_date = DateTime.Now.Date;
                     ent.vel_restro_order.Add(order);
                     ent.SaveChanges();
-                   
                 }
                 re.code = 200;
                 re.message = "items added sucessfully";
