@@ -35,8 +35,8 @@ namespace VelfoodsApi.Models
         public string property_country { get; set; }
         public Nullable<int> admin_id { get; set; }
     
+        public virtual vel_restro_Admin vel_restro_Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_restaurent> vel_restro_restaurent { get; set; }
-        public virtual vel_restro_Admin vel_restro_Admin { get; set; }
     }
 }

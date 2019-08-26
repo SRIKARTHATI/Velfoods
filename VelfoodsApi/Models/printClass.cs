@@ -19,7 +19,7 @@ namespace VelfoodsApi.Models
                 for(int i=0; i<cc; i++)
                 {
                     printid = list[i].print_id;
-                    tabledefinationid = list[i].table_defination_id;
+                    tabledefinationid =Convert.ToInt32(list[i].table_defination_id);
                     if (printid.Equals(print.print_id) && tabledefinationid.Equals(print.table_defination_id))
                     {
                         count = 1;
@@ -57,7 +57,7 @@ namespace VelfoodsApi.Models
                 for (int i = 0; i < cc; i++)
                 {
                     printid = list[i].print_id;
-                    tabledefinationid = list[i].table_defination_id;
+                    tabledefinationid = Convert.ToInt32(list[i].table_defination_id);
                     if (printid.Equals(print.print_id) && tabledefinationid.Equals(print.table_defination_id))
                     {
                         count = 1;
