@@ -29,7 +29,6 @@ namespace VelfoodsApi.Models
         public int restaurent_id { get; set; }
         public decimal total_after_discount { get; set; }
         public string insert_by { get; set; }
-        public string table_name { get; set; }
         public Nullable<System.DateTime> insert_date { get; set; }
         public Nullable<decimal> parcel_charges { get; set; }
         public string status { get; set; }
