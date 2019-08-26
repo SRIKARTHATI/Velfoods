@@ -11,5 +11,6 @@ namespace VelfoodsApi.Models
         public string message { get; set; }
         public int code { get; set; }
         public object Data { get; set; }
+        public int resid { get; set; }
     }
 }
