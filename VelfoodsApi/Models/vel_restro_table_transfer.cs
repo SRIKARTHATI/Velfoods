@@ -23,6 +23,7 @@ namespace VelfoodsApi.Models
         public string table_t_captain { get; set; }
         public decimal table_t_tax_amount { get; set; }
         public int kot_id { get; set; }
+
         public int tid { get; set; }
         public int restaurent_id { get; set; }
         public int itemname_id { get; set; }
