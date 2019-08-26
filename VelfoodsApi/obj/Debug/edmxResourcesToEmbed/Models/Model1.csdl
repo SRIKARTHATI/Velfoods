@@ -258,6 +258,7 @@
     <NavigationProperty Name="vel_restro_offers" Relationship="Self.FK__vel_restr__offer__2DE6D218" FromRole="vel_restro_print" ToRole="vel_restro_offers" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__1DB06A4F" FromRole="vel_restro_print" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__1EA48E88" FromRole="vel_restro_print" ToRole="vel_restro_tabledefination" />
+    <Property Name="table_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="vel_restro_property">
     <Key>

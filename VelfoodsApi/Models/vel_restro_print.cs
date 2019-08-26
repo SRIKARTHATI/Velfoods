@@ -32,6 +32,7 @@ namespace VelfoodsApi.Models
         public Nullable<System.DateTime> insert_date { get; set; }
         public Nullable<decimal> parcel_charges { get; set; }
         public string status { get; set; }
+        public string table_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
