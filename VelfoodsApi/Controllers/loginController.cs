@@ -160,15 +160,16 @@ namespace VelfoodsApi.Controllers
                 {
                     
                 }
-                if(count >1)
+                if(count1 >0)
                 {
                     resid = mangers[0].restaurent_id;
                 }
-                if (count > 2)
+                if (count2 > 0)
                 {
                     resid = casier[0].restaurent_id;
                 }
             }
+            re.resid = resid;
             re.code = 200;
             re.message = "Data success";
             return re;
