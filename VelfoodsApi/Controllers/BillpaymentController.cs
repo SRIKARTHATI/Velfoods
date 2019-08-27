@@ -17,7 +17,7 @@ namespace VelfoodsApi.Controllers
         [Route("Getbillpayemnts")]
         public Responce getbills(vel_restro_billpayment bills)
         {
-            var bill = (from c in entity.vel_restro_billpayment
+            var bill = (from c in entity.vel_restro_billpayment 
                         where c.restaurent_id == bills.restaurent_id
                         select new
                         {
