@@ -35,20 +35,28 @@ namespace VelfoodsApi.Models
                           where c.table_defination_id == bills.table_defination_id
                           where c.restaurent_id == bills.restaurent_id
                           select c).FirstOrDefault();
-                ee.BACKGROUND_COLOR = "Green";
-                entity.SaveChanges();
+                if(ee == null)
+                {
+
+                }
+                else
+                {
+                    ee.BACKGROUND_COLOR = "Green";
+                    entity.SaveChanges();
+                }
                 var r = (from c in entity.vel_restro_order
                           where c.table_defination_id == bills.table_defination_id
                           where c.restaurent_id == bills.restaurent_id
                           select c).FirstOrDefault();
-                r.order_status = "Settled";
-                entity.SaveChanges();
-                var p = (from c in entity.vel_restro_print
-                         where c.table_defination_id == bills.table_defination_id
-                         where c.restaurent_id == bills.restaurent_id
-                         select c).FirstOrDefault();
-                p.print_status = "Settled";
-                entity.SaveChanges();
+                if (r == null)
+                {
+
+                }
+                else
+                {
+                    r.order_status = "Close";
+                    entity.SaveChanges();
+                }
                 return true;
             }
             else
