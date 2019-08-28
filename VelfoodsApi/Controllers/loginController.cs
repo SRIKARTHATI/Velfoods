@@ -39,6 +39,12 @@ namespace VelfoodsApi.Controllers
                           where cash.empregistration_status =="Active"
                           select cash).ToList();
             int count2 = casier.Count;
+            var manger1 = (from cash in entity.vel_restro_empregistration
+                          join cash1 in entity.vel_restro_empdepartment on cash.empdepartement_id equals cash1.empdepartement_id
+                          where cash1.empdepartement_name == "manger"
+                          where cash.empregistration_status == "Active"
+                          select cash).ToList();
+            int mange1 = manger1.Count;
 
             if (count > 0 ||count1 >0 || count2 >0)
             {
@@ -63,7 +69,7 @@ namespace VelfoodsApi.Controllers
                         }
                     }
                 }
-                if (count1 > 0)
+                if (count1 > 0 ||mange1 >0)
                 {
                     for (int i = 0; i < count1; i++)
                     {
