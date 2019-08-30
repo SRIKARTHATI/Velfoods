@@ -46,7 +46,7 @@ namespace VelfoodsApi.Controllers
 
         [HttpPost]
         [Route("getitemwithcate")]
-        public Responce getwith(vel_restro_itemname iname)
+        public Responce getitemwithcate(vel_restro_itemname iname)
         {
             var cc = (from c in entity.vel_restro_itemname
                       join ca in entity.vel_restro_itemcategory on c.itemcategory_id equals ca.itemcategory_id
