@@ -68,6 +68,7 @@ namespace VelfoodsApi.Controllers
             Boolean b = new printClass().addprints(print);
             if (b == true)
             {
+                print.print_status = "Printed";
                 entity.vel_restro_print.Add(print);
                 entity.SaveChanges();
                 re.code = 200;
