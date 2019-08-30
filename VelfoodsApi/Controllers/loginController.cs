@@ -88,35 +88,44 @@ namespace VelfoodsApi.Controllers
                 }
                 if (count1 > 0)
                 {
-                    for (int i = 0; i < count1; i++)
+                    for (int j = 0; j < count1; j++)
                     {
-                        uname = mangers[i].username;
-                        pwd = mangers[i].password;
-                        id = mangers[i].restaurent_id;
-                        if (uname.Equals(aa.username) && pwd.Equals(aa.password))
+                        if (aa.username.Equals(mangers[j].username))
                         {
-                            resid = id;
-                            re.resid = id;
-                            re.user = uname;
-                            re.passw = "Manger";
-                            var ee = (from c in entity.vel_restro_restaurent
-                                      where c.restaurent_id == re.resid
-                                      select new
-                                      {
-                                          c.restaurent_name,
-                                          name = c.restaurent_name
-                                      }).ToList();
-                            int nt = ee.Count; if (nt > 0) { re.rname = ee[0].restaurent_name; }
-                            re.code = 200;
-                            re.message = "Manger Login successfully";
-                            cou = true;
-                          
-                        }
-                        else
-                        {
-                          //  break;
+                            for (int i = 0; i < count1; i++)
+                            {
+
+                                uname = mangers[i].username;
+                                pwd = mangers[i].password;
+                                id = mangers[i].restaurent_id;
+                                if (uname.Equals(aa.username) && pwd.Equals(aa.password))
+                                {
+                                    resid = id;
+                                    re.resid = id;
+                                    re.user = uname;
+                                    re.passw = "Manger";
+                                    var ee = (from c in entity.vel_restro_restaurent
+                                              where c.restaurent_id == re.resid
+                                              select new
+                                              {
+                                                  c.restaurent_name,
+                                                  name = c.restaurent_name
+                                              }).ToList();
+                                    int nt = ee.Count; if (nt > 0) { re.rname = ee[0].restaurent_name; }
+                                    re.code = 200;
+                                    re.message = "Manger Login successfully";
+                                    cou = true;
+
+                                }
+                                else
+                                {
+                                    //  break;
+                                }
+                            }
                         }
                     }
+                    
+                     
                     
                 }
                 if (count2 > 0)
