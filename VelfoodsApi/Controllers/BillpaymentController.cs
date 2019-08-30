@@ -73,7 +73,6 @@ namespace VelfoodsApi.Controllers
         {
             var billsettle = (from c in entity.vel_restro_billpayment
                               where c.restaurent_id == settle.restaurent_id
-                              where c.billment_id == settle.billment_id  
                               select new
                               {
                                   c.billment_id,
