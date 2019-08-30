@@ -45,6 +45,36 @@ namespace VelfoodsApi.Controllers
         }
 
         [HttpPost]
+        [Route("getitemwithcate")]
+        public Responce getwith(vel_restro_itemname iname)
+        {
+            var cc = (from c in entity.vel_restro_itemname
+                      join ca in entity.vel_restro_itemcategory on c.itemcategory_id equals ca.itemcategory_id
+                      where c.restaurent_id == iname.restaurent_id
+                      where c.itemcategory_id ==iname.itemcategory_id
+                      select new
+                      {
+                          c.itemname_id,
+                          c.itemname_item_name,
+                          c.itemname_description,
+                          c.itemname_reportingname,
+                          c.itemname_active_from,
+                          c.itemname_status,
+                          c.item_dinein_amount,
+                          c.item_dinein_tax,
+                          c.item_takeaway_amount,
+                          c.item_takeaway_tax,
+                          c.item_homedelivary_amount,
+                          c.item_homedelivary_tax,
+                          c.item_homedelivery_deliverycharges,
+                          c.itemcategory_id
+                      });
+            re.Data = cc;
+            re.message = "Data success";
+            re.code = 200;
+            return re;
+        }
+        [HttpPost]
         [Route("itemnameinsert")]
         public IHttpActionResult insert(vel_restro_itemname name)
         {
