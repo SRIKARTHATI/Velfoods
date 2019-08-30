@@ -100,6 +100,8 @@ namespace VelfoodsApi.Controllers
                              c.kot_id,
                              c.order_captain,
                              cc.table_pax,
+                             p.total_after_discount,
+                             p.print_id,
                              c.itemname_id,
                              r.restaurent_name
 
