@@ -39,6 +39,7 @@ namespace VelfoodsApi.Controllers
             re.code = 200;
             return re;
         }
+
         [HttpPost]
         [Route("getorderitems")]
         public Responce getitems(vel_restro_order ord)
@@ -73,7 +74,41 @@ namespace VelfoodsApi.Controllers
             return re;
         }
 
+        [HttpPost]
+        [Route("getorderprints")]
+        public Responce getprints(vel_restro_order ord)
+        {
+            var order = (from c in entity.vel_restro_order
+                         join cc in entity.vel_restro_tabledefination on c.table_defination_id equals cc.table_defination_id
+                         join r in entity.vel_restro_restaurent on c.restaurent_id equals r.restaurent_id
+                         join p in entity.vel_restro_print on cc.table_defination_id equals p.table_defination_id 
+                         where c.table_defination_id == ord.table_defination_id
+                         where c.restaurent_id == ord.restaurent_id
+                         where c.order_status == "Printed"
+                         where p.print_status =="Printed"
+                         select new
+                         {
+                             c.order_id,
+                             c.order_itemname,
+                             c.order_rate,
+                             c.order_quantity,
+                             c.order_totalamount,
+                             c.order_tax_amount,
+                             c.restaurent_id,
+                             c.table_defination_id,
+                             c.order_status,
+                             c.kot_id,
+                             c.order_captain,
+                             cc.table_pax,
+                             c.itemname_id,
+                             r.restaurent_name
 
+                         });
+            re.Data = order;
+            re.message = "Data sucess";
+            re.code = 200;
+            return re;
+        }
 
         String itemnames,Rate,quantity,tax,total,itemid;
         String quant,tot;

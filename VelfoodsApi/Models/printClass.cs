@@ -19,7 +19,7 @@ namespace VelfoodsApi.Models
                 for(int i=0; i<cc; i++)
                 {
                     printid = list[i].print_id;
-                    tabledefinationid = list[i].table_defination_id;
+                    tabledefinationid =Convert.ToInt32(list[i].table_defination_id);
                     if (printid.Equals(print.print_id) && tabledefinationid.Equals(print.table_defination_id))
                     {
                         count = 1;
@@ -32,11 +32,30 @@ namespace VelfoodsApi.Models
                 }
                 if(count == 0)
                 {
+                    var a = (from x in entity.vel_restro_order
+                             where x.table_defination_id == print.table_defination_id
+                             where x.order_status == "Running"
+                             select x).FirstOrDefault();
+                    if(a == null)
+                    { }
+                    else
+                    {
+                        a.order_status = "Printed";
+                        entity.SaveChanges();
+                    }
                     var ee = (from c in entity.vel_restro_tabledefination
                               where c.table_defination_id == print.table_defination_id
-                              select c).FirstOrDefault();
-                    ee.BACKGROUND_COLOR = "Darkslategray";
-                    entity.SaveChanges();
+                              select c).FirstOrDefault();       
+                    if(ee == null)
+                    {
+
+                    }
+                    else
+                    {
+                        ee.BACKGROUND_COLOR = "Darkslategray";
+                        entity.SaveChanges();
+                    }
+                    
                     return true;
                     
                 }
@@ -57,7 +76,7 @@ namespace VelfoodsApi.Models
                 for (int i = 0; i < cc; i++)
                 {
                     printid = list[i].print_id;
-                    tabledefinationid = list[i].table_defination_id;
+                    tabledefinationid = Convert.ToInt32(list[i].table_defination_id);
                     if (printid.Equals(print.print_id) && tabledefinationid.Equals(print.table_defination_id))
                     {
                         count = 1;

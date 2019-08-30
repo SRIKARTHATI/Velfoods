@@ -27,7 +27,8 @@ namespace VelfoodsApi.Controllers
                           c.offers_id,
                           c.discount_amount,
                           c.print_status,
-                          c.restaurent_id
+                          c.restaurent_id,
+                          c.table_name
                       });
             re.Data = ee;
             re.code = 200;
@@ -40,7 +41,7 @@ namespace VelfoodsApi.Controllers
         {
             var ee = (from c in entity.vel_restro_print
                       where c.restaurent_id == print.restaurent_id
-                      where c.table_defination_id == print.table_defination_id
+                      where c.table_name == print.table_name
                       where c.print_status == "Printed"
                       select new
                       {
@@ -51,7 +52,8 @@ namespace VelfoodsApi.Controllers
                           c.total_after_discount,
                           c.discount_amount,
                           c.print_status,
-                          c.restaurent_id
+                          c.restaurent_id,
+                          c.table_name
                       });
             re.Data = ee;
             re.code = 200;
@@ -66,6 +68,7 @@ namespace VelfoodsApi.Controllers
             Boolean b = new printClass().addprints(print);
             if (b == true)
             {
+                print.print_status = "Printed";
                 entity.vel_restro_print.Add(print);
                 entity.SaveChanges();
                 re.code = 200;
