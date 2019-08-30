@@ -32,6 +32,17 @@ namespace VelfoodsApi.Models
                 }
                 if(count == 0)
                 {
+                    var a = (from x in entity.vel_restro_order
+                             where x.table_defination_id == print.table_defination_id
+                             where x.order_status == "Running"
+                             select x).FirstOrDefault();
+                    if(a == null)
+                    { }
+                    else
+                    {
+                        a.order_status = "Printed";
+                        entity.SaveChanges();
+                    }
                     var ee = (from c in entity.vel_restro_tabledefination
                               where c.table_defination_id == print.table_defination_id
                               select c).FirstOrDefault();       
