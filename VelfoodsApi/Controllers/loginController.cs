@@ -58,7 +58,7 @@ namespace VelfoodsApi.Controllers
             int count2 = casier.Count;
             var manger1 = (from cash in entity.vel_restro_empregistration
                           join cash1 in entity.vel_restro_empdepartment on cash.empdepartement_id equals cash1.empdepartement_id
-                          where cash1.empdepartement_name == "manger"
+                          where cash1.empdepartement_name == "Manager"
                            where cash.empregistration_status == "Active"
                           select cash).ToList();
             int mange1 = manger1.Count;

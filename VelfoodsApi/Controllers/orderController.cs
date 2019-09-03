@@ -100,6 +100,8 @@ namespace VelfoodsApi.Controllers
                              c.kot_id,
                              c.order_captain,
                              cc.table_pax,
+                             p.total_after_discount,
+                             p.print_id,
                              c.itemname_id,
                              r.restaurent_name
 
@@ -162,7 +164,7 @@ namespace VelfoodsApi.Controllers
                     tbls.BACKGROUND_COLOR = "Orange";
                     order.order_captain = ord.order_captain;
                     order.restaurent_id = ord.restaurent_id;
-                    order.order_status = ord.order_status;
+                    order.order_status = "Running";
                     order.ordering_type = "Dinein";
                     order.insert_by = "srikar";
                     order.insert_date = DateTime.Now.Date;
@@ -238,7 +240,7 @@ namespace VelfoodsApi.Controllers
         [Route("orderDelete")]
         public IHttpActionResult delete(vel_restro_order order)
         {
-            Boolean b = new order().update(order);
+            Boolean b = new order().Delete(order);
             if (b)
             {
                 re.code = 200;

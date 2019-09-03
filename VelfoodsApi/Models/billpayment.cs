@@ -31,32 +31,6 @@ namespace VelfoodsApi.Models
             }
             if(count == 0)
             {
-                var ee = (from c in entity.vel_restro_tabledefination
-                          where c.table_defination_id == bills.table_defination_id
-                          where c.restaurent_id == bills.restaurent_id
-                          select c).FirstOrDefault();
-                if(ee == null)
-                {
-
-                }
-                else
-                {
-                    ee.BACKGROUND_COLOR = "Green";
-                    entity.SaveChanges();
-                }
-                var r = (from c in entity.vel_restro_order
-                          where c.table_defination_id == bills.table_defination_id
-                          where c.restaurent_id == bills.restaurent_id
-                          select c).FirstOrDefault();
-                if (r == null)
-                {
-
-                }
-                else
-                {
-                    r.order_status = "Close";
-                    entity.SaveChanges();
-                }
                 return true;
             }
             else

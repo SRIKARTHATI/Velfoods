@@ -73,7 +73,6 @@ namespace VelfoodsApi.Controllers
         {
             var billsettle = (from c in entity.vel_restro_billpayment
                               where c.restaurent_id == settle.restaurent_id
-                              where c.billment_id == settle.billment_id  
                               select new
                               {
                                   c.billment_id,
@@ -151,6 +150,48 @@ namespace VelfoodsApi.Controllers
             Boolean bb = new billpayment().adding(bills);
             if (bb)
             {
+
+                var ee = (from c in entity.vel_restro_tabledefination
+                          where c.table_defination_id == bills.table_defination_id
+                          where c.restaurent_id == bills.restaurent_id
+                          select c).FirstOrDefault();
+                if (ee == null)
+                {
+
+                }
+                else
+                {
+                    ee.BACKGROUND_COLOR = "Green";
+                    entity.SaveChanges();
+                }
+                var r = (from c in entity.vel_restro_order
+                         where c.table_defination_id == bills.table_defination_id
+                         where c.restaurent_id == bills.restaurent_id
+                         where c.order_status == "Printed"
+                         select c).FirstOrDefault();
+                if (r == null)
+                {
+
+                }
+                else
+                {
+                    r.order_status = "Close";
+                    entity.SaveChanges();
+                }
+                var rr = (from c in entity.vel_restro_print
+                          where c.table_defination_id == bills.table_defination_id
+                          where c.restaurent_id == bills.restaurent_id
+                          where c.print_status == "Printed"
+                          select c).FirstOrDefault();
+                if (r == null)
+                {
+
+                }
+                else
+                {
+                    rr.print_status = "Close";
+                    entity.SaveChanges();
+                }
                 bills.insert_date = DateTime.Today;
                 entity.vel_restro_billpayment.Add(bills);
                 entity.SaveChanges();
