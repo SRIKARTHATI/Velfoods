@@ -212,5 +212,11 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
             }
         }
+        //[HttpPost]
+        //[Route("getbillitems")]
+        //public Responce getbillitems()
+        //{
+
+        //}
     }
 }
