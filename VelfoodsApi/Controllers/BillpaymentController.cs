@@ -212,11 +212,29 @@ namespace VelfoodsApi.Controllers
                 return Content(HttpStatusCode.OK, re);
             }
         }
-        //[HttpPost]
-        //[Route("getbillitems")]
-        //public Responce getbillitems()
-        //{
-
-        //}
+        [HttpPost]
+        [Route("getbillitems")]
+        public Responce getbillitems(vel_restro_billpayment getitems)
+        {
+            var res = (from c in entity.vel_restro_order
+                       join cc in entity.vel_restro_print on c.kot_id equals cc.kot_id
+                       join bb in entity.vel_restro_billpayment on cc.print_id equals bb.print_id
+                       where c.restaurent_id == getitems.restaurent_id
+                       where bb.billment_id == getitems.billment_id
+                       select new
+                       {
+                           c.order_itemname,
+                           c.order_quantity,
+                           c.order_rate,
+                           c.order_tax_amount,
+                           c.order_totalamount,
+                           bb.billment_id,
+                           
+                       });
+            re.Data = res;
+            re.code = 200;
+            re.message = "Data Sucess";
+            return re;
+        }
     }
 }
