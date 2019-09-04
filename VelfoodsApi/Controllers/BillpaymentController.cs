@@ -72,12 +72,18 @@ namespace VelfoodsApi.Controllers
         public Responce billsettleid(vel_restro_billpayment settle)
         {
             var billsettle = (from c in entity.vel_restro_billpayment
+                              join ct in entity.vel_restro_tabledefination on c.table_defination_id equals ct.table_defination_id
+                              join cp in entity.vel_restro_print on c.print_id equals cp.print_id
                               where c.restaurent_id == settle.restaurent_id
                               select new
                               {
                                   c.billment_id,
                                   c.table_defination_id,
-                                  c.print_id,
+                                  ct.table_name,
+                                  cp.print_id,
+                                  cp.total_amount,
+                                  cp.discount_amount,
+                                  cp.total_after_discount,
                                   c.payment_mode,
                                   c.bank_name,
                                   c.transaction_id,
