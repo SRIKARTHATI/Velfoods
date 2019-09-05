@@ -234,6 +234,7 @@
           <Property Name="status" Type="nvarchar" MaxLength="30" />
           <Property Name="table_name" Type="nvarchar" MaxLength="30" />
           <Property Name="kot_id" Type="int" />
+          <Property Name="total_tax_amount" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="vel_restro_property">
           <Key>
@@ -1169,6 +1170,7 @@
           <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__1EA48E88" FromRole="vel_restro_print" ToRole="vel_restro_tabledefination" />
           <Property Name="table_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="kot_id" Type="Int32" />
+          <Property Name="total_tax_amount" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="vel_restro_property">
           <Key>
@@ -2108,6 +2110,7 @@
           <EntitySetMapping Name="vel_restro_print">
             <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
               <MappingFragment StoreEntitySet="vel_restro_print">
+                <ScalarProperty Name="total_tax_amount" ColumnName="total_tax_amount" />
                 <ScalarProperty Name="kot_id" ColumnName="kot_id" />
                 <ScalarProperty Name="table_name" ColumnName="table_name" />
                 <ScalarProperty Name="print_id" ColumnName="print_id" />

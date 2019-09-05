@@ -34,6 +34,7 @@ namespace VelfoodsApi.Models
         public string status { get; set; }
         public string table_name { get; set; }
         public Nullable<int> kot_id { get; set; }
+        public Nullable<decimal> total_tax_amount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<vel_restro_billpayment> vel_restro_billpayment { get; set; }
