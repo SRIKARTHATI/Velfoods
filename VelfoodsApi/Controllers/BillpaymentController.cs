@@ -226,7 +226,7 @@ namespace VelfoodsApi.Controllers
                            c.order_itemname,
                            c.order_quantity,
                            c.order_rate,
-                           c.order_tax_amount,
+                           order_tax_amount = ((c.order_rate * c.order_quantity) *c.order_tax_amount)/100,
                            c.order_totalamount,
                            bb.billment_id,
                            
