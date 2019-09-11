@@ -50,6 +50,7 @@ namespace VelfoodsApi.Controllers
                          where c.table_defination_id == ord.table_defination_id
                          where c.restaurent_id == ord.restaurent_id
                          where c.order_status =="Running"
+                         where c.Statusorder ==1
                          select new
                          {
                              c.order_id,
@@ -169,6 +170,7 @@ namespace VelfoodsApi.Controllers
                     order.ordering_type = "Dinein";
                     order.insert_by = "srikar";
                     order.insert_date = DateTime.Now.Date;
+                    order.Statusorder = 0;
                     ent.vel_restro_order.Add(order);
                     ent.SaveChanges();
                 }

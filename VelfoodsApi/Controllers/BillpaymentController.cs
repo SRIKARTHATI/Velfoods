@@ -182,6 +182,7 @@ namespace VelfoodsApi.Controllers
                 else
                 {
                     r.order_status = "Close";
+                    r.Statusorder = 1;
                     entity.SaveChanges();
                 }
                 var rr = (from c in entity.vel_restro_print
