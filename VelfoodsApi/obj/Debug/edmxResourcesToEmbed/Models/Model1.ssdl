@@ -228,6 +228,8 @@
     <Property Name="parcel_charges" Type="decimal" Precision="18" Scale="0" />
     <Property Name="status" Type="nvarchar" MaxLength="30" />
     <Property Name="table_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="kot_id" Type="int" />
+    <Property Name="total_tax_amount" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="vel_restro_property">
     <Key>

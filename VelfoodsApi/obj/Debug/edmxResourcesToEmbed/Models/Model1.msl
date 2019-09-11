@@ -228,6 +228,8 @@
     <EntitySetMapping Name="vel_restro_print">
       <EntityTypeMapping TypeName="velfoodsModel.vel_restro_print">
         <MappingFragment StoreEntitySet="vel_restro_print">
+          <ScalarProperty Name="total_tax_amount" ColumnName="total_tax_amount" />
+          <ScalarProperty Name="kot_id" ColumnName="kot_id" />
           <ScalarProperty Name="table_name" ColumnName="table_name" />
           <ScalarProperty Name="print_id" ColumnName="print_id" />
           <ScalarProperty Name="table_defination_id" ColumnName="table_defination_id" />

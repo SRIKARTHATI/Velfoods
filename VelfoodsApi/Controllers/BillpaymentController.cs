@@ -72,12 +72,18 @@ namespace VelfoodsApi.Controllers
         public Responce billsettleid(vel_restro_billpayment settle)
         {
             var billsettle = (from c in entity.vel_restro_billpayment
+                              join ct in entity.vel_restro_tabledefination on c.table_defination_id equals ct.table_defination_id
+                              join cp in entity.vel_restro_print on c.print_id equals cp.print_id
                               where c.restaurent_id == settle.restaurent_id
                               select new
                               {
                                   c.billment_id,
                                   c.table_defination_id,
-                                  c.print_id,
+                                  ct.table_name,
+                                  cp.print_id,
+                                  cp.total_amount,
+                                  cp.discount_amount,
+                                  cp.total_after_discount,
                                   c.payment_mode,
                                   c.bank_name,
                                   c.transaction_id,
@@ -176,6 +182,7 @@ namespace VelfoodsApi.Controllers
                 else
                 {
                     r.order_status = "Close";
+                    r.Statusorder = 1;
                     entity.SaveChanges();
                 }
                 var rr = (from c in entity.vel_restro_print
@@ -205,6 +212,30 @@ namespace VelfoodsApi.Controllers
                 re.Data = "inserted fail";
                 return Content(HttpStatusCode.OK, re);
             }
+        }
+        [HttpPost]
+        [Route("getbillitems")]
+        public Responce getbillitems(vel_restro_billpayment getitems)
+        {
+            var res = (from c in entity.vel_restro_order
+                       join cc in entity.vel_restro_print on c.kot_id equals cc.kot_id
+                       join bb in entity.vel_restro_billpayment on cc.print_id equals bb.print_id
+                       where c.restaurent_id == getitems.restaurent_id
+                       where bb.billment_id == getitems.billment_id
+                       select new
+                       {
+                           c.order_itemname,
+                           c.order_quantity,
+                           c.order_rate,
+                           order_tax_amount = ((c.order_rate * c.order_quantity) *c.order_tax_amount)/100,
+                           c.order_totalamount,
+                           bb.billment_id,
+                           
+                       });
+            re.Data = res;
+            re.code = 200;
+            re.message = "Data Sucess";
+            return re;
         }
     }
 }
