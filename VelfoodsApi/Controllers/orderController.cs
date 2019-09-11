@@ -50,7 +50,7 @@ namespace VelfoodsApi.Controllers
                          where c.table_defination_id == ord.table_defination_id
                          where c.restaurent_id == ord.restaurent_id
                          where c.order_status =="Running"
-                         where c.Statusorder ==1
+                         where c.Statusorder ==0
                          select new
                          {
                              c.order_id,
