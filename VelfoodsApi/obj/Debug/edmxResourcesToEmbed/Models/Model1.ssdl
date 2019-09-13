@@ -185,6 +185,7 @@
     <Property Name="order_captain" Type="nvarchar" MaxLength="30" />
     <Property Name="order_tax_amount" Type="decimal" Precision="17" Scale="2" />
     <Property Name="ordering_type" Type="nvarchar" MaxLength="30" />
+    <Property Name="Statusorder" Type="int" />
   </EntityType>
   <EntityType Name="vel_restro_paidouts">
     <Key>

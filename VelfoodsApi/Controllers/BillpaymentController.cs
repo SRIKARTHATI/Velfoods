@@ -105,103 +105,58 @@ namespace VelfoodsApi.Controllers
         [Route("billinsert")]
         public IHttpActionResult insert(vel_restro_billpayment bills)
         {
-            //int cc;
-            //using (velfoodsEntities2 en =new velfoodsEntities2())
-            //{
-            //    List<vel_restro_billpayment> list = new List<vel_restro_billpayment>();
-            //    list = en.vel_restro_billpayment.OrderBy(a => a.billment_id).ToList();
-            //    cc = list.Count;
-            //}
-
-            //vel_restro_billpayment bills = new vel_restro_billpayment();
-            //settle.table_defination_id = bills.table_defination_id;
-            //settle.print_id = bills.print_id;
-            //settle.payment_mode = bills.payment_mode;
-            //settle.bank_name = bills.bank_name;
-            //settle.transaction_id = bills.transaction_id;
-            //settle.amount = bills.amount;
-            //settle.bill_amount = bills.bill_amount;
-            //settle.due_amount = bills.due_amount;
-            //vel_restro_billstatus status = new vel_restro_billstatus();
-            //if (settle.payment_status == "pending")
-            //{
-            //    status.Billstatus = "pending";
-            //    settle.name = status.name;
-            //    settle.mobile_no = status.mobile_no;
-            //    settle.discription = status.discription;
-            //    status.billpayment_id = cc + 1;
-            //    settle.restaurent_id = status.restaurent_id;
-            //    entity.vel_restro_billstatus.Add(status);
-            //    entity.SaveChanges();
-            //}
-            //else if(settle.payment_status == "Complementory")
-            //{
-            //    status.Billstatus = "Complementory";
-            //    settle.name = status.name;
-            //    settle.mobile_no = status.mobile_no;
-            //    settle.discription = status.discription;
-            //    status.billpayment_id = cc + 1;
-            //    settle.restaurent_id = status.restaurent_id;
-            //    entity.vel_restro_billstatus.Add(status);
-            //    entity.SaveChanges();
-            //}
-            //else
-            //{
-            //settle.payment_status = bills.payment_status;
-            //settle.restaurent_id = bills.restaurent_id;
-            //entity.vel_restro_billpayment.Add(bills);
-            //entity.SaveChanges();
-            // }
-
             Boolean bb = new billpayment().adding(bills);
             if (bb)
             {
-
-                var ee = (from c in entity.vel_restro_tabledefination
-                          where c.table_defination_id == bills.table_defination_id
-                          where c.restaurent_id == bills.restaurent_id
-                          select c).FirstOrDefault();
-                if (ee == null)
-                {
-
-                }
-                else
-                {
-                    ee.BACKGROUND_COLOR = "Green";
-                    entity.SaveChanges();
-                }
-                var r = (from c in entity.vel_restro_order
-                         where c.table_defination_id == bills.table_defination_id
-                         where c.restaurent_id == bills.restaurent_id
-                         where c.order_status == "Printed"
-                         select c).FirstOrDefault();
-                if (r == null)
-                {
-
-                }
-                else
-                {
-                    r.order_status = "Close";
-                    r.Statusorder = 1;
-                    entity.SaveChanges();
-                }
-                var rr = (from c in entity.vel_restro_print
-                          where c.table_defination_id == bills.table_defination_id
-                          where c.restaurent_id == bills.restaurent_id
-                          where c.print_status == "Printed"
-                          select c).FirstOrDefault();
-                if (r == null)
-                {
-
-                }
-                else
-                {
-                    rr.print_status = "Close";
-                    entity.SaveChanges();
-                }
                 bills.insert_date = DateTime.Today;
                 entity.vel_restro_billpayment.Add(bills);
                 entity.SaveChanges();
+                using (velfoodsEntities2 en = new velfoodsEntities2())
+                {
+                    var ee = (from c in en.vel_restro_tabledefination
+                              where c.table_defination_id == bills.table_defination_id
+                              where c.restaurent_id == bills.restaurent_id
+                              select c).FirstOrDefault();
+                    if (ee == null)
+                    {
+
+                    }
+                    else
+                    {
+                        ee.BACKGROUND_COLOR = "Green";
+                        en.SaveChanges();
+                    }
+
+                    var rs = (from c in en.vel_restro_order
+                              where c.table_defination_id == bills.table_defination_id
+                              where c.restaurent_id == bills.restaurent_id
+                              select c).FirstOrDefault();
+                    if (rs == null)
+                    {
+
+                    }
+                    else
+                    {
+
+                        rs.order_status = "Close";
+                        rs.Statusorder = 1;
+                        en.SaveChanges();
+                    }
+                    var rr = (from c in en.vel_restro_print
+                              where c.table_defination_id == bills.table_defination_id
+                              where c.restaurent_id == bills.restaurent_id
+                              where c.print_status == "Printed"
+                              select c).FirstOrDefault();
+                    if (rr == null)
+                    {
+
+                    }
+                    else
+                    {
+                        rr.print_status = "Close";
+                        en.SaveChanges();
+                    }
+                }
                 re.code = 200;
                 re.Data = "inserted sucessfully";
                 return Content(HttpStatusCode.OK, re);

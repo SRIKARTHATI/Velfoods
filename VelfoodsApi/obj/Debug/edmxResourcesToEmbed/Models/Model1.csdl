@@ -210,6 +210,7 @@
     <NavigationProperty Name="vel_restro_itemname" Relationship="Self.FK__vel_restr__itemn__03F0984C" FromRole="vel_restro_order" ToRole="vel_restro_itemname" />
     <NavigationProperty Name="vel_restro_restaurent" Relationship="Self.FK__vel_restr__resta__02FC7413" FromRole="vel_restro_order" ToRole="vel_restro_restaurent" />
     <NavigationProperty Name="vel_restro_tabledefination" Relationship="Self.FK__vel_restr__table__04E4BC85" FromRole="vel_restro_order" ToRole="vel_restro_tabledefination" />
+    <Property Name="Statusorder" Type="Int32" />
   </EntityType>
   <EntityType Name="vel_restro_paidouts">
     <Key>

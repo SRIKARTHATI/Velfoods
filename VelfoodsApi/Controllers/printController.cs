@@ -60,18 +60,40 @@ namespace VelfoodsApi.Controllers
             re.message = "Data success";
             return re;
         }
-
+        public string ITMID, TBLID,RESID;
         [HttpPost]
         [Route("printinsert")]
         public IHttpActionResult insert(vel_restro_print print)
         {
+
             Boolean b = new printClass().addprints(print);
             if (b == true)
             {
+                var r = (from c in entity.vel_restro_order
+                         where c.table_defination_id == print.table_defination_id
+                         where c.restaurent_id == print.restaurent_id
+                         where c.order_status == "Running"
+                         where c.Statusorder == 0
+                         select c).ToList();
+                int cou = r.Count;
+                for (int i = 0; i < cou; i++)
+                {
+                    ITMID = r[i].order_itemname;
+                    TBLID = r[i].table_defination_id.ToString();
+                    RESID = r[i].restaurent_id.ToString();
+                    if(ITMID.Equals(r[i].order_itemname) && TBLID.Equals(r[i].table_defination_id) && RESID.Equals(r[i].restaurent_id))
+                    {
+                        vel_restro_order velo = new vel_restro_order();
+                        velo.order_status = "Printed";
+                        velo.Statusorder = 1;
+                        entity.SaveChanges();
+                    }
+                }
                 print.print_status = "Printed";
                 entity.vel_restro_print.Add(print);
                 entity.SaveChanges();
                 re.code = 200;
+                
                 re.message = "Data inserted sucuessfully";
                 return Content(HttpStatusCode.OK, re);
 
