@@ -35,14 +35,34 @@ namespace VelfoodsApi.Models
                     var a = (from x in entity.vel_restro_order
                              where x.table_defination_id == print.table_defination_id
                              where x.order_status == "Running"
-                             select x).FirstOrDefault();
-                    if(a == null)
+                             select x).ToList();
+                    int co = a.Count;
+                    int orderid;
+                    if (a == null)
                     { }
                     else
                     {
-                        a.order_status = "Printed";
-                        entity.SaveChanges();
+                       for(int i =0; i<co; i++)
+                        {
+                            orderid = a[i].order_id;
+                            var pr = (from c in en.vel_restro_order
+                                      where c.order_id == orderid
+                                      select c).FirstOrDefault();
+                            pr.order_status = "Printed";
+                            en.SaveChanges();
+                        }
                     }
+                    //var a = (from x in entity.vel_restro_order
+                    //         where x.table_defination_id == print.table_defination_id
+                    //         where x.order_status == "Running"
+                    //         select x).FirstOrDefault();
+                    //if(a == null)
+                    //{ }
+                    //else
+                    //{
+                    //    a.order_status = "Printed";
+                    //    entity.SaveChanges();
+                    //}
                     var ee = (from c in entity.vel_restro_tabledefination
                               where c.table_defination_id == print.table_defination_id
                               select c).FirstOrDefault();       

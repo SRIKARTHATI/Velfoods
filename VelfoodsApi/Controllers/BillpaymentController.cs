@@ -111,52 +111,6 @@ namespace VelfoodsApi.Controllers
                 bills.insert_date = DateTime.Today;
                 entity.vel_restro_billpayment.Add(bills);
                 entity.SaveChanges();
-                using (velfoodsEntities2 en = new velfoodsEntities2())
-                {
-                    var ee = (from c in en.vel_restro_tabledefination
-                              where c.table_defination_id == bills.table_defination_id
-                              where c.restaurent_id == bills.restaurent_id
-                              select c).FirstOrDefault();
-                    if (ee == null)
-                    {
-
-                    }
-                    else
-                    {
-                        ee.BACKGROUND_COLOR = "Green";
-                        en.SaveChanges();
-                    }
-
-                    var rs = (from c in en.vel_restro_order
-                              where c.table_defination_id == bills.table_defination_id
-                              where c.restaurent_id == bills.restaurent_id
-                              select c).FirstOrDefault();
-                    if (rs == null)
-                    {
-
-                    }
-                    else
-                    {
-
-                        rs.order_status = "Close";
-                        rs.Statusorder = 1;
-                        en.SaveChanges();
-                    }
-                    var rr = (from c in en.vel_restro_print
-                              where c.table_defination_id == bills.table_defination_id
-                              where c.restaurent_id == bills.restaurent_id
-                              where c.print_status == "Printed"
-                              select c).FirstOrDefault();
-                    if (rr == null)
-                    {
-
-                    }
-                    else
-                    {
-                        rr.print_status = "Close";
-                        en.SaveChanges();
-                    }
-                }
                 re.code = 200;
                 re.Data = "inserted sucessfully";
                 return Content(HttpStatusCode.OK, re);
